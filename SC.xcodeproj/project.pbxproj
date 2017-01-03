@@ -14,6 +14,8 @@
 		950565831DFDA51B00A3E5C0 /* SCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 950565821DFDA51B00A3E5C0 /* SCTests.m */; };
 		9505658E1DFDA51B00A3E5C0 /* SCUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9505658D1DFDA51B00A3E5C0 /* SCUITests.m */; };
 		950CCEE91E065FE200365F77 /* AJLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CCEE81E065FE200365F77 /* AJLoginViewController.m */; };
+		955FA3ED1E0AD4A200E7A2F2 /* AJNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 955FA3EC1E0AD4A200E7A2F2 /* AJNavigationViewController.m */; };
+		955FA3F01E0ADDD900E7A2F2 /* AJRegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 955FA3EF1E0ADDD900E7A2F2 /* AJRegistViewController.m */; };
 		957F5F611E065784008B65F2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 957F5F601E065784008B65F2 /* Images.xcassets */; };
 		96A590176FE31F80B9EFBCD8 /* libPods-SC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF68CB234BD2E56DC20B259 /* libPods-SC.a */; };
 /* End PBXBuildFile section */
@@ -53,6 +55,10 @@
 		9505658F1DFDA51B00A3E5C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		950CCEE71E065FE200365F77 /* AJLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJLoginViewController.h; sourceTree = "<group>"; };
 		950CCEE81E065FE200365F77 /* AJLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJLoginViewController.m; sourceTree = "<group>"; };
+		955FA3EB1E0AD4A200E7A2F2 /* AJNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNavigationViewController.h; sourceTree = "<group>"; };
+		955FA3EC1E0AD4A200E7A2F2 /* AJNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNavigationViewController.m; sourceTree = "<group>"; };
+		955FA3EE1E0ADDD900E7A2F2 /* AJRegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJRegistViewController.h; sourceTree = "<group>"; };
+		955FA3EF1E0ADDD900E7A2F2 /* AJRegistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJRegistViewController.m; sourceTree = "<group>"; };
 		957F5F601E065784008B65F2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B55F344F58C1FBC68FFA0726 /* Pods-SC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SC/Pods-SC.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,6 +123,7 @@
 		950565671DFDA51B00A3E5C0 /* SC */ = {
 			isa = PBXGroup;
 			children = (
+				955FA3E91E0AD49200E7A2F2 /* Main */,
 				957F5F5F1E0655E6008B65F2 /* LoginAndRegister */,
 				950565681DFDA51B00A3E5C0 /* Supporting Files */,
 			);
@@ -155,11 +162,30 @@
 			path = SCUITests;
 			sourceTree = "<group>";
 		};
+		955FA3E91E0AD49200E7A2F2 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				955FA3EA1E0AD49200E7A2F2 /* Controller */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		955FA3EA1E0AD49200E7A2F2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				955FA3EB1E0AD4A200E7A2F2 /* AJNavigationViewController.h */,
+				955FA3EC1E0AD4A200E7A2F2 /* AJNavigationViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		957F5F5F1E0655E6008B65F2 /* LoginAndRegister */ = {
 			isa = PBXGroup;
 			children = (
 				950CCEE71E065FE200365F77 /* AJLoginViewController.h */,
 				950CCEE81E065FE200365F77 /* AJLoginViewController.m */,
+				955FA3EE1E0ADDD900E7A2F2 /* AJRegistViewController.h */,
+				955FA3EF1E0ADDD900E7A2F2 /* AJRegistViewController.m */,
 			);
 			path = LoginAndRegister;
 			sourceTree = "<group>";
@@ -237,6 +263,7 @@
 		9505655D1DFDA51B00A3E5C0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = AJ;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = anjing;
 				TargetAttributes = {
@@ -360,8 +387,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9505656D1DFDA51B00A3E5C0 /* AppDelegate.m in Sources */,
+				955FA3ED1E0AD4A200E7A2F2 /* AJNavigationViewController.m in Sources */,
 				950CCEE91E065FE200365F77 /* AJLoginViewController.m in Sources */,
 				9505656A1DFDA51B00A3E5C0 /* main.m in Sources */,
+				955FA3F01E0ADDD900E7A2F2 /* AJRegistViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
