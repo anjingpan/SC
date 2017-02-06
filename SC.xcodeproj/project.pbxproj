@@ -14,6 +14,7 @@
 		950565831DFDA51B00A3E5C0 /* SCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 950565821DFDA51B00A3E5C0 /* SCTests.m */; };
 		9505658E1DFDA51B00A3E5C0 /* SCUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9505658D1DFDA51B00A3E5C0 /* SCUITests.m */; };
 		950CCEE91E065FE200365F77 /* AJLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CCEE81E065FE200365F77 /* AJLoginViewController.m */; };
+		95581E2F1E48C8D9007327A0 /* AJPasswordTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 95581E2E1E48C8D9007327A0 /* AJPasswordTextField.m */; };
 		955FA3ED1E0AD4A200E7A2F2 /* AJNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 955FA3EC1E0AD4A200E7A2F2 /* AJNavigationViewController.m */; };
 		955FA3F01E0ADDD900E7A2F2 /* AJRegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 955FA3EF1E0ADDD900E7A2F2 /* AJRegistViewController.m */; };
 		957F5F611E065784008B65F2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 957F5F601E065784008B65F2 /* Images.xcassets */; };
@@ -55,6 +56,8 @@
 		9505658F1DFDA51B00A3E5C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		950CCEE71E065FE200365F77 /* AJLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJLoginViewController.h; sourceTree = "<group>"; };
 		950CCEE81E065FE200365F77 /* AJLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJLoginViewController.m; sourceTree = "<group>"; };
+		95581E2D1E48C8D9007327A0 /* AJPasswordTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPasswordTextField.h; sourceTree = "<group>"; };
+		95581E2E1E48C8D9007327A0 /* AJPasswordTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJPasswordTextField.m; sourceTree = "<group>"; };
 		955FA3EB1E0AD4A200E7A2F2 /* AJNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNavigationViewController.h; sourceTree = "<group>"; };
 		955FA3EC1E0AD4A200E7A2F2 /* AJNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNavigationViewController.m; sourceTree = "<group>"; };
 		955FA3EE1E0ADDD900E7A2F2 /* AJRegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJRegistViewController.h; sourceTree = "<group>"; };
@@ -162,10 +165,21 @@
 			path = SCUITests;
 			sourceTree = "<group>";
 		};
+		95581E2C1E48C884007327A0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				95581E2D1E48C8D9007327A0 /* AJPasswordTextField.h */,
+				95581E2E1E48C8D9007327A0 /* AJPasswordTextField.m */,
+			);
+			name = View;
+			path = SC/Main/View;
+			sourceTree = SOURCE_ROOT;
+		};
 		955FA3E91E0AD49200E7A2F2 /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				955FA3EA1E0AD49200E7A2F2 /* Controller */,
+				95581E2C1E48C884007327A0 /* View */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -389,6 +403,7 @@
 				9505656D1DFDA51B00A3E5C0 /* AppDelegate.m in Sources */,
 				955FA3ED1E0AD4A200E7A2F2 /* AJNavigationViewController.m in Sources */,
 				950CCEE91E065FE200365F77 /* AJLoginViewController.m in Sources */,
+				95581E2F1E48C8D9007327A0 /* AJPasswordTextField.m in Sources */,
 				9505656A1DFDA51B00A3E5C0 /* main.m in Sources */,
 				955FA3F01E0ADDD900E7A2F2 /* AJRegistViewController.m in Sources */,
 			);

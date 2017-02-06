@@ -50,15 +50,6 @@
 
 #pragma mark - Button Click
 - (IBAction)showPassword:(UIButton *)sender {
-    //明密文切换光标不一致
-    if (![self.passwordTextField isFirstResponder]) {
-        [self.passwordTextField becomeFirstResponder];
-    }
-    
-    //明密文切换后字体发生改变
-    self.passwordTextField.font = nil;
-    self.passwordTextField.font = [UIFont systemFontOfSize:16.f];
-    
     self.passwordTextField.secureTextEntry = !self.passwordTextField.secureTextEntry;
 }
 
@@ -76,19 +67,6 @@
 #pragma mark - textField delegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
-    return YES;
-}
-
-//解决再次点击密文密码输入时文本清空
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-    NSString *password = [textField.text stringByReplacingCharactersInRange:range withString:string];
-//    NSLog(@"password--%@,textfield.text--%@",password,textField.text);
-    if (textField.secureTextEntry == YES) {
-        textField.font = [UIFont systemFontOfSize:16.f];
-        textField.text = password;
-        return NO;
-    }
-    
     return YES;
 }
 
