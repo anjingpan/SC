@@ -18,6 +18,7 @@
 		955FA3ED1E0AD4A200E7A2F2 /* AJNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 955FA3EC1E0AD4A200E7A2F2 /* AJNavigationViewController.m */; };
 		955FA3F01E0ADDD900E7A2F2 /* AJRegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 955FA3EF1E0ADDD900E7A2F2 /* AJRegistViewController.m */; };
 		957F5F611E065784008B65F2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 957F5F601E065784008B65F2 /* Images.xcassets */; };
+		95F6BAAF1E59C561002EC4C7 /* AJSelectSchoolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F6BAAE1E59C561002EC4C7 /* AJSelectSchoolViewController.m */; };
 		96A590176FE31F80B9EFBCD8 /* libPods-SC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF68CB234BD2E56DC20B259 /* libPods-SC.a */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,9 @@
 		955FA3EE1E0ADDD900E7A2F2 /* AJRegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJRegistViewController.h; sourceTree = "<group>"; };
 		955FA3EF1E0ADDD900E7A2F2 /* AJRegistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJRegistViewController.m; sourceTree = "<group>"; };
 		957F5F601E065784008B65F2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		95F6BAAD1E59C561002EC4C7 /* AJSelectSchoolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJSelectSchoolViewController.h; sourceTree = "<group>"; };
+		95F6BAAE1E59C561002EC4C7 /* AJSelectSchoolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJSelectSchoolViewController.m; sourceTree = "<group>"; };
+		95F6BAB01E59F803002EC4C7 /* SC-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SC-Prefix.pch"; sourceTree = "<group>"; };
 		B55F344F58C1FBC68FFA0726 /* Pods-SC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SC/Pods-SC.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,6 +144,7 @@
 				950565761DFDA51B00A3E5C0 /* LaunchScreen.storyboard */,
 				957F5F601E065784008B65F2 /* Images.xcassets */,
 				950565791DFDA51B00A3E5C0 /* Info.plist */,
+				95F6BAB01E59F803002EC4C7 /* SC-Prefix.pch */,
 				9505656B1DFDA51B00A3E5C0 /* AppDelegate.h */,
 				9505656C1DFDA51B00A3E5C0 /* AppDelegate.m */,
 				950565691DFDA51B00A3E5C0 /* main.m */,
@@ -200,6 +205,8 @@
 				950CCEE81E065FE200365F77 /* AJLoginViewController.m */,
 				955FA3EE1E0ADDD900E7A2F2 /* AJRegistViewController.h */,
 				955FA3EF1E0ADDD900E7A2F2 /* AJRegistViewController.m */,
+				95F6BAAD1E59C561002EC4C7 /* AJSelectSchoolViewController.h */,
+				95F6BAAE1E59C561002EC4C7 /* AJSelectSchoolViewController.m */,
 			);
 			path = LoginAndRegister;
 			sourceTree = "<group>";
@@ -402,6 +409,7 @@
 			files = (
 				9505656D1DFDA51B00A3E5C0 /* AppDelegate.m in Sources */,
 				955FA3ED1E0AD4A200E7A2F2 /* AJNavigationViewController.m in Sources */,
+				95F6BAAF1E59C561002EC4C7 /* AJSelectSchoolViewController.m in Sources */,
 				950CCEE91E065FE200365F77 /* AJLoginViewController.m in Sources */,
 				95581E2F1E48C8D9007327A0 /* AJPasswordTextField.m in Sources */,
 				9505656A1DFDA51B00A3E5C0 /* main.m in Sources */,
@@ -557,6 +565,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = HJ2292U93V;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SC/SC-Prefix.pch";
 				INFOPLIST_FILE = SC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -572,6 +582,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = HJ2292U93V;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SC/SC-Prefix.pch";
 				INFOPLIST_FILE = SC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
