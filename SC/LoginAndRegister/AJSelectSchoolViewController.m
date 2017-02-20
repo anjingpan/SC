@@ -7,6 +7,7 @@
 //
 
 #import "AJSelectSchoolViewController.h"
+#import "AJPasswordViewController.h"
 
 static NSString *const kSchoolTableViewCellReuseId = @"schoolTableViewCell";
 
@@ -72,7 +73,9 @@ static NSString *const kSchoolTableViewCellReuseId = @"schoolTableViewCell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+//    UITableViewCell *cell = [self.schoolTableView cellForRowAtIndexPath:indexPath];
+    UIViewController *VC = [[AJPasswordViewController alloc] init];
+    [self.navigationController pushViewController:VC animated:YES];
 }
 
 #pragma mark - UISearchResultsUpdating

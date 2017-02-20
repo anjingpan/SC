@@ -10,4 +10,5 @@
 
 @interface AJRegistViewController :UIViewController
 
+@property (nonatomic, strong) NSString *numberString;   /**< 手机号*/
 @end

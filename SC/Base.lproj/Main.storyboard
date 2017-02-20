@@ -110,7 +110,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="新用户注册"/>
                                 <connections>
-                                    <segue destination="sAp-g6-zKj" kind="show" id="gDQ-6L-39b"/>
+                                    <segue destination="sAp-g6-zKj" kind="show" identifier="regist" id="gDQ-6L-39b"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OeO-Y4-oaU">
@@ -120,6 +120,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="忘记密码"/>
+                                <connections>
+                                    <segue destination="sAp-g6-zKj" kind="show" identifier="forgetPassword" id="UzQ-4R-35N"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3U9-6H-Joz">
                                 <constraints>
@@ -186,10 +189,10 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="793.8530734632684"/>
         </scene>
-        <!--注册-->
+        <!--获取验证码-->
         <scene sceneID="OGd-OZ-1y5">
             <objects>
-                <viewController title="注册" id="sAp-g6-zKj" customClass="AJRegistViewController" sceneMemberID="viewController">
+                <viewController title="获取验证码" id="sAp-g6-zKj" customClass="AJRegistViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yVJ-c4-UiN"/>
                         <viewControllerLayoutGuide type="bottom" id="bwd-I2-y75"/>
@@ -306,4 +309,7 @@
         <image name="button_login" width="4" height="4"/>
         <image name="login_show" width="18" height="11"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="UzQ-4R-35N"/>
+    </inferredMetricsTieBreakers>
 </document>

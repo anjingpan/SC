@@ -7,6 +7,7 @@
 //
 
 #import "AJLoginViewController.h"
+#import "AJRegistViewController.h"
 
 @interface AJLoginViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *userAccountTextField;  /**< 帐号输入框*/
@@ -70,14 +71,13 @@
     return YES;
 }
 
-/*
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"forgetPassword"]) {
+        AJRegistViewController *destinationController = (AJRegistViewController *)segue.destinationViewController;
+        destinationController.numberString = self.userAccountTextField.text;
+    }
 }
-*/
 
 @end

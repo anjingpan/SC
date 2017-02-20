@@ -23,6 +23,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.isCoundDown = NO;
+    if (self.numberString) {
+        self.phoneTextField.text = self.numberString;
+        self.getVerifyCodeButton.enabled = YES;
+    }
     
     self.getVerifyCodeButton.layer.cornerRadius = 3.f;
     self.getVerifyCodeButton.layer.masksToBounds = YES;
