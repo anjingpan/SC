@@ -14,4 +14,5 @@
 
 #define AJBackroundColor [UIColor colorWithRed:217/255.0f green:217/255.0f blue:218/255.0f alpha:1];
 #define AJBlackColor(a) [UIColor colorWithRed:63/255.0f green:68/255.0f blue:70/255.0f alpha:a];
+#define AJBarColor [UIColor colorWithRed:41/255.0f green:42/255.0f blue:46/255.0f alpha:1];
 #endif /* SC_Prefix_pch */

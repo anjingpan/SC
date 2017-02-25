@@ -1,28 +1,30 @@
 //
-//  AJNavigationViewController.m
+//  AJTabBarViewController.m
 //  SC
 //
-//  Created by 潘安静 on 2016/12/21.
-//  Copyright © 2016年 anjing. All rights reserved.
+//  Created by 潘安静 on 2017/2/25.
+//  Copyright © 2017年 anjing. All rights reserved.
 //
 
-#import "AJNavigationViewController.h"
+#import "AJTabBarViewController.h"
 
-@interface AJNavigationViewController ()
+@interface AJTabBarViewController ()
 
 @end
 
-@implementation AJNavigationViewController
+@implementation AJTabBarViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    //导航栏状态栏黑色背景
-    self.navigationBar.barTintColor = [UIColor blackColor];
-    //状态栏字体白色
-    self.navigationBar.barStyle = UIBarStyleBlack;
-    //去除导航栏返回按钮文字
-    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
+    
+    //设置Tab文字和图片选中颜色
+    self.tabBar.tintColor = AJBarColor;
+    
+//    UITabBarItem *item = [UITabBarItem appearance];
+//    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+//    dic[NSForegroundColorAttributeName] = AJBarColor;
+//    [item setTitleTextAttributes:dic forState:UIControlStateSelected];
 }
 
 - (void)didReceiveMemoryWarning {
