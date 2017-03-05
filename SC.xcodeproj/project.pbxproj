@@ -19,6 +19,9 @@
 		95581E2F1E48C8D9007327A0 /* AJPasswordTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 95581E2E1E48C8D9007327A0 /* AJPasswordTextField.m */; };
 		955FA3ED1E0AD4A200E7A2F2 /* AJNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 955FA3EC1E0AD4A200E7A2F2 /* AJNavigationViewController.m */; };
 		955FA3F01E0ADDD900E7A2F2 /* AJRegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 955FA3EF1E0ADDD900E7A2F2 /* AJRegistViewController.m */; };
+		957663741E6C5C390048FC96 /* AJMeSecurityTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957663731E6C5C390048FC96 /* AJMeSecurityTableViewController.m */; };
+		957663771E6C5C4F0048FC96 /* AJChangePasswordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957663761E6C5C4F0048FC96 /* AJChangePasswordTableViewController.m */; };
+		9576637A1E6C63350048FC96 /* AJMeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957663791E6C63350048FC96 /* AJMeTableViewController.m */; };
 		957F5F611E065784008B65F2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 957F5F601E065784008B65F2 /* Images.xcassets */; };
 		95F6BAAF1E59C561002EC4C7 /* AJSelectSchoolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F6BAAE1E59C561002EC4C7 /* AJSelectSchoolViewController.m */; };
 		96A590176FE31F80B9EFBCD8 /* libPods-SC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF68CB234BD2E56DC20B259 /* libPods-SC.a */; };
@@ -69,6 +72,12 @@
 		955FA3EC1E0AD4A200E7A2F2 /* AJNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNavigationViewController.m; sourceTree = "<group>"; };
 		955FA3EE1E0ADDD900E7A2F2 /* AJRegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJRegistViewController.h; sourceTree = "<group>"; };
 		955FA3EF1E0ADDD900E7A2F2 /* AJRegistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJRegistViewController.m; sourceTree = "<group>"; };
+		957663721E6C5C390048FC96 /* AJMeSecurityTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJMeSecurityTableViewController.h; sourceTree = "<group>"; };
+		957663731E6C5C390048FC96 /* AJMeSecurityTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJMeSecurityTableViewController.m; sourceTree = "<group>"; };
+		957663751E6C5C4F0048FC96 /* AJChangePasswordTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJChangePasswordTableViewController.h; sourceTree = "<group>"; };
+		957663761E6C5C4F0048FC96 /* AJChangePasswordTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJChangePasswordTableViewController.m; sourceTree = "<group>"; };
+		957663781E6C63350048FC96 /* AJMeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJMeTableViewController.h; sourceTree = "<group>"; };
+		957663791E6C63350048FC96 /* AJMeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJMeTableViewController.m; sourceTree = "<group>"; };
 		957F5F601E065784008B65F2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		95F6BAAD1E59C561002EC4C7 /* AJSelectSchoolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJSelectSchoolViewController.h; sourceTree = "<group>"; };
 		95F6BAAE1E59C561002EC4C7 /* AJSelectSchoolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJSelectSchoolViewController.m; sourceTree = "<group>"; };
@@ -224,6 +233,12 @@
 		953E24FB1E61AF45000B17EF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				957663721E6C5C390048FC96 /* AJMeSecurityTableViewController.h */,
+				957663731E6C5C390048FC96 /* AJMeSecurityTableViewController.m */,
+				957663751E6C5C4F0048FC96 /* AJChangePasswordTableViewController.h */,
+				957663761E6C5C4F0048FC96 /* AJChangePasswordTableViewController.m */,
+				957663781E6C63350048FC96 /* AJMeTableViewController.h */,
+				957663791E6C63350048FC96 /* AJMeTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -545,14 +560,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9576637A1E6C63350048FC96 /* AJMeTableViewController.m in Sources */,
 				9505656D1DFDA51B00A3E5C0 /* AppDelegate.m in Sources */,
 				955FA3ED1E0AD4A200E7A2F2 /* AJNavigationViewController.m in Sources */,
+				957663741E6C5C390048FC96 /* AJMeSecurityTableViewController.m in Sources */,
 				95294AE21E5B2EF500FDF1A6 /* AJPasswordViewController.m in Sources */,
 				95F6BAAF1E59C561002EC4C7 /* AJSelectSchoolViewController.m in Sources */,
 				950CCEE91E065FE200365F77 /* AJLoginViewController.m in Sources */,
 				953E25081E61B3F4000B17EF /* AJTabBarViewController.m in Sources */,
 				95581E2F1E48C8D9007327A0 /* AJPasswordTextField.m in Sources */,
 				9505656A1DFDA51B00A3E5C0 /* main.m in Sources */,
+				957663771E6C5C4F0048FC96 /* AJChangePasswordTableViewController.m in Sources */,
 				955FA3F01E0ADDD900E7A2F2 /* AJRegistViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

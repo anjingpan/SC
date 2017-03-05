@@ -23,6 +23,8 @@
     self.navigationBar.barStyle = UIBarStyleBlack;
     //去除导航栏返回按钮文字
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
+    //导航栏返回文字按钮颜色
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
 }
 
 - (void)didReceiveMemoryWarning {
