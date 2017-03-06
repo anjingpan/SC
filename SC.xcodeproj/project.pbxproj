@@ -22,6 +22,10 @@
 		957663741E6C5C390048FC96 /* AJMeSecurityTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957663731E6C5C390048FC96 /* AJMeSecurityTableViewController.m */; };
 		957663771E6C5C4F0048FC96 /* AJChangePasswordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957663761E6C5C4F0048FC96 /* AJChangePasswordTableViewController.m */; };
 		9576637A1E6C63350048FC96 /* AJMeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957663791E6C63350048FC96 /* AJMeTableViewController.m */; };
+		957E70DD1E6DABEB0059B75F /* AJSettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957E70DC1E6DABEB0059B75F /* AJSettingTableViewController.m */; };
+		957E70E01E6DAC450059B75F /* AJSetNotificationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957E70DF1E6DAC450059B75F /* AJSetNotificationTableViewController.m */; };
+		957E70E31E6DAC6B0059B75F /* AJFeedbackTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957E70E21E6DAC6B0059B75F /* AJFeedbackTableViewController.m */; };
+		957E70E91E6DACD80059B75F /* AJAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957E70E81E6DACD80059B75F /* AJAboutViewController.m */; };
 		957F5F611E065784008B65F2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 957F5F601E065784008B65F2 /* Images.xcassets */; };
 		95F6BAAF1E59C561002EC4C7 /* AJSelectSchoolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F6BAAE1E59C561002EC4C7 /* AJSelectSchoolViewController.m */; };
 		96A590176FE31F80B9EFBCD8 /* libPods-SC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF68CB234BD2E56DC20B259 /* libPods-SC.a */; };
@@ -78,6 +82,14 @@
 		957663761E6C5C4F0048FC96 /* AJChangePasswordTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJChangePasswordTableViewController.m; sourceTree = "<group>"; };
 		957663781E6C63350048FC96 /* AJMeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJMeTableViewController.h; sourceTree = "<group>"; };
 		957663791E6C63350048FC96 /* AJMeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJMeTableViewController.m; sourceTree = "<group>"; };
+		957E70DB1E6DABEB0059B75F /* AJSettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJSettingTableViewController.h; sourceTree = "<group>"; };
+		957E70DC1E6DABEB0059B75F /* AJSettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJSettingTableViewController.m; sourceTree = "<group>"; };
+		957E70DE1E6DAC450059B75F /* AJSetNotificationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJSetNotificationTableViewController.h; sourceTree = "<group>"; };
+		957E70DF1E6DAC450059B75F /* AJSetNotificationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJSetNotificationTableViewController.m; sourceTree = "<group>"; };
+		957E70E11E6DAC6B0059B75F /* AJFeedbackTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJFeedbackTableViewController.h; sourceTree = "<group>"; };
+		957E70E21E6DAC6B0059B75F /* AJFeedbackTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJFeedbackTableViewController.m; sourceTree = "<group>"; };
+		957E70E71E6DACD80059B75F /* AJAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJAboutViewController.h; sourceTree = "<group>"; };
+		957E70E81E6DACD80059B75F /* AJAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJAboutViewController.m; sourceTree = "<group>"; };
 		957F5F601E065784008B65F2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		95F6BAAD1E59C561002EC4C7 /* AJSelectSchoolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJSelectSchoolViewController.h; sourceTree = "<group>"; };
 		95F6BAAE1E59C561002EC4C7 /* AJSelectSchoolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJSelectSchoolViewController.m; sourceTree = "<group>"; };
@@ -239,6 +251,14 @@
 				957663761E6C5C4F0048FC96 /* AJChangePasswordTableViewController.m */,
 				957663781E6C63350048FC96 /* AJMeTableViewController.h */,
 				957663791E6C63350048FC96 /* AJMeTableViewController.m */,
+				957E70DB1E6DABEB0059B75F /* AJSettingTableViewController.h */,
+				957E70DC1E6DABEB0059B75F /* AJSettingTableViewController.m */,
+				957E70DE1E6DAC450059B75F /* AJSetNotificationTableViewController.h */,
+				957E70DF1E6DAC450059B75F /* AJSetNotificationTableViewController.m */,
+				957E70E11E6DAC6B0059B75F /* AJFeedbackTableViewController.h */,
+				957E70E21E6DAC6B0059B75F /* AJFeedbackTableViewController.m */,
+				957E70E71E6DACD80059B75F /* AJAboutViewController.h */,
+				957E70E81E6DACD80059B75F /* AJAboutViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -562,8 +582,12 @@
 			files = (
 				9576637A1E6C63350048FC96 /* AJMeTableViewController.m in Sources */,
 				9505656D1DFDA51B00A3E5C0 /* AppDelegate.m in Sources */,
+				957E70E01E6DAC450059B75F /* AJSetNotificationTableViewController.m in Sources */,
+				957E70E31E6DAC6B0059B75F /* AJFeedbackTableViewController.m in Sources */,
+				957E70DD1E6DABEB0059B75F /* AJSettingTableViewController.m in Sources */,
 				955FA3ED1E0AD4A200E7A2F2 /* AJNavigationViewController.m in Sources */,
 				957663741E6C5C390048FC96 /* AJMeSecurityTableViewController.m in Sources */,
+				957E70E91E6DACD80059B75F /* AJAboutViewController.m in Sources */,
 				95294AE21E5B2EF500FDF1A6 /* AJPasswordViewController.m in Sources */,
 				95F6BAAF1E59C561002EC4C7 /* AJSelectSchoolViewController.m in Sources */,
 				950CCEE91E065FE200365F77 /* AJLoginViewController.m in Sources */,
