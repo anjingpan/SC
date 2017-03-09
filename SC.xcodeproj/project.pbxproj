@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04562E6B1E71279800A84568 /* AJMeInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04562E6A1E71279800A84568 /* AJMeInformationViewController.m */; };
 		9505656A1DFDA51B00A3E5C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 950565691DFDA51B00A3E5C0 /* main.m */; };
 		9505656D1DFDA51B00A3E5C0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9505656C1DFDA51B00A3E5C0 /* AppDelegate.m */; };
 		950565731DFDA51B00A3E5C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 950565711DFDA51B00A3E5C0 /* Main.storyboard */; };
@@ -49,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04562E691E71279800A84568 /* AJMeInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJMeInformationViewController.h; sourceTree = "<group>"; };
+		04562E6A1E71279800A84568 /* AJMeInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJMeInformationViewController.m; sourceTree = "<group>"; };
 		4BF68CB234BD2E56DC20B259 /* libPods-SC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6675A8599F424E6BE7B0E798 /* Pods-SC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SC.release.xcconfig"; path = "Pods/Target Support Files/Pods-SC/Pods-SC.release.xcconfig"; sourceTree = "<group>"; };
 		950565651DFDA51B00A3E5C0 /* SC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SC.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -259,6 +262,8 @@
 				957E70E21E6DAC6B0059B75F /* AJFeedbackTableViewController.m */,
 				957E70E71E6DACD80059B75F /* AJAboutViewController.h */,
 				957E70E81E6DACD80059B75F /* AJAboutViewController.m */,
+				04562E691E71279800A84568 /* AJMeInformationViewController.h */,
+				04562E6A1E71279800A84568 /* AJMeInformationViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -588,6 +593,7 @@
 				955FA3ED1E0AD4A200E7A2F2 /* AJNavigationViewController.m in Sources */,
 				957663741E6C5C390048FC96 /* AJMeSecurityTableViewController.m in Sources */,
 				957E70E91E6DACD80059B75F /* AJAboutViewController.m in Sources */,
+				04562E6B1E71279800A84568 /* AJMeInformationViewController.m in Sources */,
 				95294AE21E5B2EF500FDF1A6 /* AJPasswordViewController.m in Sources */,
 				95F6BAAF1E59C561002EC4C7 /* AJSelectSchoolViewController.m in Sources */,
 				950CCEE91E065FE200365F77 /* AJLoginViewController.m in Sources */,
