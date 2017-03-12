@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = AJBackroundColor;
+    self.view.backgroundColor = AJBackGroundColor;
     self.title = @"输入密码";
     
     [self initView];

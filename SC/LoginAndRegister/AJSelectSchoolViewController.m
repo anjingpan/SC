@@ -25,7 +25,7 @@ static NSString *const kSchoolTableViewCellReuseId = @"schoolTableViewCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"选择学校";
-    self.view.backgroundColor = AJBackroundColor;
+    self.view.backgroundColor = AJBackGroundColor;
     
     self.searchController = ({
         UISearchController *searchController = [[UISearchController alloc] initWithSearchResultsController:nil];

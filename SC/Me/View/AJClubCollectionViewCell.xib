@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="AJClubCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="110" height="130"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="110" height="130"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6SB-IQ-wRY"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ScN-fC-Pnf">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="9Bm-WE-XjF"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="6SB-IQ-wRY" secondAttribute="trailing" id="8Aj-ZE-PuQ"/>
+                <constraint firstItem="6SB-IQ-wRY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="CAR-ud-17L"/>
+                <constraint firstItem="6SB-IQ-wRY" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ECT-IA-9gV"/>
+                <constraint firstItem="ScN-fC-Pnf" firstAttribute="top" secondItem="6SB-IQ-wRY" secondAttribute="bottom" constant="2" id="MYC-MO-t7d"/>
+                <constraint firstItem="ScN-fC-Pnf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="UYr-gh-Wgb"/>
+                <constraint firstAttribute="trailing" secondItem="ScN-fC-Pnf" secondAttribute="trailing" id="WeC-UC-QSx"/>
+                <constraint firstAttribute="bottom" secondItem="ScN-fC-Pnf" secondAttribute="bottom" constant="2" id="vSH-eB-fEc"/>
+            </constraints>
+            <size key="customSize" width="113" height="132"/>
+            <connections>
+                <outlet property="clubImageView" destination="6SB-IQ-wRY" id="Cqb-kR-Prz"/>
+                <outlet property="clubNameLabel" destination="ScN-fC-Pnf" id="xyb-G1-Fme"/>
+            </connections>
+            <point key="canvasLocation" x="65" y="95"/>
+        </collectionViewCell>
+    </objects>
+</document>

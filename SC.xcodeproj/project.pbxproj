@@ -28,6 +28,8 @@
 		957E70E31E6DAC6B0059B75F /* AJFeedbackTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957E70E21E6DAC6B0059B75F /* AJFeedbackTableViewController.m */; };
 		957E70E91E6DACD80059B75F /* AJAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957E70E81E6DACD80059B75F /* AJAboutViewController.m */; };
 		957F5F611E065784008B65F2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 957F5F601E065784008B65F2 /* Images.xcassets */; };
+		95C220721E745B550010FCF5 /* AJClubCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C220701E745B550010FCF5 /* AJClubCollectionViewCell.m */; };
+		95C220731E745B550010FCF5 /* AJClubCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95C220711E745B550010FCF5 /* AJClubCollectionViewCell.xib */; };
 		95F6BAAF1E59C561002EC4C7 /* AJSelectSchoolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F6BAAE1E59C561002EC4C7 /* AJSelectSchoolViewController.m */; };
 		96A590176FE31F80B9EFBCD8 /* libPods-SC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF68CB234BD2E56DC20B259 /* libPods-SC.a */; };
 /* End PBXBuildFile section */
@@ -94,6 +96,9 @@
 		957E70E71E6DACD80059B75F /* AJAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJAboutViewController.h; sourceTree = "<group>"; };
 		957E70E81E6DACD80059B75F /* AJAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJAboutViewController.m; sourceTree = "<group>"; };
 		957F5F601E065784008B65F2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		95C2206F1E745B550010FCF5 /* AJClubCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJClubCollectionViewCell.h; sourceTree = "<group>"; };
+		95C220701E745B550010FCF5 /* AJClubCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJClubCollectionViewCell.m; sourceTree = "<group>"; };
+		95C220711E745B550010FCF5 /* AJClubCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AJClubCollectionViewCell.xib; sourceTree = "<group>"; };
 		95F6BAAD1E59C561002EC4C7 /* AJSelectSchoolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJSelectSchoolViewController.h; sourceTree = "<group>"; };
 		95F6BAAE1E59C561002EC4C7 /* AJSelectSchoolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJSelectSchoolViewController.m; sourceTree = "<group>"; };
 		95F6BAB01E59F803002EC4C7 /* SC-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SC-Prefix.pch"; sourceTree = "<group>"; };
@@ -278,6 +283,9 @@
 		953E24FD1E61AF45000B17EF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				95C2206F1E745B550010FCF5 /* AJClubCollectionViewCell.h */,
+				95C220701E745B550010FCF5 /* AJClubCollectionViewCell.m */,
+				95C220711E745B550010FCF5 /* AJClubCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -511,6 +519,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				957F5F611E065784008B65F2 /* Images.xcassets in Resources */,
+				95C220731E745B550010FCF5 /* AJClubCollectionViewCell.xib in Resources */,
 				950565781DFDA51B00A3E5C0 /* LaunchScreen.storyboard in Resources */,
 				950565731DFDA51B00A3E5C0 /* Main.storyboard in Resources */,
 			);
@@ -594,6 +603,7 @@
 				957663741E6C5C390048FC96 /* AJMeSecurityTableViewController.m in Sources */,
 				957E70E91E6DACD80059B75F /* AJAboutViewController.m in Sources */,
 				04562E6B1E71279800A84568 /* AJMeInformationViewController.m in Sources */,
+				95C220721E745B550010FCF5 /* AJClubCollectionViewCell.m in Sources */,
 				95294AE21E5B2EF500FDF1A6 /* AJPasswordViewController.m in Sources */,
 				95F6BAAF1E59C561002EC4C7 /* AJSelectSchoolViewController.m in Sources */,
 				950CCEE91E065FE200365F77 /* AJLoginViewController.m in Sources */,
