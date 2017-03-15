@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		04562E6B1E71279800A84568 /* AJMeInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04562E6A1E71279800A84568 /* AJMeInformationViewController.m */; };
+		046E392C1E76434500C8A084 /* AJClubCollectionFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E392B1E76434500C8A084 /* AJClubCollectionFlowLayout.m */; };
+		04E4E8A91E768CB0000AECE0 /* AJChangeInformationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E4E8A81E768CB0000AECE0 /* AJChangeInformationTableViewController.m */; };
+		04E4E8AC1E768CEF000AECE0 /* AJChangeNicknameTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E4E8AB1E768CEF000AECE0 /* AJChangeNicknameTableViewController.m */; };
+		04E4E8AF1E768D21000AECE0 /* AJChangeSignatureTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E4E8AE1E768D21000AECE0 /* AJChangeSignatureTableViewController.m */; };
 		9505656A1DFDA51B00A3E5C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 950565691DFDA51B00A3E5C0 /* main.m */; };
 		9505656D1DFDA51B00A3E5C0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9505656C1DFDA51B00A3E5C0 /* AppDelegate.m */; };
 		950565731DFDA51B00A3E5C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 950565711DFDA51B00A3E5C0 /* Main.storyboard */; };
@@ -54,6 +58,14 @@
 /* Begin PBXFileReference section */
 		04562E691E71279800A84568 /* AJMeInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJMeInformationViewController.h; sourceTree = "<group>"; };
 		04562E6A1E71279800A84568 /* AJMeInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJMeInformationViewController.m; sourceTree = "<group>"; };
+		046E392A1E76434500C8A084 /* AJClubCollectionFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJClubCollectionFlowLayout.h; sourceTree = "<group>"; };
+		046E392B1E76434500C8A084 /* AJClubCollectionFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJClubCollectionFlowLayout.m; sourceTree = "<group>"; };
+		04E4E8A71E768CB0000AECE0 /* AJChangeInformationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJChangeInformationTableViewController.h; sourceTree = "<group>"; };
+		04E4E8A81E768CB0000AECE0 /* AJChangeInformationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJChangeInformationTableViewController.m; sourceTree = "<group>"; };
+		04E4E8AA1E768CEF000AECE0 /* AJChangeNicknameTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJChangeNicknameTableViewController.h; sourceTree = "<group>"; };
+		04E4E8AB1E768CEF000AECE0 /* AJChangeNicknameTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJChangeNicknameTableViewController.m; sourceTree = "<group>"; };
+		04E4E8AD1E768D21000AECE0 /* AJChangeSignatureTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJChangeSignatureTableViewController.h; sourceTree = "<group>"; };
+		04E4E8AE1E768D21000AECE0 /* AJChangeSignatureTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJChangeSignatureTableViewController.m; sourceTree = "<group>"; };
 		4BF68CB234BD2E56DC20B259 /* libPods-SC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6675A8599F424E6BE7B0E798 /* Pods-SC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SC.release.xcconfig"; path = "Pods/Target Support Files/Pods-SC/Pods-SC.release.xcconfig"; sourceTree = "<group>"; };
 		950565651DFDA51B00A3E5C0 /* SC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SC.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -269,6 +281,12 @@
 				957E70E81E6DACD80059B75F /* AJAboutViewController.m */,
 				04562E691E71279800A84568 /* AJMeInformationViewController.h */,
 				04562E6A1E71279800A84568 /* AJMeInformationViewController.m */,
+				04E4E8A71E768CB0000AECE0 /* AJChangeInformationTableViewController.h */,
+				04E4E8A81E768CB0000AECE0 /* AJChangeInformationTableViewController.m */,
+				04E4E8AA1E768CEF000AECE0 /* AJChangeNicknameTableViewController.h */,
+				04E4E8AB1E768CEF000AECE0 /* AJChangeNicknameTableViewController.m */,
+				04E4E8AD1E768D21000AECE0 /* AJChangeSignatureTableViewController.h */,
+				04E4E8AE1E768D21000AECE0 /* AJChangeSignatureTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -286,6 +304,8 @@
 				95C2206F1E745B550010FCF5 /* AJClubCollectionViewCell.h */,
 				95C220701E745B550010FCF5 /* AJClubCollectionViewCell.m */,
 				95C220711E745B550010FCF5 /* AJClubCollectionViewCell.xib */,
+				046E392A1E76434500C8A084 /* AJClubCollectionFlowLayout.h */,
+				046E392B1E76434500C8A084 /* AJClubCollectionFlowLayout.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -599,15 +619,19 @@
 				957E70E01E6DAC450059B75F /* AJSetNotificationTableViewController.m in Sources */,
 				957E70E31E6DAC6B0059B75F /* AJFeedbackTableViewController.m in Sources */,
 				957E70DD1E6DABEB0059B75F /* AJSettingTableViewController.m in Sources */,
+				04E4E8AF1E768D21000AECE0 /* AJChangeSignatureTableViewController.m in Sources */,
 				955FA3ED1E0AD4A200E7A2F2 /* AJNavigationViewController.m in Sources */,
 				957663741E6C5C390048FC96 /* AJMeSecurityTableViewController.m in Sources */,
 				957E70E91E6DACD80059B75F /* AJAboutViewController.m in Sources */,
 				04562E6B1E71279800A84568 /* AJMeInformationViewController.m in Sources */,
+				04E4E8AC1E768CEF000AECE0 /* AJChangeNicknameTableViewController.m in Sources */,
 				95C220721E745B550010FCF5 /* AJClubCollectionViewCell.m in Sources */,
 				95294AE21E5B2EF500FDF1A6 /* AJPasswordViewController.m in Sources */,
 				95F6BAAF1E59C561002EC4C7 /* AJSelectSchoolViewController.m in Sources */,
 				950CCEE91E065FE200365F77 /* AJLoginViewController.m in Sources */,
+				04E4E8A91E768CB0000AECE0 /* AJChangeInformationTableViewController.m in Sources */,
 				953E25081E61B3F4000B17EF /* AJTabBarViewController.m in Sources */,
+				046E392C1E76434500C8A084 /* AJClubCollectionFlowLayout.m in Sources */,
 				95581E2F1E48C8D9007327A0 /* AJPasswordTextField.m in Sources */,
 				9505656A1DFDA51B00A3E5C0 /* main.m in Sources */,
 				957663771E6C5C4F0048FC96 /* AJChangePasswordTableViewController.m in Sources */,
