@@ -111,6 +111,7 @@
 		95C2206F1E745B550010FCF5 /* AJClubCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJClubCollectionViewCell.h; sourceTree = "<group>"; };
 		95C220701E745B550010FCF5 /* AJClubCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJClubCollectionViewCell.m; sourceTree = "<group>"; };
 		95C220711E745B550010FCF5 /* AJClubCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AJClubCollectionViewCell.xib; sourceTree = "<group>"; };
+		95C220761E7EE10B0010FCF5 /* AJProfile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AJProfile.h; sourceTree = "<group>"; };
 		95F6BAAD1E59C561002EC4C7 /* AJSelectSchoolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJSelectSchoolViewController.h; sourceTree = "<group>"; };
 		95F6BAAE1E59C561002EC4C7 /* AJSelectSchoolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJSelectSchoolViewController.m; sourceTree = "<group>"; };
 		95F6BAB01E59F803002EC4C7 /* SC-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SC-Prefix.pch"; sourceTree = "<group>"; };
@@ -195,6 +196,7 @@
 				950565761DFDA51B00A3E5C0 /* LaunchScreen.storyboard */,
 				957F5F601E065784008B65F2 /* Images.xcassets */,
 				950565791DFDA51B00A3E5C0 /* Info.plist */,
+				95C220761E7EE10B0010FCF5 /* AJProfile.h */,
 				95F6BAB01E59F803002EC4C7 /* SC-Prefix.pch */,
 				9505656B1DFDA51B00A3E5C0 /* AppDelegate.h */,
 				9505656C1DFDA51B00A3E5C0 /* AppDelegate.m */,
