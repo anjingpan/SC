@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		044B3E641E7FF166004FA582 /* AJSchoolTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044B3E631E7FF166004FA582 /* AJSchoolTableViewController.m */; };
 		04562E6B1E71279800A84568 /* AJMeInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04562E6A1E71279800A84568 /* AJMeInformationViewController.m */; };
 		046E392C1E76434500C8A084 /* AJClubCollectionFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E392B1E76434500C8A084 /* AJClubCollectionFlowLayout.m */; };
 		04E4E8A91E768CB0000AECE0 /* AJChangeInformationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E4E8A81E768CB0000AECE0 /* AJChangeInformationTableViewController.m */; };
@@ -56,6 +57,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		044B3E621E7FF166004FA582 /* AJSchoolTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJSchoolTableViewController.h; sourceTree = "<group>"; };
+		044B3E631E7FF166004FA582 /* AJSchoolTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJSchoolTableViewController.m; sourceTree = "<group>"; };
 		04562E691E71279800A84568 /* AJMeInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJMeInformationViewController.h; sourceTree = "<group>"; };
 		04562E6A1E71279800A84568 /* AJMeInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJMeInformationViewController.m; sourceTree = "<group>"; };
 		046E392A1E76434500C8A084 /* AJClubCollectionFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJClubCollectionFlowLayout.h; sourceTree = "<group>"; };
@@ -356,6 +359,8 @@
 		953E25031E61AF45000B17EF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				044B3E621E7FF166004FA582 /* AJSchoolTableViewController.h */,
+				044B3E631E7FF166004FA582 /* AJSchoolTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -629,6 +634,7 @@
 				04E4E8AC1E768CEF000AECE0 /* AJChangeNicknameTableViewController.m in Sources */,
 				95C220721E745B550010FCF5 /* AJClubCollectionViewCell.m in Sources */,
 				95294AE21E5B2EF500FDF1A6 /* AJPasswordViewController.m in Sources */,
+				044B3E641E7FF166004FA582 /* AJSchoolTableViewController.m in Sources */,
 				95F6BAAF1E59C561002EC4C7 /* AJSelectSchoolViewController.m in Sources */,
 				950CCEE91E065FE200365F77 /* AJLoginViewController.m in Sources */,
 				04E4E8A91E768CB0000AECE0 /* AJChangeInformationTableViewController.m in Sources */,
