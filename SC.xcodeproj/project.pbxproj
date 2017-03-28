@@ -10,6 +10,9 @@
 		044B3E641E7FF166004FA582 /* AJSchoolTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044B3E631E7FF166004FA582 /* AJSchoolTableViewController.m */; };
 		04562E6B1E71279800A84568 /* AJMeInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04562E6A1E71279800A84568 /* AJMeInformationViewController.m */; };
 		046E392C1E76434500C8A084 /* AJClubCollectionFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E392B1E76434500C8A084 /* AJClubCollectionFlowLayout.m */; };
+		0472D08D1E8A53D700632763 /* AJSchoolClubTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0472D08B1E8A53D700632763 /* AJSchoolClubTableViewCell.m */; };
+		0472D08E1E8A53D700632763 /* AJSchoolClubTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0472D08C1E8A53D700632763 /* AJSchoolClubTableViewCell.xib */; };
+		0472D0941E8A7DB500632763 /* AJSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0472D0931E8A7DB500632763 /* AJSearchViewController.m */; };
 		04E4E8A91E768CB0000AECE0 /* AJChangeInformationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E4E8A81E768CB0000AECE0 /* AJChangeInformationTableViewController.m */; };
 		04E4E8AC1E768CEF000AECE0 /* AJChangeNicknameTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E4E8AB1E768CEF000AECE0 /* AJChangeNicknameTableViewController.m */; };
 		04E4E8AF1E768D21000AECE0 /* AJChangeSignatureTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E4E8AE1E768D21000AECE0 /* AJChangeSignatureTableViewController.m */; };
@@ -63,6 +66,11 @@
 		04562E6A1E71279800A84568 /* AJMeInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJMeInformationViewController.m; sourceTree = "<group>"; };
 		046E392A1E76434500C8A084 /* AJClubCollectionFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJClubCollectionFlowLayout.h; sourceTree = "<group>"; };
 		046E392B1E76434500C8A084 /* AJClubCollectionFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJClubCollectionFlowLayout.m; sourceTree = "<group>"; };
+		0472D08A1E8A53D700632763 /* AJSchoolClubTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJSchoolClubTableViewCell.h; sourceTree = "<group>"; };
+		0472D08B1E8A53D700632763 /* AJSchoolClubTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJSchoolClubTableViewCell.m; sourceTree = "<group>"; };
+		0472D08C1E8A53D700632763 /* AJSchoolClubTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AJSchoolClubTableViewCell.xib; sourceTree = "<group>"; };
+		0472D0921E8A7DB500632763 /* AJSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJSearchViewController.h; sourceTree = "<group>"; };
+		0472D0931E8A7DB500632763 /* AJSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJSearchViewController.m; sourceTree = "<group>"; };
 		04E4E8A71E768CB0000AECE0 /* AJChangeInformationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJChangeInformationTableViewController.h; sourceTree = "<group>"; };
 		04E4E8A81E768CB0000AECE0 /* AJChangeInformationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJChangeInformationTableViewController.m; sourceTree = "<group>"; };
 		04E4E8AA1E768CEF000AECE0 /* AJChangeNicknameTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJChangeNicknameTableViewController.h; sourceTree = "<group>"; };
@@ -361,6 +369,8 @@
 			children = (
 				044B3E621E7FF166004FA582 /* AJSchoolTableViewController.h */,
 				044B3E631E7FF166004FA582 /* AJSchoolTableViewController.m */,
+				0472D0921E8A7DB500632763 /* AJSearchViewController.h */,
+				0472D0931E8A7DB500632763 /* AJSearchViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -375,6 +385,9 @@
 		953E25051E61AF45000B17EF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0472D08A1E8A53D700632763 /* AJSchoolClubTableViewCell.h */,
+				0472D08B1E8A53D700632763 /* AJSchoolClubTableViewCell.m */,
+				0472D08C1E8A53D700632763 /* AJSchoolClubTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -547,6 +560,7 @@
 			files = (
 				957F5F611E065784008B65F2 /* Images.xcassets in Resources */,
 				95C220731E745B550010FCF5 /* AJClubCollectionViewCell.xib in Resources */,
+				0472D08E1E8A53D700632763 /* AJSchoolClubTableViewCell.xib in Resources */,
 				950565781DFDA51B00A3E5C0 /* LaunchScreen.storyboard in Resources */,
 				950565731DFDA51B00A3E5C0 /* Main.storyboard in Resources */,
 			);
@@ -629,6 +643,7 @@
 				04E4E8AF1E768D21000AECE0 /* AJChangeSignatureTableViewController.m in Sources */,
 				955FA3ED1E0AD4A200E7A2F2 /* AJNavigationViewController.m in Sources */,
 				957663741E6C5C390048FC96 /* AJMeSecurityTableViewController.m in Sources */,
+				0472D0941E8A7DB500632763 /* AJSearchViewController.m in Sources */,
 				957E70E91E6DACD80059B75F /* AJAboutViewController.m in Sources */,
 				04562E6B1E71279800A84568 /* AJMeInformationViewController.m in Sources */,
 				04E4E8AC1E768CEF000AECE0 /* AJChangeNicknameTableViewController.m in Sources */,
@@ -639,6 +654,7 @@
 				950CCEE91E065FE200365F77 /* AJLoginViewController.m in Sources */,
 				04E4E8A91E768CB0000AECE0 /* AJChangeInformationTableViewController.m in Sources */,
 				953E25081E61B3F4000B17EF /* AJTabBarViewController.m in Sources */,
+				0472D08D1E8A53D700632763 /* AJSchoolClubTableViewCell.m in Sources */,
 				046E392C1E76434500C8A084 /* AJClubCollectionFlowLayout.m in Sources */,
 				95581E2F1E48C8D9007327A0 /* AJPasswordTextField.m in Sources */,
 				9505656A1DFDA51B00A3E5C0 /* main.m in Sources */,

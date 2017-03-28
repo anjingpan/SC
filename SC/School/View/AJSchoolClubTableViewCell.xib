@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="120" id="KGk-i7-Jjw" customClass="AJSchoolClubTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="373" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <frame key="frameInset" width="373" height="119"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aAu-hn-2KK">
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="cx9-Qf-0mP"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5D-Ye-EbO">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="Wv6-HJ-Yht"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPu-OB-fdb">
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.52941176469999995" green="0.54117647059999996" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="cPu-OB-fdb" secondAttribute="bottom" constant="10" id="5FD-FJ-B8m"/>
+                    <constraint firstAttribute="bottom" secondItem="aAu-hn-2KK" secondAttribute="bottom" constant="10" id="9cc-sH-kGN"/>
+                    <constraint firstItem="aAu-hn-2KK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Agh-tH-QzB"/>
+                    <constraint firstItem="cPu-OB-fdb" firstAttribute="top" secondItem="f5D-Ye-EbO" secondAttribute="bottom" constant="12" id="B3P-dL-c4M"/>
+                    <constraint firstAttribute="trailing" secondItem="f5D-Ye-EbO" secondAttribute="trailing" constant="10" id="QRW-B1-3kU"/>
+                    <constraint firstItem="f5D-Ye-EbO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="XJn-Hs-wgs"/>
+                    <constraint firstItem="cPu-OB-fdb" firstAttribute="leading" secondItem="f5D-Ye-EbO" secondAttribute="leading" id="dUA-Zf-xab"/>
+                    <constraint firstItem="f5D-Ye-EbO" firstAttribute="leading" secondItem="aAu-hn-2KK" secondAttribute="trailing" constant="20" id="foQ-op-j7V"/>
+                    <constraint firstItem="aAu-hn-2KK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="jeV-NB-b2C"/>
+                    <constraint firstAttribute="trailing" secondItem="cPu-OB-fdb" secondAttribute="trailing" constant="10" id="sdm-9g-DRe"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="schoolClubAbstractLabel" destination="cPu-OB-fdb" id="t6i-0e-6aJ"/>
+                <outlet property="schoolClubImageView" destination="aAu-hn-2KK" id="Vct-Gt-maF"/>
+                <outlet property="schoolClubNameLabel" destination="f5D-Ye-EbO" id="EBt-So-X51"/>
+            </connections>
+            <point key="canvasLocation" x="60.5" y="92"/>
+        </tableViewCell>
+    </objects>
+</document>
