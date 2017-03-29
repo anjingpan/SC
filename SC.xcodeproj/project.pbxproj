@@ -40,6 +40,10 @@
 		957E70E31E6DAC6B0059B75F /* AJFeedbackTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957E70E21E6DAC6B0059B75F /* AJFeedbackTableViewController.m */; };
 		957E70E91E6DACD80059B75F /* AJAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957E70E81E6DACD80059B75F /* AJAboutViewController.m */; };
 		957F5F611E065784008B65F2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 957F5F601E065784008B65F2 /* Images.xcassets */; };
+		95BCEC491E8C17E900C87541 /* AJClubTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BCEC481E8C17E900C87541 /* AJClubTableViewController.m */; };
+		95BCEC4C1E8C194A00C87541 /* AJClubTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BCEC4B1E8C194A00C87541 /* AJClubTableViewCell.m */; };
+		95BCEC501E8C1A0600C87541 /* AJClubFunctionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BCEC4E1E8C1A0600C87541 /* AJClubFunctionCollectionViewCell.m */; };
+		95BCEC511E8C1A0600C87541 /* AJClubFunctionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95BCEC4F1E8C1A0600C87541 /* AJClubFunctionCollectionViewCell.xib */; };
 		95C220721E745B550010FCF5 /* AJClubCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C220701E745B550010FCF5 /* AJClubCollectionViewCell.m */; };
 		95C220731E745B550010FCF5 /* AJClubCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95C220711E745B550010FCF5 /* AJClubCollectionViewCell.xib */; };
 		95F6BAAF1E59C561002EC4C7 /* AJSelectSchoolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F6BAAE1E59C561002EC4C7 /* AJSelectSchoolViewController.m */; };
@@ -130,6 +134,13 @@
 		957E70E71E6DACD80059B75F /* AJAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJAboutViewController.h; sourceTree = "<group>"; };
 		957E70E81E6DACD80059B75F /* AJAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJAboutViewController.m; sourceTree = "<group>"; };
 		957F5F601E065784008B65F2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		95BCEC471E8C17E900C87541 /* AJClubTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJClubTableViewController.h; sourceTree = "<group>"; };
+		95BCEC481E8C17E900C87541 /* AJClubTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJClubTableViewController.m; sourceTree = "<group>"; };
+		95BCEC4A1E8C194A00C87541 /* AJClubTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJClubTableViewCell.h; sourceTree = "<group>"; };
+		95BCEC4B1E8C194A00C87541 /* AJClubTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJClubTableViewCell.m; sourceTree = "<group>"; };
+		95BCEC4D1E8C1A0600C87541 /* AJClubFunctionCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJClubFunctionCollectionViewCell.h; sourceTree = "<group>"; };
+		95BCEC4E1E8C1A0600C87541 /* AJClubFunctionCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJClubFunctionCollectionViewCell.m; sourceTree = "<group>"; };
+		95BCEC4F1E8C1A0600C87541 /* AJClubFunctionCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AJClubFunctionCollectionViewCell.xib; sourceTree = "<group>"; };
 		95C2206F1E745B550010FCF5 /* AJClubCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJClubCollectionViewCell.h; sourceTree = "<group>"; };
 		95C220701E745B550010FCF5 /* AJClubCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJClubCollectionViewCell.m; sourceTree = "<group>"; };
 		95C220711E745B550010FCF5 /* AJClubCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AJClubCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -268,6 +279,8 @@
 		953E24F71E61AF45000B17EF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				95BCEC471E8C17E900C87541 /* AJClubTableViewController.h */,
+				95BCEC481E8C17E900C87541 /* AJClubTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -282,6 +295,11 @@
 		953E24F91E61AF45000B17EF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				95BCEC4A1E8C194A00C87541 /* AJClubTableViewCell.h */,
+				95BCEC4B1E8C194A00C87541 /* AJClubTableViewCell.m */,
+				95BCEC4D1E8C1A0600C87541 /* AJClubFunctionCollectionViewCell.h */,
+				95BCEC4E1E8C1A0600C87541 /* AJClubFunctionCollectionViewCell.m */,
+				95BCEC4F1E8C1A0600C87541 /* AJClubFunctionCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -590,6 +608,7 @@
 				0472D08E1E8A53D700632763 /* AJSchoolClubTableViewCell.xib in Resources */,
 				0456E0A81E8B8197006454D6 /* AJNotificationTableViewCell.xib in Resources */,
 				950565781DFDA51B00A3E5C0 /* LaunchScreen.storyboard in Resources */,
+				95BCEC511E8C1A0600C87541 /* AJClubFunctionCollectionViewCell.xib in Resources */,
 				950565731DFDA51B00A3E5C0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -682,9 +701,12 @@
 				044B3E641E7FF166004FA582 /* AJSchoolTableViewController.m in Sources */,
 				0456E0A31E8B8121006454D6 /* AJNotificationTableViewController.m in Sources */,
 				95F6BAAF1E59C561002EC4C7 /* AJSelectSchoolViewController.m in Sources */,
+				95BCEC501E8C1A0600C87541 /* AJClubFunctionCollectionViewCell.m in Sources */,
 				950CCEE91E065FE200365F77 /* AJLoginViewController.m in Sources */,
 				04E4E8A91E768CB0000AECE0 /* AJChangeInformationTableViewController.m in Sources */,
 				953E25081E61B3F4000B17EF /* AJTabBarViewController.m in Sources */,
+				95BCEC4C1E8C194A00C87541 /* AJClubTableViewCell.m in Sources */,
+				95BCEC491E8C17E900C87541 /* AJClubTableViewController.m in Sources */,
 				0472D08D1E8A53D700632763 /* AJSchoolClubTableViewCell.m in Sources */,
 				046E392C1E76434500C8A084 /* AJClubCollectionFlowLayout.m in Sources */,
 				95581E2F1E48C8D9007327A0 /* AJPasswordTextField.m in Sources */,
