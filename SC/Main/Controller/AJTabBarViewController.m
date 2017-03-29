@@ -7,6 +7,7 @@
 //
 
 #import "AJTabBarViewController.h"
+#import "UITabBar+TrackPoint.h"
 
 @interface AJTabBarViewController ()
 
@@ -20,7 +21,8 @@
     
     //设置Tab文字和图片选中颜色
     self.tabBar.tintColor = AJBarColor;
-    
+    [self.tabBar addTrackPointWithItemIndex:1 tabBarNum:4];
+
 //    UITabBarItem *item = [UITabBarItem appearance];
 //    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
 //    dic[NSForegroundColorAttributeName] = AJBarColor;
@@ -32,14 +34,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

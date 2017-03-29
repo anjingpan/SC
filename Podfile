@@ -5,4 +5,5 @@ pod 'YYModel'
 pod 'SDWebImage'
 pod 'MJRefresh'
 pod 'MBProgressHUD'
+pod 'RKNotificationHub'
 end
