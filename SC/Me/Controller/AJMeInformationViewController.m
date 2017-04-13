@@ -86,20 +86,38 @@ static NSString *const kClubCollectionViewCell = @"clubCollectionViewCell";
     [self.navigationController pushViewController:VC animated:YES];
 }
 
+/**
+ 无权限弹窗
+ 
+ @param title 弹窗标题
+ */
+- (void)alertNoAuthorization:(NSString *)title{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:@"你可以在\"隐私设置\"中启用访问" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *set = [UIAlertAction actionWithTitle:@"前往设置" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+        if ([UIDevice currentDevice].systemVersion.floatValue < 10.0) {
+            if ([[UIApplication sharedApplication] canOpenURL:url]) {
+                [[UIApplication sharedApplication] openURL:url];
+            }
+        }else{
+            if ([[UIApplication sharedApplication] canOpenURL:url]) {
+                [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
+            }
+        }
+    }];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [alert addAction:set];
+    [alert addAction:cancel];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 #pragma mark - Gesture Tap
 - (void)alertChangeIcon{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *openCamera = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self checkCameraAuthorization:^(BOOL auth) {
             if (!auth) {
-                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"没有权限拍照" message:@"你可以在\"隐私设置\"中启用访问" preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *set = [UIAlertAction actionWithTitle:@"前往设置" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                    
-                }];
-                UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-                [alert addAction:set];
-                [alert addAction:cancel];
-                [self presentViewController:alert animated:YES completion:nil];
+                [self alertNoAuthorization:@"没有权限访问相机"];
             }else{
                 UIImagePickerController *cameraController = [[UIImagePickerController alloc] init];
                 cameraController.allowsEditing = YES;
@@ -112,14 +130,7 @@ static NSString *const kClubCollectionViewCell = @"clubCollectionViewCell";
     UIAlertAction *openAlbum = [UIAlertAction actionWithTitle:@"从相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self checkPhotosAuthorization:^(BOOL auth) {
             if (!auth) {
-                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"没有权限访问相册" message:@"你可以在\"隐私设置\"中启用访问" preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *set = [UIAlertAction actionWithTitle:@"前往设置" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                    
-                }];
-                UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-                [alert addAction:set];
-                [alert addAction:cancel];
-                [self presentViewController:alert animated:YES completion:nil];
+                [self alertNoAuthorization:@"没有权限访问相册"];
             }else{
                 UIImagePickerController *photosController = [[UIImagePickerController alloc] init];
                 //导航栏和应用中其他页面统一
@@ -130,7 +141,7 @@ static NSString *const kClubCollectionViewCell = @"clubCollectionViewCell";
                 }
                 photosController.allowsEditing = YES;
                 photosController.delegate = self;
-                photosController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                photosController.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
                 [self presentViewController:photosController animated:YES completion:nil];
             }
         }];
@@ -163,9 +174,8 @@ static NSString *const kClubCollectionViewCell = @"clubCollectionViewCell";
                 if (block) {
                     block(granted);
                 }
-                return ;
             }];
-            break;
+            return ;
     }
     
     if (block) {
@@ -193,8 +203,8 @@ static NSString *const kClubCollectionViewCell = @"clubCollectionViewCell";
                 if (block) {
                     block(status);
                 }
-                return ;
             }];
+            return ;
     }
     
     if (block) {
