@@ -17,6 +17,7 @@
 		0472D08D1E8A53D700632763 /* AJSchoolClubTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0472D08B1E8A53D700632763 /* AJSchoolClubTableViewCell.m */; };
 		0472D08E1E8A53D700632763 /* AJSchoolClubTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0472D08C1E8A53D700632763 /* AJSchoolClubTableViewCell.xib */; };
 		0472D0941E8A7DB500632763 /* AJSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0472D0931E8A7DB500632763 /* AJSearchViewController.m */; };
+		0474F1FB1EA63A0D00973993 /* AJTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474F1FA1EA63A0D00973993 /* AJTabBar.m */; };
 		04E4E8A91E768CB0000AECE0 /* AJChangeInformationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E4E8A81E768CB0000AECE0 /* AJChangeInformationTableViewController.m */; };
 		04E4E8AC1E768CEF000AECE0 /* AJChangeNicknameTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E4E8AB1E768CEF000AECE0 /* AJChangeNicknameTableViewController.m */; };
 		04E4E8AF1E768D21000AECE0 /* AJChangeSignatureTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E4E8AE1E768D21000AECE0 /* AJChangeSignatureTableViewController.m */; };
@@ -86,6 +87,8 @@
 		0472D08C1E8A53D700632763 /* AJSchoolClubTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AJSchoolClubTableViewCell.xib; sourceTree = "<group>"; };
 		0472D0921E8A7DB500632763 /* AJSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJSearchViewController.h; sourceTree = "<group>"; };
 		0472D0931E8A7DB500632763 /* AJSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJSearchViewController.m; sourceTree = "<group>"; };
+		0474F1F91EA63A0D00973993 /* AJTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJTabBar.h; sourceTree = "<group>"; };
+		0474F1FA1EA63A0D00973993 /* AJTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJTabBar.m; sourceTree = "<group>"; };
 		04E4E8A71E768CB0000AECE0 /* AJChangeInformationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJChangeInformationTableViewController.h; sourceTree = "<group>"; };
 		04E4E8A81E768CB0000AECE0 /* AJChangeInformationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJChangeInformationTableViewController.m; sourceTree = "<group>"; };
 		04E4E8AA1E768CEF000AECE0 /* AJChangeNicknameTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJChangeNicknameTableViewController.h; sourceTree = "<group>"; };
@@ -441,6 +444,8 @@
 			children = (
 				95581E2D1E48C8D9007327A0 /* AJPasswordTextField.h */,
 				95581E2E1E48C8D9007327A0 /* AJPasswordTextField.m */,
+				0474F1F91EA63A0D00973993 /* AJTabBar.h */,
+				0474F1FA1EA63A0D00973993 /* AJTabBar.m */,
 			);
 			name = View;
 			path = SC/Main/View;
@@ -710,6 +715,7 @@
 				0472D08D1E8A53D700632763 /* AJSchoolClubTableViewCell.m in Sources */,
 				046E392C1E76434500C8A084 /* AJClubCollectionFlowLayout.m in Sources */,
 				95581E2F1E48C8D9007327A0 /* AJPasswordTextField.m in Sources */,
+				0474F1FB1EA63A0D00973993 /* AJTabBar.m in Sources */,
 				9505656A1DFDA51B00A3E5C0 /* main.m in Sources */,
 				957663771E6C5C4F0048FC96 /* AJChangePasswordTableViewController.m in Sources */,
 				955FA3F01E0ADDD900E7A2F2 /* AJRegistViewController.m in Sources */,

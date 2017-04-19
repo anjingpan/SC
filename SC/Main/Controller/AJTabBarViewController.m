@@ -8,6 +8,7 @@
 
 #import "AJTabBarViewController.h"
 #import "UITabBar+TrackPoint.h"
+#import "AJTabBar.h"
 
 @interface AJTabBarViewController ()
 
@@ -21,12 +22,10 @@
     
     //设置Tab文字和图片选中颜色
     self.tabBar.tintColor = AJBarColor;
-    [self.tabBar addTrackPointWithItemIndex:1 tabBarNum:4];
-
-//    UITabBarItem *item = [UITabBarItem appearance];
-//    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-//    dic[NSForegroundColorAttributeName] = AJBarColor;
-//    [item setTitleTextAttributes:dic forState:UIControlStateSelected];
+    //为 tabBar添加小红点
+    [self.tabBar addTrackPointWithItemIndex:1 tabBarNum:5];
+    
+    [self clickAddButton];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,5 +33,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Button Click
+- (void)clickAddButton{
+    ((AJTabBar*)self.tabBar).clickAddButtonBlock = ^(UIButton *button){
+        
+    };
+}
 
 @end
