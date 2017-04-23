@@ -27,6 +27,7 @@ static NSString *const kSchoolTableViewCell = @"schoolTableViewCell";   /**< 社
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = AJBackGroundColor;
     
     self.title = @"校园";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"School_Search"] style:UIBarButtonItemStyleDone target:self action:@selector(pushSearchController)];
@@ -38,7 +39,6 @@ static NSString *const kSchoolTableViewCell = @"schoolTableViewCell";   /**< 社
     
     [self initHeaderView];
     
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerNib:[UINib nibWithNibName:@"AJSchoolClubTableViewCell" bundle:nil] forCellReuseIdentifier:kSchoolTableViewCell];
 }
 
@@ -54,11 +54,12 @@ static NSString *const kSchoolTableViewCell = @"schoolTableViewCell";   /**< 社
     //原型数据
     CGFloat scrollViewHeight = [[UIScreen mainScreen] bounds].size.width * 0.5;
     CGFloat pageControlHeight = 30;
+    CGFloat divisionHeight = 10;
     CGFloat scrollViewPage = self.imageArray.count;
     
     self.headerView = ({
         UIView *view = [[UIView alloc] init];
-        view.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, scrollViewHeight);
+        view.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, scrollViewHeight + divisionHeight);
         self.tableView.tableHeaderView = view;
         view;
     });
@@ -67,6 +68,7 @@ static NSString *const kSchoolTableViewCell = @"schoolTableViewCell";   /**< 社
     self.hotClubScrollView = ({
         UIScrollView *scrollView = [[UIScrollView alloc] init];
         scrollView.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, scrollViewHeight);
+        scrollView.backgroundColor = [UIColor whiteColor];
         scrollView.contentSize = CGSizeMake([[UIScreen mainScreen] bounds].size.width * scrollViewPage, scrollViewHeight);
         scrollView.delegate = self;
         scrollView.pagingEnabled = YES;
