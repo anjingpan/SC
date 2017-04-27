@@ -9,6 +9,7 @@
 #import "AJSchoolTableViewController.h"
 #import "AJSchoolClubTableViewCell.h"
 #import "AJSearchViewController.h"
+#import "AJSchoolClubTableViewController.h"
 
 static CGFloat const kScrollTime = 3.f;  /**< 计时器时间*/
 static NSString *const kSchoolTableViewCell = @"schoolTableViewCell";   /**< 社团列表重用标识符*/
@@ -172,6 +173,15 @@ static NSString *const kSchoolTableViewCell = @"schoolTableViewCell";   /**< 社
     }
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    //跳转页面时隐藏底部 TabBar
+    self.hidesBottomBarWhenPushed = YES;
+    AJSchoolClubTableViewController *clubVC = [[AJSchoolClubTableViewController alloc] init];
+    [self.navigationController pushViewController:clubVC animated:YES];
+    //跳转后不隐藏 TabBar
+    self.hidesBottomBarWhenPushed = NO;
 }
 
 @end
