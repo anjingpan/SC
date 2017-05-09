@@ -176,12 +176,11 @@ static NSString *const kSchoolTableViewCell = @"schoolTableViewCell";   /**< 社
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    //跳转页面时隐藏底部 TabBar
-    self.hidesBottomBarWhenPushed = YES;
+
     AJSchoolClubTableViewController *clubVC = [[AJSchoolClubTableViewController alloc] init];
+    //隐藏工具栏
+    clubVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:clubVC animated:YES];
-    //跳转后不隐藏 TabBar
-    self.hidesBottomBarWhenPushed = NO;
 }
 
 @end

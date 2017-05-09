@@ -10,4 +10,6 @@
 
 @interface AJMeInformationViewController : UIViewController
 
+@property (nonatomic, assign) BOOL isAllowEdit;     /**< 视图是否可编辑*/
+
 @end

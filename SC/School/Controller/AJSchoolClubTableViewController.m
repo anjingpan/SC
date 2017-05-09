@@ -8,6 +8,9 @@
 
 #import "AJSchoolClubTableViewController.h"
 #import "AJSchoolClubCollectionViewCell.h"
+#import "AJSchoolMemberTableViewController.h"
+#import "AJMeInformationViewController.h"
+#import "AJProfile.h"
 
 static NSString *const kSchoolClubCollectionViewCell = @"schoolClubCollectionViewCell";
 
@@ -57,7 +60,7 @@ static NSString *const kSchoolClubCollectionViewCell = @"schoolClubCollectionVie
     
     self.headerImageView = ({
         UIImageView *imageView = [[UIImageView alloc] init];
-        imageView.backgroundColor = [UIColor darkGrayColor];
+        imageView.backgroundColor = [UIColor colorWithRed:135/255.0 green:139/255.0 blue:150/255.0 alpha:1];
         imageView.translatesAutoresizingMaskIntoConstraints = NO;
         [self.headView addSubview:imageView];
         imageView;
@@ -65,6 +68,7 @@ static NSString *const kSchoolClubCollectionViewCell = @"schoolClubCollectionVie
     
     self.clubImageView = ({
         UIImageView *imageView = [[UIImageView alloc] init];
+        imageView.backgroundColor = [UIColor whiteColor];
         imageView.image = [UIImage imageNamed:@"Me_Placeholder"];
         imageView.layer.borderColor = AJBackGroundColor.CGColor;
         imageView.layer.cornerRadius = 10.f;
@@ -139,7 +143,7 @@ static NSString *const kSchoolClubCollectionViewCell = @"schoolClubCollectionVie
     CGFloat marginY = 12.f;
     CGFloat buttonHeight = 40.f;
     CGFloat fontSize = 18.f;
-    CGFloat cornerRadius = 8.f;
+    CGFloat cornerRadius = 5.f;
     UIColor *buttonBackgroundColor = AJBarColor;
     UIColor *buttonTitleColor = [UIColor whiteColor];
     
@@ -265,6 +269,18 @@ static NSString *const kSchoolClubCollectionViewCell = @"schoolClubCollectionVie
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     return CGSizeMake([[UIScreen mainScreen] bounds].size.width / 6.0, [[UIScreen mainScreen] bounds].size.width / 6.0);
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 4) {
+        AJSchoolMemberTableViewController *memberViewController = [[AJSchoolMemberTableViewController alloc] init];
+        [self.navigationController pushViewController:memberViewController animated:YES];
+    }else{
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        //标志符在 storyboard 中自己设置
+        AJMeInformationViewController *informationViewController = [storyboard instantiateViewControllerWithIdentifier:IDENTIFIER_AJMEINFORMATIONVIEWCONTROLLER];
+        [self.navigationController pushViewController:informationViewController animated:YES];
+    }
 }
 
 @end

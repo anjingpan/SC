@@ -357,7 +357,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="l1c-bO-51d" kind="show" id="bJZ-kE-iRV"/>
+                                            <segue destination="l1c-bO-51d" kind="show" identifier="meInformationSegue" id="bJZ-kE-iRV"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -433,7 +433,7 @@
         <!--Me Information View Controller-->
         <scene sceneID="sSS-cq-Z4D">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="l1c-bO-51d" customClass="AJMeInformationViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="meInformationViewController" hidesBottomBarWhenPushed="YES" id="l1c-bO-51d" customClass="AJMeInformationViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WiD-Fn-gu4"/>
                         <viewControllerLayoutGuide type="bottom" id="ax8-pQ-h93"/>

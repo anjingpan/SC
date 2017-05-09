@@ -18,3 +18,6 @@
 static NSString *const DETAIL_SWITCH_STATE = @"detailSwitchState"; /**< 消息详情开关状态*/
 static NSString *const VOICE_SWITCH_STATE  = @"voiceSwitchState";  /**< 声音开关状态*/
 static NSString *const SHAKE_SWITCH_STATE  = @"shakeSwitchState";  /**< 震动开关状态*/
+
+//Stroyboard Identifier
+static NSString *const IDENTIFIER_AJMEINFORMATIONVIEWCONTROLLER = @"meInformationViewController"; /**< 个人信息界面标识符*/

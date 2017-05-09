@@ -14,6 +14,9 @@
 		0456E0A71E8B8197006454D6 /* AJNotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0456E0A51E8B8197006454D6 /* AJNotificationTableViewCell.m */; };
 		0456E0A81E8B8197006454D6 /* AJNotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0456E0A61E8B8197006454D6 /* AJNotificationTableViewCell.xib */; };
 		0456E0AC1E8BAADC006454D6 /* UITabBar+TrackPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0456E0AB1E8BAADC006454D6 /* UITabBar+TrackPoint.m */; };
+		045AD26C1EC1D70C00963B00 /* AJSchoolMemberTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045AD26B1EC1D70C00963B00 /* AJSchoolMemberTableViewController.m */; };
+		045AD2701EC1D74D00963B00 /* AJSchoolMemberTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 045AD26E1EC1D74D00963B00 /* AJSchoolMemberTableViewCell.m */; };
+		045AD2711EC1D74D00963B00 /* AJSchoolMemberTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045AD26F1EC1D74D00963B00 /* AJSchoolMemberTableViewCell.xib */; };
 		045C73291EB0482100E84927 /* AJSchoolClubCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 045C73271EB0482100E84927 /* AJSchoolClubCollectionViewCell.m */; };
 		045C732A1EB0482100E84927 /* AJSchoolClubCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045C73281EB0482100E84927 /* AJSchoolClubCollectionViewCell.xib */; };
 		046E392C1E76434500C8A084 /* AJClubCollectionFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E392B1E76434500C8A084 /* AJClubCollectionFlowLayout.m */; };
@@ -87,6 +90,11 @@
 		0456E0A61E8B8197006454D6 /* AJNotificationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AJNotificationTableViewCell.xib; sourceTree = "<group>"; };
 		0456E0AA1E8BAADC006454D6 /* UITabBar+TrackPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+TrackPoint.h"; sourceTree = "<group>"; };
 		0456E0AB1E8BAADC006454D6 /* UITabBar+TrackPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+TrackPoint.m"; sourceTree = "<group>"; };
+		045AD26A1EC1D70C00963B00 /* AJSchoolMemberTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJSchoolMemberTableViewController.h; sourceTree = "<group>"; };
+		045AD26B1EC1D70C00963B00 /* AJSchoolMemberTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJSchoolMemberTableViewController.m; sourceTree = "<group>"; };
+		045AD26D1EC1D74D00963B00 /* AJSchoolMemberTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJSchoolMemberTableViewCell.h; sourceTree = "<group>"; };
+		045AD26E1EC1D74D00963B00 /* AJSchoolMemberTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJSchoolMemberTableViewCell.m; sourceTree = "<group>"; };
+		045AD26F1EC1D74D00963B00 /* AJSchoolMemberTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AJSchoolMemberTableViewCell.xib; sourceTree = "<group>"; };
 		045C73261EB0482100E84927 /* AJSchoolClubCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJSchoolClubCollectionViewCell.h; sourceTree = "<group>"; };
 		045C73271EB0482100E84927 /* AJSchoolClubCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJSchoolClubCollectionViewCell.m; sourceTree = "<group>"; };
 		045C73281EB0482100E84927 /* AJSchoolClubCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AJSchoolClubCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -435,6 +443,8 @@
 				0472D0931E8A7DB500632763 /* AJSearchViewController.m */,
 				040E606F1EAE1FA100F136ED /* AJSchoolClubTableViewController.h */,
 				040E60701EAE1FA100F136ED /* AJSchoolClubTableViewController.m */,
+				045AD26A1EC1D70C00963B00 /* AJSchoolMemberTableViewController.h */,
+				045AD26B1EC1D70C00963B00 /* AJSchoolMemberTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -455,6 +465,9 @@
 				045C73261EB0482100E84927 /* AJSchoolClubCollectionViewCell.h */,
 				045C73271EB0482100E84927 /* AJSchoolClubCollectionViewCell.m */,
 				045C73281EB0482100E84927 /* AJSchoolClubCollectionViewCell.xib */,
+				045AD26D1EC1D74D00963B00 /* AJSchoolMemberTableViewCell.h */,
+				045AD26E1EC1D74D00963B00 /* AJSchoolMemberTableViewCell.m */,
+				045AD26F1EC1D74D00963B00 /* AJSchoolMemberTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -670,6 +683,7 @@
 				950565781DFDA51B00A3E5C0 /* LaunchScreen.storyboard in Resources */,
 				95BCEC511E8C1A0600C87541 /* AJClubFunctionCollectionViewCell.xib in Resources */,
 				950565731DFDA51B00A3E5C0 /* Main.storyboard in Resources */,
+				045AD2711EC1D74D00963B00 /* AJSchoolMemberTableViewCell.xib in Resources */,
 				045C732A1EB0482100E84927 /* AJSchoolClubCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -747,6 +761,7 @@
 				9505656D1DFDA51B00A3E5C0 /* AppDelegate.m in Sources */,
 				957E70E01E6DAC450059B75F /* AJSetNotificationTableViewController.m in Sources */,
 				957E70E31E6DAC6B0059B75F /* AJFeedbackTableViewController.m in Sources */,
+				045AD2701EC1D74D00963B00 /* AJSchoolMemberTableViewCell.m in Sources */,
 				957E70DD1E6DABEB0059B75F /* AJSettingTableViewController.m in Sources */,
 				04E4E8AF1E768D21000AECE0 /* AJChangeSignatureTableViewController.m in Sources */,
 				0456E0A71E8B8197006454D6 /* AJNotificationTableViewCell.m in Sources */,
@@ -764,6 +779,7 @@
 				0456E0A31E8B8121006454D6 /* AJNotificationTableViewController.m in Sources */,
 				95F6BAAF1E59C561002EC4C7 /* AJSelectSchoolViewController.m in Sources */,
 				95BCEC501E8C1A0600C87541 /* AJClubFunctionCollectionViewCell.m in Sources */,
+				045AD26C1EC1D70C00963B00 /* AJSchoolMemberTableViewController.m in Sources */,
 				950CCEE91E065FE200365F77 /* AJLoginViewController.m in Sources */,
 				04E4E8A91E768CB0000AECE0 /* AJChangeInformationTableViewController.m in Sources */,
 				953E25081E61B3F4000B17EF /* AJTabBarViewController.m in Sources */,

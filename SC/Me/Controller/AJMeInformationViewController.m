@@ -10,6 +10,7 @@
 #import "AJClubCollectionViewCell.h"
 #import "AJClubCollectionFlowLayout.h"
 #import "AJChangeInformationTableViewController.h"
+#import "AJSchoolClubTableViewController.h"
 #import "MBProgressHUD.h"
 #import <AVFoundation/AVFoundation.h>
 #import <Photos/PHPhotoLibrary.h>
@@ -43,11 +44,13 @@ static NSString *const kClubCollectionViewCell = @"clubCollectionViewCell";
     self.userIconImageView.layer.borderWidth = 1.f;
     self.userIconImageView.layer.borderColor = [UIColor whiteColor].CGColor;
 
-    self.userIconImageView.userInteractionEnabled = YES;
-    UITapGestureRecognizer *tapIcon = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(alertChangeIcon)];
-    [self.userIconImageView addGestureRecognizer:tapIcon];
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Me_Edit"] style:UIBarButtonItemStyleDone target:self action:@selector(editInformation:)];
+    if (self.isAllowEdit) {
+        self.userIconImageView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tapIcon = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(alertChangeIcon)];
+        [self.userIconImageView addGestureRecognizer:tapIcon];
+        
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Me_Edit"] style:UIBarButtonItemStyleDone target:self action:@selector(editInformation:)];        
+    }
     
     [self initCollectionView];
 }
@@ -252,7 +255,8 @@ static NSString *const kClubCollectionViewCell = @"clubCollectionViewCell";
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
+    AJSchoolClubTableViewController *clubViewController = [[AJSchoolClubTableViewController alloc] init];
+    [self.navigationController pushViewController:clubViewController animated:YES];
 }
 
 
