@@ -34,6 +34,12 @@
 		950565831DFDA51B00A3E5C0 /* SCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 950565821DFDA51B00A3E5C0 /* SCTests.m */; };
 		9505658E1DFDA51B00A3E5C0 /* SCUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9505658D1DFDA51B00A3E5C0 /* SCUITests.m */; };
 		950CCEE91E065FE200365F77 /* AJLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CCEE81E065FE200365F77 /* AJLoginViewController.m */; };
+		950CF8DB1ED33ACC0070AC89 /* AJNewNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF8DA1ED33ACC0070AC89 /* AJNewNotificationViewController.m */; };
+		950CF8DF1ED52C8A0070AC89 /* AJNewNotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF8DE1ED52C8A0070AC89 /* AJNewNotificationTableViewCell.m */; };
+		950CF8E21ED6A7630070AC89 /* AJSelectMemberTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF8E11ED6A7630070AC89 /* AJSelectMemberTableViewController.m */; };
+		950CF8E61ED6A8070070AC89 /* AJSelectMemberTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF8E41ED6A8070070AC89 /* AJSelectMemberTableViewCell.m */; };
+		950CF8E71ED6A8070070AC89 /* AJSelectMemberTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 950CF8E51ED6A8070070AC89 /* AJSelectMemberTableViewCell.xib */; };
+		950CF8EA1ED70C100070AC89 /* AJNewScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF8E91ED70C100070AC89 /* AJNewScheduleViewController.m */; };
 		95294AE21E5B2EF500FDF1A6 /* AJPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95294AE11E5B2EF500FDF1A6 /* AJPasswordViewController.m */; };
 		953E25081E61B3F4000B17EF /* AJTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 953E25071E61B3F4000B17EF /* AJTabBarViewController.m */; };
 		954AEC031EACEC810006FF7D /* AJNewPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 954AEBFE1EACEC810006FF7D /* AJNewPageViewController.m */; };
@@ -55,6 +61,9 @@
 		95BCEC511E8C1A0600C87541 /* AJClubFunctionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95BCEC4F1E8C1A0600C87541 /* AJClubFunctionCollectionViewCell.xib */; };
 		95C220721E745B550010FCF5 /* AJClubCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C220701E745B550010FCF5 /* AJClubCollectionViewCell.m */; };
 		95C220731E745B550010FCF5 /* AJClubCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95C220711E745B550010FCF5 /* AJClubCollectionViewCell.xib */; };
+		95F1081B1ED1A7E200E54844 /* AJFormTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F108181ED1A7E200E54844 /* AJFormTextField.m */; };
+		95F1081C1ED1A7E200E54844 /* AJFormTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F1081A1ED1A7E200E54844 /* AJFormTextView.m */; };
+		95F1081F1ED1A86400E54844 /* AJNewClubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F1081E1ED1A86400E54844 /* AJNewClubViewController.m */; };
 		95F6BAAF1E59C561002EC4C7 /* AJSelectSchoolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F6BAAE1E59C561002EC4C7 /* AJSelectSchoolViewController.m */; };
 		96A590176FE31F80B9EFBCD8 /* libPods-SC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF68CB234BD2E56DC20B259 /* libPods-SC.a */; };
 /* End PBXBuildFile section */
@@ -130,6 +139,17 @@
 		9505658F1DFDA51B00A3E5C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		950CCEE71E065FE200365F77 /* AJLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJLoginViewController.h; sourceTree = "<group>"; };
 		950CCEE81E065FE200365F77 /* AJLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJLoginViewController.m; sourceTree = "<group>"; };
+		950CF8D91ED33ACC0070AC89 /* AJNewNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNewNotificationViewController.h; sourceTree = "<group>"; };
+		950CF8DA1ED33ACC0070AC89 /* AJNewNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNewNotificationViewController.m; sourceTree = "<group>"; };
+		950CF8DD1ED52C8A0070AC89 /* AJNewNotificationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNewNotificationTableViewCell.h; sourceTree = "<group>"; };
+		950CF8DE1ED52C8A0070AC89 /* AJNewNotificationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNewNotificationTableViewCell.m; sourceTree = "<group>"; };
+		950CF8E01ED6A7630070AC89 /* AJSelectMemberTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJSelectMemberTableViewController.h; sourceTree = "<group>"; };
+		950CF8E11ED6A7630070AC89 /* AJSelectMemberTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJSelectMemberTableViewController.m; sourceTree = "<group>"; };
+		950CF8E31ED6A8070070AC89 /* AJSelectMemberTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJSelectMemberTableViewCell.h; sourceTree = "<group>"; };
+		950CF8E41ED6A8070070AC89 /* AJSelectMemberTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJSelectMemberTableViewCell.m; sourceTree = "<group>"; };
+		950CF8E51ED6A8070070AC89 /* AJSelectMemberTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AJSelectMemberTableViewCell.xib; sourceTree = "<group>"; };
+		950CF8E81ED70C100070AC89 /* AJNewScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNewScheduleViewController.h; sourceTree = "<group>"; };
+		950CF8E91ED70C100070AC89 /* AJNewScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNewScheduleViewController.m; sourceTree = "<group>"; };
 		95294AE01E5B2EF500FDF1A6 /* AJPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPasswordViewController.h; sourceTree = "<group>"; };
 		95294AE11E5B2EF500FDF1A6 /* AJPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJPasswordViewController.m; sourceTree = "<group>"; };
 		953E25061E61B3F4000B17EF /* AJTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJTabBarViewController.h; sourceTree = "<group>"; };
@@ -170,6 +190,12 @@
 		95C220701E745B550010FCF5 /* AJClubCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJClubCollectionViewCell.m; sourceTree = "<group>"; };
 		95C220711E745B550010FCF5 /* AJClubCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AJClubCollectionViewCell.xib; sourceTree = "<group>"; };
 		95C220761E7EE10B0010FCF5 /* AJProfile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AJProfile.h; sourceTree = "<group>"; };
+		95F108171ED1A7E200E54844 /* AJFormTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJFormTextField.h; sourceTree = "<group>"; };
+		95F108181ED1A7E200E54844 /* AJFormTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJFormTextField.m; sourceTree = "<group>"; };
+		95F108191ED1A7E200E54844 /* AJFormTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJFormTextView.h; sourceTree = "<group>"; };
+		95F1081A1ED1A7E200E54844 /* AJFormTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJFormTextView.m; sourceTree = "<group>"; };
+		95F1081D1ED1A86400E54844 /* AJNewClubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNewClubViewController.h; sourceTree = "<group>"; };
+		95F1081E1ED1A86400E54844 /* AJNewClubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNewClubViewController.m; sourceTree = "<group>"; };
 		95F6BAAD1E59C561002EC4C7 /* AJSelectSchoolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJSelectSchoolViewController.h; sourceTree = "<group>"; };
 		95F6BAAE1E59C561002EC4C7 /* AJSelectSchoolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJSelectSchoolViewController.m; sourceTree = "<group>"; };
 		95F6BAB01E59F803002EC4C7 /* SC-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SC-Prefix.pch"; sourceTree = "<group>"; };
@@ -487,6 +513,14 @@
 			children = (
 				954AEBFD1EACEC810006FF7D /* AJNewPageViewController.h */,
 				954AEBFE1EACEC810006FF7D /* AJNewPageViewController.m */,
+				95F1081D1ED1A86400E54844 /* AJNewClubViewController.h */,
+				95F1081E1ED1A86400E54844 /* AJNewClubViewController.m */,
+				950CF8D91ED33ACC0070AC89 /* AJNewNotificationViewController.h */,
+				950CF8DA1ED33ACC0070AC89 /* AJNewNotificationViewController.m */,
+				950CF8E01ED6A7630070AC89 /* AJSelectMemberTableViewController.h */,
+				950CF8E11ED6A7630070AC89 /* AJSelectMemberTableViewController.m */,
+				950CF8E81ED70C100070AC89 /* AJNewScheduleViewController.h */,
+				950CF8E91ED70C100070AC89 /* AJNewScheduleViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -503,6 +537,11 @@
 			children = (
 				954AEC011EACEC810006FF7D /* AJNewPageCollectionViewCell.h */,
 				954AEC021EACEC810006FF7D /* AJNewPageCollectionViewCell.m */,
+				950CF8DD1ED52C8A0070AC89 /* AJNewNotificationTableViewCell.h */,
+				950CF8DE1ED52C8A0070AC89 /* AJNewNotificationTableViewCell.m */,
+				950CF8E31ED6A8070070AC89 /* AJSelectMemberTableViewCell.h */,
+				950CF8E41ED6A8070070AC89 /* AJSelectMemberTableViewCell.m */,
+				950CF8E51ED6A8070070AC89 /* AJSelectMemberTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -512,6 +551,10 @@
 			children = (
 				95581E2D1E48C8D9007327A0 /* AJPasswordTextField.h */,
 				95581E2E1E48C8D9007327A0 /* AJPasswordTextField.m */,
+				95F108171ED1A7E200E54844 /* AJFormTextField.h */,
+				95F108181ED1A7E200E54844 /* AJFormTextField.m */,
+				95F108191ED1A7E200E54844 /* AJFormTextView.h */,
+				95F1081A1ED1A7E200E54844 /* AJFormTextView.m */,
 				0474F1F91EA63A0D00973993 /* AJTabBar.h */,
 				0474F1FA1EA63A0D00973993 /* AJTabBar.m */,
 			);
@@ -680,6 +723,7 @@
 				95C220731E745B550010FCF5 /* AJClubCollectionViewCell.xib in Resources */,
 				0472D08E1E8A53D700632763 /* AJSchoolClubTableViewCell.xib in Resources */,
 				0456E0A81E8B8197006454D6 /* AJNotificationTableViewCell.xib in Resources */,
+				950CF8E71ED6A8070070AC89 /* AJSelectMemberTableViewCell.xib in Resources */,
 				950565781DFDA51B00A3E5C0 /* LaunchScreen.storyboard in Resources */,
 				95BCEC511E8C1A0600C87541 /* AJClubFunctionCollectionViewCell.xib in Resources */,
 				950565731DFDA51B00A3E5C0 /* Main.storyboard in Resources */,
@@ -759,16 +803,22 @@
 			files = (
 				9576637A1E6C63350048FC96 /* AJMeTableViewController.m in Sources */,
 				9505656D1DFDA51B00A3E5C0 /* AppDelegate.m in Sources */,
+				95F1081F1ED1A86400E54844 /* AJNewClubViewController.m in Sources */,
 				957E70E01E6DAC450059B75F /* AJSetNotificationTableViewController.m in Sources */,
 				957E70E31E6DAC6B0059B75F /* AJFeedbackTableViewController.m in Sources */,
+				950CF8DB1ED33ACC0070AC89 /* AJNewNotificationViewController.m in Sources */,
 				045AD2701EC1D74D00963B00 /* AJSchoolMemberTableViewCell.m in Sources */,
+				95F1081B1ED1A7E200E54844 /* AJFormTextField.m in Sources */,
 				957E70DD1E6DABEB0059B75F /* AJSettingTableViewController.m in Sources */,
 				04E4E8AF1E768D21000AECE0 /* AJChangeSignatureTableViewController.m in Sources */,
 				0456E0A71E8B8197006454D6 /* AJNotificationTableViewCell.m in Sources */,
 				955FA3ED1E0AD4A200E7A2F2 /* AJNavigationViewController.m in Sources */,
+				950CF8E21ED6A7630070AC89 /* AJSelectMemberTableViewController.m in Sources */,
+				95F1081C1ED1A7E200E54844 /* AJFormTextView.m in Sources */,
 				0456E0AC1E8BAADC006454D6 /* UITabBar+TrackPoint.m in Sources */,
 				957663741E6C5C390048FC96 /* AJMeSecurityTableViewController.m in Sources */,
 				0472D0941E8A7DB500632763 /* AJSearchViewController.m in Sources */,
+				950CF8E61ED6A8070070AC89 /* AJSelectMemberTableViewCell.m in Sources */,
 				957E70E91E6DACD80059B75F /* AJAboutViewController.m in Sources */,
 				04562E6B1E71279800A84568 /* AJMeInformationViewController.m in Sources */,
 				04E4E8AC1E768CEF000AECE0 /* AJChangeNicknameTableViewController.m in Sources */,
@@ -782,10 +832,12 @@
 				045AD26C1EC1D70C00963B00 /* AJSchoolMemberTableViewController.m in Sources */,
 				950CCEE91E065FE200365F77 /* AJLoginViewController.m in Sources */,
 				04E4E8A91E768CB0000AECE0 /* AJChangeInformationTableViewController.m in Sources */,
+				950CF8EA1ED70C100070AC89 /* AJNewScheduleViewController.m in Sources */,
 				953E25081E61B3F4000B17EF /* AJTabBarViewController.m in Sources */,
 				95BCEC4C1E8C194A00C87541 /* AJClubTableViewCell.m in Sources */,
 				95BCEC491E8C17E900C87541 /* AJClubTableViewController.m in Sources */,
 				0472D08D1E8A53D700632763 /* AJSchoolClubTableViewCell.m in Sources */,
+				950CF8DF1ED52C8A0070AC89 /* AJNewNotificationTableViewCell.m in Sources */,
 				046E392C1E76434500C8A084 /* AJClubCollectionFlowLayout.m in Sources */,
 				95581E2F1E48C8D9007327A0 /* AJPasswordTextField.m in Sources */,
 				0474F1FB1EA63A0D00973993 /* AJTabBar.m in Sources */,

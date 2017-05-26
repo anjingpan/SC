@@ -10,6 +10,9 @@
 #import "UITabBar+TrackPoint.h"
 #import "AJTabBar.h"
 #import "AJNewPageViewController.h"
+#import "AJNewClubViewController.h"
+#import "AJNewNotificationViewController.h"
+#import "AJNewScheduleViewController.h"
 
 @interface AJTabBarViewController ()<AJNewPageViewControllerDelegate>
 
@@ -47,23 +50,31 @@
 
 #pragma mark - AJNewPageViewController Delegate
 - (void)selectCollectionViewCellWithSection:(NSInteger)section{
+    UIViewController *VC;
     switch (section) {
         case 0:
             //新建社团
-            
+            VC = [[AJNewClubViewController alloc] init];
             break;
         case 1:
             //发送通知
-            
+            VC = [[AJNewNotificationViewController alloc] init];
             break;
         case 2:
             //发起审批
             
             break;
-        case 3:
-            //新建日程
-            
-            break;
+    }
+    
+    VC.hidesBottomBarWhenPushed = true;
+    NSInteger tabBarIndex = [self.tabBar.items indexOfObject:self.tabBar.selectedItem];
+    UINavigationController *navigationController = self.viewControllers[tabBarIndex];
+    [navigationController pushViewController:VC animated:YES];
+    
+    if (section == 3) {
+        //新建日程
+        VC = [[AJNewScheduleViewController alloc] init];
+        [self presentViewController:VC animated:YES completion:nil];
     }
 }
 
