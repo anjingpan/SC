@@ -24,11 +24,11 @@
     
     [self.contentView layoutIfNeeded];
     
-    [self addCornerRect:self.memberIconImageView];
     self.imageView.backgroundColor = [UIColor redColor];
     self.memberIconImageView.image = [UIImage imageNamed:@"Me_Placeholder"];
     self.memberNameLabel.text = @"专属的一秒";
     self.memberPositionLabel.text = @"社员";
+    [self addCornerRect:self.memberIconImageView];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -39,7 +39,7 @@
 
 - (void)addCornerRect:(UIImageView *)imageView{
     UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, NO, [UIScreen mainScreen].scale);
-    [[UIBezierPath bezierPathWithRoundedRect:imageView.bounds cornerRadius:imageView.frame.size.width * 0.5] addClip];
+    [[UIBezierPath bezierPathWithRoundedRect:imageView.bounds cornerRadius:imageView.frame.size.width] addClip];
     [imageView drawRect:imageView.bounds];
     imageView.image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();

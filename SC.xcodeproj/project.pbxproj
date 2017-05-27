@@ -40,6 +40,13 @@
 		950CF8E61ED6A8070070AC89 /* AJSelectMemberTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF8E41ED6A8070070AC89 /* AJSelectMemberTableViewCell.m */; };
 		950CF8E71ED6A8070070AC89 /* AJSelectMemberTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 950CF8E51ED6A8070070AC89 /* AJSelectMemberTableViewCell.xib */; };
 		950CF8EA1ED70C100070AC89 /* AJNewScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF8E91ED70C100070AC89 /* AJNewScheduleViewController.m */; };
+		950CF8ED1ED81A350070AC89 /* AJNotiMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF8EC1ED81A350070AC89 /* AJNotiMessageTableViewController.m */; };
+		950CF8F11ED81C3F0070AC89 /* AJNotiMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF8EF1ED81C3F0070AC89 /* AJNotiMessageTableViewCell.m */; };
+		950CF8F21ED81C3F0070AC89 /* AJNotiMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 950CF8F01ED81C3F0070AC89 /* AJNotiMessageTableViewCell.xib */; };
+		950CF8F51ED81D2F0070AC89 /* AJMessageLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF8F41ED81D2F0070AC89 /* AJMessageLabel.m */; };
+		950CF8F81ED897D00070AC89 /* UIImageView+RoundRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF8F71ED897D00070AC89 /* UIImageView+RoundRect.m */; };
+		950CF8FB1ED89BF80070AC89 /* AJNotiDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF8FA1ED89BF80070AC89 /* AJNotiDetailViewController.m */; };
+		950CF8FE1ED9D96A0070AC89 /* AJNotiCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF8FD1ED9D96A0070AC89 /* AJNotiCheckViewController.m */; };
 		95294AE21E5B2EF500FDF1A6 /* AJPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95294AE11E5B2EF500FDF1A6 /* AJPasswordViewController.m */; };
 		953E25081E61B3F4000B17EF /* AJTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 953E25071E61B3F4000B17EF /* AJTabBarViewController.m */; };
 		954AEC031EACEC810006FF7D /* AJNewPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 954AEBFE1EACEC810006FF7D /* AJNewPageViewController.m */; };
@@ -150,6 +157,19 @@
 		950CF8E51ED6A8070070AC89 /* AJSelectMemberTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AJSelectMemberTableViewCell.xib; sourceTree = "<group>"; };
 		950CF8E81ED70C100070AC89 /* AJNewScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNewScheduleViewController.h; sourceTree = "<group>"; };
 		950CF8E91ED70C100070AC89 /* AJNewScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNewScheduleViewController.m; sourceTree = "<group>"; };
+		950CF8EB1ED81A350070AC89 /* AJNotiMessageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNotiMessageTableViewController.h; sourceTree = "<group>"; };
+		950CF8EC1ED81A350070AC89 /* AJNotiMessageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNotiMessageTableViewController.m; sourceTree = "<group>"; };
+		950CF8EE1ED81C3F0070AC89 /* AJNotiMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNotiMessageTableViewCell.h; sourceTree = "<group>"; };
+		950CF8EF1ED81C3F0070AC89 /* AJNotiMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNotiMessageTableViewCell.m; sourceTree = "<group>"; };
+		950CF8F01ED81C3F0070AC89 /* AJNotiMessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AJNotiMessageTableViewCell.xib; sourceTree = "<group>"; };
+		950CF8F31ED81D2F0070AC89 /* AJMessageLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJMessageLabel.h; sourceTree = "<group>"; };
+		950CF8F41ED81D2F0070AC89 /* AJMessageLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJMessageLabel.m; sourceTree = "<group>"; };
+		950CF8F61ED897D00070AC89 /* UIImageView+RoundRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+RoundRect.h"; sourceTree = "<group>"; };
+		950CF8F71ED897D00070AC89 /* UIImageView+RoundRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+RoundRect.m"; sourceTree = "<group>"; };
+		950CF8F91ED89BF80070AC89 /* AJNotiDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNotiDetailViewController.h; sourceTree = "<group>"; };
+		950CF8FA1ED89BF80070AC89 /* AJNotiDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNotiDetailViewController.m; sourceTree = "<group>"; };
+		950CF8FC1ED9D96A0070AC89 /* AJNotiCheckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNotiCheckViewController.h; sourceTree = "<group>"; };
+		950CF8FD1ED9D96A0070AC89 /* AJNotiCheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNotiCheckViewController.m; sourceTree = "<group>"; };
 		95294AE01E5B2EF500FDF1A6 /* AJPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPasswordViewController.h; sourceTree = "<group>"; };
 		95294AE11E5B2EF500FDF1A6 /* AJPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJPasswordViewController.m; sourceTree = "<group>"; };
 		953E25061E61B3F4000B17EF /* AJTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJTabBarViewController.h; sourceTree = "<group>"; };
@@ -233,6 +253,8 @@
 			children = (
 				0456E0AA1E8BAADC006454D6 /* UITabBar+TrackPoint.h */,
 				0456E0AB1E8BAADC006454D6 /* UITabBar+TrackPoint.m */,
+				950CF8F61ED897D00070AC89 /* UIImageView+RoundRect.h */,
+				950CF8F71ED897D00070AC89 /* UIImageView+RoundRect.m */,
 			);
 			name = Category;
 			path = SC/Main/Category;
@@ -429,6 +451,12 @@
 			children = (
 				0456E0A11E8B8121006454D6 /* AJNotificationTableViewController.h */,
 				0456E0A21E8B8121006454D6 /* AJNotificationTableViewController.m */,
+				950CF8EB1ED81A350070AC89 /* AJNotiMessageTableViewController.h */,
+				950CF8EC1ED81A350070AC89 /* AJNotiMessageTableViewController.m */,
+				950CF8F91ED89BF80070AC89 /* AJNotiDetailViewController.h */,
+				950CF8FA1ED89BF80070AC89 /* AJNotiDetailViewController.m */,
+				950CF8FC1ED9D96A0070AC89 /* AJNotiCheckViewController.h */,
+				950CF8FD1ED9D96A0070AC89 /* AJNotiCheckViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -446,6 +474,11 @@
 				0456E0A41E8B8197006454D6 /* AJNotificationTableViewCell.h */,
 				0456E0A51E8B8197006454D6 /* AJNotificationTableViewCell.m */,
 				0456E0A61E8B8197006454D6 /* AJNotificationTableViewCell.xib */,
+				950CF8EE1ED81C3F0070AC89 /* AJNotiMessageTableViewCell.h */,
+				950CF8EF1ED81C3F0070AC89 /* AJNotiMessageTableViewCell.m */,
+				950CF8F01ED81C3F0070AC89 /* AJNotiMessageTableViewCell.xib */,
+				950CF8F31ED81D2F0070AC89 /* AJMessageLabel.h */,
+				950CF8F41ED81D2F0070AC89 /* AJMessageLabel.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -728,6 +761,7 @@
 				95BCEC511E8C1A0600C87541 /* AJClubFunctionCollectionViewCell.xib in Resources */,
 				950565731DFDA51B00A3E5C0 /* Main.storyboard in Resources */,
 				045AD2711EC1D74D00963B00 /* AJSchoolMemberTableViewCell.xib in Resources */,
+				950CF8F21ED81C3F0070AC89 /* AJNotiMessageTableViewCell.xib in Resources */,
 				045C732A1EB0482100E84927 /* AJSchoolClubCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -807,6 +841,7 @@
 				957E70E01E6DAC450059B75F /* AJSetNotificationTableViewController.m in Sources */,
 				957E70E31E6DAC6B0059B75F /* AJFeedbackTableViewController.m in Sources */,
 				950CF8DB1ED33ACC0070AC89 /* AJNewNotificationViewController.m in Sources */,
+				950CF8F51ED81D2F0070AC89 /* AJMessageLabel.m in Sources */,
 				045AD2701EC1D74D00963B00 /* AJSchoolMemberTableViewCell.m in Sources */,
 				95F1081B1ED1A7E200E54844 /* AJFormTextField.m in Sources */,
 				957E70DD1E6DABEB0059B75F /* AJSettingTableViewController.m in Sources */,
@@ -819,8 +854,11 @@
 				957663741E6C5C390048FC96 /* AJMeSecurityTableViewController.m in Sources */,
 				0472D0941E8A7DB500632763 /* AJSearchViewController.m in Sources */,
 				950CF8E61ED6A8070070AC89 /* AJSelectMemberTableViewCell.m in Sources */,
+				950CF8F81ED897D00070AC89 /* UIImageView+RoundRect.m in Sources */,
+				950CF8FE1ED9D96A0070AC89 /* AJNotiCheckViewController.m in Sources */,
 				957E70E91E6DACD80059B75F /* AJAboutViewController.m in Sources */,
 				04562E6B1E71279800A84568 /* AJMeInformationViewController.m in Sources */,
+				950CF8F11ED81C3F0070AC89 /* AJNotiMessageTableViewCell.m in Sources */,
 				04E4E8AC1E768CEF000AECE0 /* AJChangeNicknameTableViewController.m in Sources */,
 				045C73291EB0482100E84927 /* AJSchoolClubCollectionViewCell.m in Sources */,
 				95C220721E745B550010FCF5 /* AJClubCollectionViewCell.m in Sources */,
@@ -841,9 +879,11 @@
 				046E392C1E76434500C8A084 /* AJClubCollectionFlowLayout.m in Sources */,
 				95581E2F1E48C8D9007327A0 /* AJPasswordTextField.m in Sources */,
 				0474F1FB1EA63A0D00973993 /* AJTabBar.m in Sources */,
+				950CF8ED1ED81A350070AC89 /* AJNotiMessageTableViewController.m in Sources */,
 				9505656A1DFDA51B00A3E5C0 /* main.m in Sources */,
 				040E60711EAE1FA100F136ED /* AJSchoolClubTableViewController.m in Sources */,
 				957663771E6C5C4F0048FC96 /* AJChangePasswordTableViewController.m in Sources */,
+				950CF8FB1ED89BF80070AC89 /* AJNotiDetailViewController.m in Sources */,
 				954AEC031EACEC810006FF7D /* AJNewPageViewController.m in Sources */,
 				955FA3F01E0ADDD900E7A2F2 /* AJRegistViewController.m in Sources */,
 				954AEC041EACEC810006FF7D /* AJNewPageCollectionViewCell.m in Sources */,

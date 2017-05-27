@@ -49,7 +49,10 @@ static NSString *const kClubCollectionViewCell = @"clubCollectionViewCell";
         UITapGestureRecognizer *tapIcon = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(alertChangeIcon)];
         [self.userIconImageView addGestureRecognizer:tapIcon];
         
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Me_Edit"] style:UIBarButtonItemStyleDone target:self action:@selector(editInformation:)];        
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Me_Edit"] style:UIBarButtonItemStyleDone target:self action:@selector(editInformation:)];
+        self.clubLabel.text = @"我的社团";
+    }else{
+        self.clubLabel.text = @"Ta的社团";
     }
     
     [self initCollectionView];

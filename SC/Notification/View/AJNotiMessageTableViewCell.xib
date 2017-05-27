@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="86" id="KGk-i7-Jjw" customClass="AJNotiMessageTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="363" height="86"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <frame key="frameInset" width="363" height="85"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="26" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqo-Le-Hfi">
+                        <constraints>
+                            <constraint firstAttribute="width" constant="56" id="Sm9-et-Nji"/>
+                            <constraint firstAttribute="height" constant="18" id="iIz-Ya-5IX"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017.05" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DDC-MF-Gor">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="tnv-Pe-lmS"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TIy-qF-JwY">
+                        <constraints>
+                            <constraint firstAttribute="width" constant="8" id="Umk-kx-O1N"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="928-GT-XOx" customClass="AJMessageLabel">
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OM8-pi-ZIF">
+                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="Usb-qa-zvA"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                <constraints>
+                    <constraint firstItem="DDC-MF-Gor" firstAttribute="top" secondItem="aqo-Le-Hfi" secondAttribute="bottom" constant="8" id="3Kh-U4-0Bu"/>
+                    <constraint firstItem="928-GT-XOx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="615-JP-3ne"/>
+                    <constraint firstItem="aqo-Le-Hfi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="Iws-Vo-5wr"/>
+                    <constraint firstAttribute="trailing" secondItem="928-GT-XOx" secondAttribute="trailing" constant="8" id="QgU-ww-1wM"/>
+                    <constraint firstItem="TIy-qF-JwY" firstAttribute="leading" secondItem="DDC-MF-Gor" secondAttribute="trailing" constant="2" id="S0U-uc-3YF"/>
+                    <constraint firstAttribute="trailing" secondItem="OM8-pi-ZIF" secondAttribute="trailing" id="Tss-8R-VCx"/>
+                    <constraint firstItem="TIy-qF-JwY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="WaP-pF-frg"/>
+                    <constraint firstAttribute="bottom" secondItem="928-GT-XOx" secondAttribute="bottom" constant="12" id="aly-Km-WOX"/>
+                    <constraint firstItem="DDC-MF-Gor" firstAttribute="trailing" secondItem="aqo-Le-Hfi" secondAttribute="trailing" id="bRi-vU-7zz"/>
+                    <constraint firstItem="OM8-pi-ZIF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="bvO-Ft-yui"/>
+                    <constraint firstItem="DDC-MF-Gor" firstAttribute="leading" secondItem="aqo-Le-Hfi" secondAttribute="leading" id="h0C-IM-NUY"/>
+                    <constraint firstAttribute="bottom" secondItem="OM8-pi-ZIF" secondAttribute="bottom" id="uoc-KX-3Mc"/>
+                    <constraint firstItem="928-GT-XOx" firstAttribute="leading" secondItem="TIy-qF-JwY" secondAttribute="trailing" constant="12" id="xWr-cJ-KVm"/>
+                    <constraint firstItem="aqo-Le-Hfi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="y13-ro-0Ve"/>
+                    <constraint firstAttribute="bottom" secondItem="TIy-qF-JwY" secondAttribute="bottom" id="ycN-gm-lCV"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="dateLabel" destination="DDC-MF-Gor" id="C9Y-U8-DsY"/>
+                <outlet property="dayLabel" destination="aqo-Le-Hfi" id="Gi8-bw-2G7"/>
+                <outlet property="isReaderImageView" destination="TIy-qF-JwY" id="Kh4-l7-wh6"/>
+                <outlet property="messageLabel" destination="928-GT-XOx" id="NEq-xA-2Qg"/>
+            </connections>
+            <point key="canvasLocation" x="55.5" y="144"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -8,6 +8,7 @@
 
 #import "AJNotificationTableViewController.h"
 #import "AJNotificationTableViewCell.h"
+#import "AJNotiMessageTableViewController.h"
 
 static NSString *const kNotificationTableViewCell = @"notificationTableViewCell"; /**< 重用标识*/
 
@@ -61,6 +62,14 @@ static NSString *const kNotificationTableViewCell = @"notificationTableViewCell"
     cell.notificationTypeImageview.image = [UIImage imageNamed:[NSString stringWithFormat:@"Notification_%@",self.notificationIconArray[indexPath.row]]];
     cell.notificationTypeLabel.text = self.notificationTypeArray[indexPath.row];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    AJNotiMessageTableViewController *VC = [[AJNotiMessageTableViewController alloc] init];
+    VC.titleText = self.notificationTypeArray[indexPath.row];
+    VC.hidesBottomBarWhenPushed = true;
+    [self.navigationController pushViewController:VC animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end
