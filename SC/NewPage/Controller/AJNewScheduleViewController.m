@@ -13,6 +13,7 @@
 #import <Photos/PHPhotoLibrary.h>
 
 @interface AJNewScheduleViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@property (nonatomic, strong) UIView *statusBar;
 @property (nonatomic, strong) UIView *navigationBar;
 //@property (nonatomic, strong) UINavigationBar *navigationBar;
 @property (nonatomic, strong) UIButton *closeButton;
@@ -48,7 +49,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    [self setStatusBarBackgroundColor:AJBarColor];
+    //[self setStatusBarBackgroundColor:AJBarColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,13 +59,14 @@
 
 
 #pragma mark - Init View
-//设置状态栏背景颜色
-- (void)setStatusBarBackgroundColor:(UIColor *)color{
+//设置状态栏背景颜色，会修改所有状态栏颜色
+/*- (void)setStatusBarBackgroundColor:(UIColor *)color{
     UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
     if ([statusBar respondsToSelector:@selector(setBackgroundColor:)]) {
         [statusBar setBackgroundColor:color];
     }
 }
+ */
 
 //设置状态栏上文字颜色
 - (UIStatusBarStyle)preferredStatusBarStyle{
@@ -78,6 +80,14 @@
     CGFloat marginY = 10.0;
     CGFloat buttonWidth = navigationHeight - 2 * marginY;
     CGFloat fontSize = 16.0;
+    
+    self.statusBar = ({
+        UIView *view = [[UIView alloc] init];
+        view.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 20);
+        view.backgroundColor = AJBarColor;
+        [self.view addSubview:view];
+        view;
+    });
     
     self.navigationBar = ({
         UIView *navigationBar = [[UIView alloc] init];

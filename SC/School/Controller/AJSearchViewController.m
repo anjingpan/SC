@@ -8,7 +8,7 @@
 
 #import "AJSearchViewController.h"
 
-@interface AJSearchViewController ()
+@interface AJSearchViewController ()<UITextFieldDelegate>
 @property (nonatomic, strong) UITextField *searchTextField;
 
 @end
@@ -34,12 +34,18 @@
         textField.backgroundColor = [UIColor clearColor];
         textField.textColor = [UIColor whiteColor];
         textField.borderStyle = UITextBorderStyleNone;
-        NSAttributedString *placeholderString = [[NSAttributedString alloc] initWithString:@"输入关键词" attributes:@{NSForegroundColorAttributeName : [UIColor lightGrayColor]}];
+        NSAttributedString *placeholderString = [[NSAttributedString alloc] initWithString:@" 输入关键词" attributes:@{NSForegroundColorAttributeName : [UIColor lightGrayColor]}];
         textField.attributedPlaceholder = placeholderString;
         textField.backgroundColor = [UIColor clearColor];
         UIImageView *searchImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"School_Search"]];
         textField.leftView = searchImageView;
         textField.leftViewMode = UITextFieldViewModeAlways;
+        //自定义完成搜索
+        textField.returnKeyType = UIReturnKeySearch;
+        textField.delegate = self;
+        
+        //进去就是输入状态
+        [textField becomeFirstResponder];
         textField;
     });
     UIBarButtonItem *leftSearchButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.searchTextField];
@@ -52,6 +58,14 @@
 
 - (void)cancelSearch{
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - UITextField Delegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    //ToDo：搜索请求
+    
+    return false;
 }
 
 @end

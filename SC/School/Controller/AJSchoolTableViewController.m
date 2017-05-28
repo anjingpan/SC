@@ -10,6 +10,7 @@
 #import "AJSchoolClubTableViewCell.h"
 #import "AJSearchViewController.h"
 #import "AJSchoolClubTableViewController.h"
+#import "AJNewsViewController.h"
 
 static CGFloat const kScrollTime = 3.f;  /**< 计时器时间*/
 static NSString *const kSchoolTableViewCell = @"schoolTableViewCell";   /**< 社团列表重用标识符*/
@@ -84,6 +85,10 @@ static NSString *const kSchoolTableViewCell = @"schoolTableViewCell";   /**< 社
             [scrollView addSubview:imageView];
         }
         [self.headerView addSubview:scrollView];
+        
+        //为轮播图添加点击事件
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapScrollView)];
+        [scrollView addGestureRecognizer:tapGesture];
         scrollView;
     });
     
@@ -105,6 +110,13 @@ static NSString *const kSchoolTableViewCell = @"schoolTableViewCell";   /**< 社
     AJSearchViewController *searchVC = [[AJSearchViewController alloc] init];
     searchVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:searchVC animated:YES];
+}
+
+- (void)tapScrollView{
+    AJNewsViewController *VC = [[AJNewsViewController alloc] init];
+    VC.hidesBottomBarWhenPushed = true;
+    NSLog(@"第%li页",(long)self.currentPage);
+    [self.navigationController pushViewController:VC animated:YES];
 }
 
 #pragma mark - Timer
@@ -181,6 +193,8 @@ static NSString *const kSchoolTableViewCell = @"schoolTableViewCell";   /**< 社
     //隐藏工具栏
     clubVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:clubVC animated:YES];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:true];
 }
 
 @end

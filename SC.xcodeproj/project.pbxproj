@@ -47,6 +47,7 @@
 		950CF8F81ED897D00070AC89 /* UIImageView+RoundRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF8F71ED897D00070AC89 /* UIImageView+RoundRect.m */; };
 		950CF8FB1ED89BF80070AC89 /* AJNotiDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF8FA1ED89BF80070AC89 /* AJNotiDetailViewController.m */; };
 		950CF8FE1ED9D96A0070AC89 /* AJNotiCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF8FD1ED9D96A0070AC89 /* AJNotiCheckViewController.m */; };
+		950CF9051EDA04B00070AC89 /* AJNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF9041EDA04B00070AC89 /* AJNewsViewController.m */; };
 		95294AE21E5B2EF500FDF1A6 /* AJPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95294AE11E5B2EF500FDF1A6 /* AJPasswordViewController.m */; };
 		953E25081E61B3F4000B17EF /* AJTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 953E25071E61B3F4000B17EF /* AJTabBarViewController.m */; };
 		954AEC031EACEC810006FF7D /* AJNewPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 954AEBFE1EACEC810006FF7D /* AJNewPageViewController.m */; };
@@ -170,6 +171,8 @@
 		950CF8FA1ED89BF80070AC89 /* AJNotiDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNotiDetailViewController.m; sourceTree = "<group>"; };
 		950CF8FC1ED9D96A0070AC89 /* AJNotiCheckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNotiCheckViewController.h; sourceTree = "<group>"; };
 		950CF8FD1ED9D96A0070AC89 /* AJNotiCheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNotiCheckViewController.m; sourceTree = "<group>"; };
+		950CF9031EDA04B00070AC89 /* AJNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNewsViewController.h; sourceTree = "<group>"; };
+		950CF9041EDA04B00070AC89 /* AJNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNewsViewController.m; sourceTree = "<group>"; };
 		95294AE01E5B2EF500FDF1A6 /* AJPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPasswordViewController.h; sourceTree = "<group>"; };
 		95294AE11E5B2EF500FDF1A6 /* AJPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJPasswordViewController.m; sourceTree = "<group>"; };
 		953E25061E61B3F4000B17EF /* AJTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJTabBarViewController.h; sourceTree = "<group>"; };
@@ -504,6 +507,8 @@
 				040E60701EAE1FA100F136ED /* AJSchoolClubTableViewController.m */,
 				045AD26A1EC1D70C00963B00 /* AJSchoolMemberTableViewController.h */,
 				045AD26B1EC1D70C00963B00 /* AJSchoolMemberTableViewController.m */,
+				950CF9031EDA04B00070AC89 /* AJNewsViewController.h */,
+				950CF9041EDA04B00070AC89 /* AJNewsViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -870,6 +875,7 @@
 				045AD26C1EC1D70C00963B00 /* AJSchoolMemberTableViewController.m in Sources */,
 				950CCEE91E065FE200365F77 /* AJLoginViewController.m in Sources */,
 				04E4E8A91E768CB0000AECE0 /* AJChangeInformationTableViewController.m in Sources */,
+				950CF9051EDA04B00070AC89 /* AJNewsViewController.m in Sources */,
 				950CF8EA1ED70C100070AC89 /* AJNewScheduleViewController.m in Sources */,
 				953E25081E61B3F4000B17EF /* AJTabBarViewController.m in Sources */,
 				95BCEC4C1E8C194A00C87541 /* AJClubTableViewCell.m in Sources */,

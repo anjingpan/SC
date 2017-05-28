@@ -65,6 +65,8 @@ static NSString *const kSchoolMemberTableViewCell = @"schoolMemberTableViewCell"
     AJMeInformationViewController *informationViewController = [storyboard instantiateViewControllerWithIdentifier:IDENTIFIER_AJMEINFORMATIONVIEWCONTROLLER];
     informationViewController.isAllowEdit = false;
     [self.navigationController pushViewController:informationViewController animated:YES];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:true];
 }
 
 @end
