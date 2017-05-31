@@ -83,13 +83,14 @@
     self.enterButton = ({
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake(marginX, CGRectGetMaxY(self.secondLineView.frame) + marginTop, [UIScreen mainScreen].bounds.size.width - 2 * marginX, buttonHeight);
+        button.backgroundColor = [UIColor blackColor];
         button.titleLabel.font = [UIFont boldSystemFontOfSize: buttonFont];
         button.layer.cornerRadius = 5.0f;
         button.layer.masksToBounds = YES;
+        button.alpha = 0.4;
         button.enabled = NO;
         [button setTitle:@"进入社彩" forState:UIControlStateNormal];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [button setBackgroundImage:[UIImage imageNamed:@"button_login"] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(enterSC:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:button];
         button;
@@ -99,7 +100,11 @@
 - (void)textChanged{
     if (self.passwordTextField.hasText && self.confirmPasswordTextField.hasText) {
         self.enterButton.enabled = YES;
+    }else{
+        self.enterButton.enabled = NO;
     }
+    
+    self.enterButton.alpha = self.enterButton.enabled ? 1 : 0.4;
 }
 
 - (void)enterSC:(UIButton *)button{

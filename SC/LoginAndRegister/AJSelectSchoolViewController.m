@@ -76,6 +76,7 @@ static NSString *const kSchoolTableViewCellReuseId = @"schoolTableViewCell";
 //    UITableViewCell *cell = [self.schoolTableView cellForRowAtIndexPath:indexPath];
     UIViewController *VC = [[AJPasswordViewController alloc] init];
     [self.navigationController pushViewController:VC animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:true];
 }
 
 #pragma mark - UISearchResultsUpdating

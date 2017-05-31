@@ -30,6 +30,7 @@
     [super viewDidLoad];
     
     //实现圆角按钮
+    self.loginButton.alpha = 0.4;
     self.loginButton.layer.cornerRadius = 5.f;
     self.loginButton.layer.masksToBounds = YES;
     
@@ -42,6 +43,11 @@
 
 - (void)textChanged{
     self.loginButton.enabled = self.userAccountTextField.hasText && self.passwordTextField.hasText;
+    if (self.loginButton.enabled) {
+        self.loginButton.alpha = 1;
+    }else{
+        self.loginButton.alpha = 0.4;
+    }
 }
 
 - (void)didReceiveMemoryWarning {

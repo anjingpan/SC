@@ -28,6 +28,8 @@
         self.getVerifyCodeButton.enabled = YES;
     }
     
+    self.getVerifyCodeButton.alpha = 0.4;
+    self.nextButton.alpha = 0.4;
     self.getVerifyCodeButton.layer.cornerRadius = 3.f;
     self.getVerifyCodeButton.layer.masksToBounds = YES;
     self.nextButton.layer.cornerRadius = 5.f;
@@ -46,6 +48,13 @@
         self.getVerifyCodeButton.enabled = self.phoneTextField.hasText;
     }
     self.nextButton.enabled = self.phoneTextField.hasText && self.verifyCodeTextField.hasText;
+    if (self.getVerifyCodeButton.enabled) {
+        self.getVerifyCodeButton.alpha = 1;
+    }else{
+        self.getVerifyCodeButton.alpha = 0.4;
+    }
+    
+    self.nextButton.alpha = self.nextButton.enabled ? 1 : 0.4;
 }
 
 - (void)didReceiveMemoryWarning {
