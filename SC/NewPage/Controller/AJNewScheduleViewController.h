@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface AJNewScheduleViewController : UIViewController
+@property (nonatomic, strong) NSString *textString;
 
 @end

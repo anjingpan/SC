@@ -24,8 +24,10 @@ static NSString *const kClubFunctionCollectionCell = @"clubFunctionCollectionCel
 - (instancetype)init{
     self = [super init];
     if (self) {
-        self.clubFunctionImageArray = @[@"Notification",@"Schedule",@"CashApproval",@"Approval",@"EmptySchedule",@"CashFlow",@"Address",@"More"];
-        self.clubFunctionNameArray = @[@"群发通知",@"日程管理",@"资金审批",@"场地审核",@"空课表",@"资金流动",@"通讯录",@"更多功能"];
+        //self.clubFunctionImageArray = @[@"Notification",@"Schedule",@"CashApproval",@"Approval",@"EmptySchedule",@"CashFlow",@"Address",@"More"];
+        //self.clubFunctionNameArray = @[@"群发通知",@"日程管理",@"资金审批",@"场地审核",@"空课表",@"资金流动",@"通讯录",@"更多功能"];
+        self.clubFunctionImageArray = @[@"Schedule",@"Address",@"More"];
+        self.clubFunctionNameArray = @[@"日程管理",@"通讯录",@"更多功能"];
         
         self.collectionView = ({
             UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
@@ -45,8 +47,10 @@ static NSString *const kClubFunctionCollectionCell = @"clubFunctionCollectionCel
     [super awakeFromNib];
     // Initialization code
     
-    self.clubFunctionImageArray = @[@"Notification",@"Schedule",@"CashApproval",@"Approval",@"EmptySchedule",@"CashFlow",@"Address",@"More"];
-    self.clubFunctionNameArray = @[@"群发通知",@"日程管理",@"资金审批",@"场地审核",@"空课表",@"资金流动",@"通讯录",@"更多功能"];
+    //self.clubFunctionImageArray = @[@"Notification",@"Schedule",@"CashApproval",@"Approval",@"EmptySchedule",@"CashFlow",@"Address",@"More"];
+    //self.clubFunctionNameArray = @[@"群发通知",@"日程管理",@"资金审批",@"场地审核",@"空课表",@"资金流动",@"通讯录",@"更多功能"];
+    self.clubFunctionImageArray = @[@"Schedule",@"Address",@"More"];
+    self.clubFunctionNameArray = @[@"日程管理",@"通讯录",@"更多功能"];
     
     self.collectionView = ({
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
@@ -70,7 +74,7 @@ static NSString *const kClubFunctionCollectionCell = @"clubFunctionCollectionCel
 
 #pragma mark - CollectionViewDelegate && DataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 8;
+    return self.clubFunctionImageArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -80,6 +84,13 @@ static NSString *const kClubFunctionCollectionCell = @"clubFunctionCollectionCel
     cell.functionLabel.text = self.clubFunctionNameArray[indexPath.item];
     
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    if (self.clickBlock) {
+        self.clickBlock(indexPath.row);
+    }
+    
 }
 
 #pragma mark - CollectionViewLayout

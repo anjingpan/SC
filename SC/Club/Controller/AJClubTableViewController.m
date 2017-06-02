@@ -8,6 +8,8 @@
 
 #import "AJClubTableViewController.h"
 #import "AJClubTableViewCell.h"
+#import "AJScheduleTableViewController.h"
+#import "AJAddressTableViewController.h"
 
 static NSString *const kClubTableViewCell = @"clubTableViewCell";
 
@@ -52,6 +54,24 @@ static NSString *const kClubTableViewCell = @"clubTableViewCell";
         cell = [[AJClubTableViewCell alloc] init];
     }
     
+    cell.clickBlock = ^(NSInteger row){
+        UIViewController *VC;
+        switch (row) {
+            case 0:
+                //日程管理
+                VC = [[AJScheduleTableViewController alloc] init];
+                break;
+            case 1:
+                //通讯录
+                VC = [[AJAddressTableViewController alloc] init];
+                break;
+            default:
+                break;
+        }
+        
+        VC.hidesBottomBarWhenPushed = true;
+        [self.navigationController pushViewController:VC animated:YES];
+    };
     return cell;
 }
 

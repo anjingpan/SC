@@ -54,6 +54,10 @@
 		950CF91D1EE15A5D0070AC89 /* AJSelectSchoolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF9191EE15A5D0070AC89 /* AJSelectSchoolViewController.m */; };
 		950CF9201EE15A830070AC89 /* AJAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF91F1EE15A830070AC89 /* AJAccount.m */; };
 		950CF9231EE15AD30070AC89 /* AJAccount+Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF9221EE15AD30070AC89 /* AJAccount+Request.m */; };
+		950CF9261EE1915E0070AC89 /* AJScheduleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF9251EE1915E0070AC89 /* AJScheduleTableViewController.m */; };
+		950CF92E1EE1A2D10070AC89 /* AJScheduleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF92D1EE1A2D10070AC89 /* AJScheduleDetailViewController.m */; };
+		950CF9311EE1D2B30070AC89 /* UILabel+AdaptSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF9301EE1D2B30070AC89 /* UILabel+AdaptSize.m */; };
+		950CF9371EE1E4970070AC89 /* AJAddressTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF9361EE1E4970070AC89 /* AJAddressTableViewController.m */; };
 		953E25081E61B3F4000B17EF /* AJTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 953E25071E61B3F4000B17EF /* AJTabBarViewController.m */; };
 		954AEC031EACEC810006FF7D /* AJNewPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 954AEBFE1EACEC810006FF7D /* AJNewPageViewController.m */; };
 		954AEC041EACEC810006FF7D /* AJNewPageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 954AEC021EACEC810006FF7D /* AJNewPageCollectionViewCell.m */; };
@@ -188,6 +192,14 @@
 		950CF91F1EE15A830070AC89 /* AJAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJAccount.m; sourceTree = "<group>"; };
 		950CF9211EE15AD30070AC89 /* AJAccount+Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AJAccount+Request.h"; sourceTree = "<group>"; };
 		950CF9221EE15AD30070AC89 /* AJAccount+Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AJAccount+Request.m"; sourceTree = "<group>"; };
+		950CF9241EE1915E0070AC89 /* AJScheduleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJScheduleTableViewController.h; sourceTree = "<group>"; };
+		950CF9251EE1915E0070AC89 /* AJScheduleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJScheduleTableViewController.m; sourceTree = "<group>"; };
+		950CF92C1EE1A2D10070AC89 /* AJScheduleDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJScheduleDetailViewController.h; sourceTree = "<group>"; };
+		950CF92D1EE1A2D10070AC89 /* AJScheduleDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJScheduleDetailViewController.m; sourceTree = "<group>"; };
+		950CF92F1EE1D2B30070AC89 /* UILabel+AdaptSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+AdaptSize.h"; sourceTree = "<group>"; };
+		950CF9301EE1D2B30070AC89 /* UILabel+AdaptSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+AdaptSize.m"; sourceTree = "<group>"; };
+		950CF9351EE1E4970070AC89 /* AJAddressTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJAddressTableViewController.h; sourceTree = "<group>"; };
+		950CF9361EE1E4970070AC89 /* AJAddressTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJAddressTableViewController.m; sourceTree = "<group>"; };
 		953E25061E61B3F4000B17EF /* AJTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJTabBarViewController.h; sourceTree = "<group>"; };
 		953E25071E61B3F4000B17EF /* AJTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJTabBarViewController.m; sourceTree = "<group>"; };
 		954AEBFD1EACEC810006FF7D /* AJNewPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNewPageViewController.h; sourceTree = "<group>"; };
@@ -267,6 +279,8 @@
 				0456E0AB1E8BAADC006454D6 /* UITabBar+TrackPoint.m */,
 				950CF8F61ED897D00070AC89 /* UIImageView+RoundRect.h */,
 				950CF8F71ED897D00070AC89 /* UIImageView+RoundRect.m */,
+				950CF92F1EE1D2B30070AC89 /* UILabel+AdaptSize.h */,
+				950CF9301EE1D2B30070AC89 /* UILabel+AdaptSize.m */,
 			);
 			name = Category;
 			path = SC/Main/Category;
@@ -417,6 +431,12 @@
 			children = (
 				95BCEC471E8C17E900C87541 /* AJClubTableViewController.h */,
 				95BCEC481E8C17E900C87541 /* AJClubTableViewController.m */,
+				950CF9241EE1915E0070AC89 /* AJScheduleTableViewController.h */,
+				950CF9251EE1915E0070AC89 /* AJScheduleTableViewController.m */,
+				950CF92C1EE1A2D10070AC89 /* AJScheduleDetailViewController.h */,
+				950CF92D1EE1A2D10070AC89 /* AJScheduleDetailViewController.m */,
+				950CF9351EE1E4970070AC89 /* AJAddressTableViewController.h */,
+				950CF9361EE1E4970070AC89 /* AJAddressTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -899,8 +919,11 @@
 				9576637A1E6C63350048FC96 /* AJMeTableViewController.m in Sources */,
 				9505656D1DFDA51B00A3E5C0 /* AppDelegate.m in Sources */,
 				95F1081F1ED1A86400E54844 /* AJNewClubViewController.m in Sources */,
+				950CF9311EE1D2B30070AC89 /* UILabel+AdaptSize.m in Sources */,
 				957E70E01E6DAC450059B75F /* AJSetNotificationTableViewController.m in Sources */,
 				957E70E31E6DAC6B0059B75F /* AJFeedbackTableViewController.m in Sources */,
+				950CF9261EE1915E0070AC89 /* AJScheduleTableViewController.m in Sources */,
+				950CF92E1EE1A2D10070AC89 /* AJScheduleDetailViewController.m in Sources */,
 				950CF8DB1ED33ACC0070AC89 /* AJNewNotificationViewController.m in Sources */,
 				950CF8F51ED81D2F0070AC89 /* AJMessageLabel.m in Sources */,
 				045AD2701EC1D74D00963B00 /* AJSchoolMemberTableViewCell.m in Sources */,
@@ -922,6 +945,7 @@
 				950CF8FE1ED9D96A0070AC89 /* AJNotiCheckViewController.m in Sources */,
 				957E70E91E6DACD80059B75F /* AJAboutViewController.m in Sources */,
 				04562E6B1E71279800A84568 /* AJMeInformationViewController.m in Sources */,
+				950CF9371EE1E4970070AC89 /* AJAddressTableViewController.m in Sources */,
 				950CF9231EE15AD30070AC89 /* AJAccount+Request.m in Sources */,
 				950CF8F11ED81C3F0070AC89 /* AJNotiMessageTableViewCell.m in Sources */,
 				04E4E8AC1E768CEF000AECE0 /* AJChangeNicknameTableViewController.m in Sources */,

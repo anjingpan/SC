@@ -39,7 +39,11 @@
 }
 
 - (void)drawRect:(CGRect)rect{
-    NSLog(@"%@",NSStringFromCGRect(self.frame));
+    //如果一开始就有值应该就上移 placeholderLabel
+    if (![self.text isEqualToString:@""]) {
+        self.placeholderLabel.frame = CGRectMake(0, 0, self.frame.size.width, self.placeholderHeight);
+    }
+    
     CAShapeLayer *border = [CAShapeLayer layer];
     UIBezierPath *borderPath = [UIBezierPath bezierPath];
     [borderPath moveToPoint:CGPointMake(0, self.frame.size.height)];
@@ -74,6 +78,7 @@
         [self addSubview:label];
         label;
     });
+    
 }
 
 #pragma mark - UITextViewDelegate

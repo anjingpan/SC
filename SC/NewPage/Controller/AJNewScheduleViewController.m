@@ -174,6 +174,7 @@
     self.textView = ({
         AJFormTextView *textView = [[AJFormTextView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.navigationBar.frame), [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - CGRectGetMaxY(self.navigationBar.frame) - CGRectGetHeight(self.scheduleToolbar.frame))];
         textView.placeholderText = @"日程内容";
+        textView.text = self.textString ? self.textString :@"";
         textView.borderColor = [UIColor whiteColor];
         [self.view addSubview:textView];
         textView;

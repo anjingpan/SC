@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^clubTableViewCellClick)(NSInteger row);
+
 @interface AJClubTableViewCell : UITableViewCell
+@property (nonatomic, copy)clubTableViewCellClick clickBlock;
 
 @end
