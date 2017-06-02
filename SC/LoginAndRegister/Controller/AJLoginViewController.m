@@ -8,6 +8,10 @@
 
 #import "AJLoginViewController.h"
 #import "AJRegistViewController.h"
+#import "AJAccount+Request.h"
+#import "MBProgressHUD.h"
+#import "YYModel.h"
+#import "AJProfile.h"
 
 @interface AJLoginViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *userAccountTextField;  /**< 帐号输入框*/
@@ -62,6 +66,27 @@
 
 //登录
 - (IBAction)login:(UIButton *)sender {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"正在登录中";
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"phone"] = self.userAccountTextField.text;
+    params[@"password"] = self.passwordTextField.text;
+    
+    [AJAccount loginRequestWithParams:params SuccessBlock:^(id object) {
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = @"登录成功";
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            AJAccount *account = [AJAccount yy_modelWithJSON:object];
+            [[NSUserDefaults standardUserDefaults] setObject:account.token forKey:USERDEFAULT_TOKEN_KEY];
+            
+            UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            [UIApplication sharedApplication].keyWindow.rootViewController = [mainStoryboard instantiateViewControllerWithIdentifier:IDENTIFIER_AJTABBARVIEWCONTROLLER];
+        });
+    } FailBlock:^(NSError *error) {
+        
+    }];
 }
 
 

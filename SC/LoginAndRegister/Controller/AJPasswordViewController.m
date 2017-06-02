@@ -8,6 +8,10 @@
 
 #import "AJPasswordViewController.h"
 #import "AJPasswordTextField.h"
+#import "AJAccount+Request.h"
+#import "MBProgressHUD.h"
+#import "YYModel.h"
+#import "AJProfile.h"
 
 @interface AJPasswordViewController ()
 
@@ -113,6 +117,30 @@
         UIAlertAction *ok = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:nil];
         [alertController addAction:ok];
         [self presentViewController:alertController animated:YES completion:nil];
+    }else{
+        NSMutableDictionary *params = [NSMutableDictionary dictionary];
+        params[@"phone"] = self.phoneText;
+        params[@"password"] = self.passwordTextField.text;
+        params[@"school"] = self.schoolText;
+        
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.labelText = @"正在设置中";
+        
+        [AJAccount registerRequestWithParams:params SuccessBlock:^(id object) {
+            hud.mode = MBProgressHUDModeText;
+            hud.labelText = @"登录成功";
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                AJAccount *account = [AJAccount yy_modelWithJSON:object];
+                [[NSUserDefaults standardUserDefaults] setObject:account.token forKey:USERDEFAULT_TOKEN_KEY];
+                
+                UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                [UIApplication sharedApplication].keyWindow.rootViewController = [mainStoryboard instantiateViewControllerWithIdentifier:IDENTIFIER_AJTABBARVIEWCONTROLLER];
+            });
+            
+        } FailBlock:^(NSError *error) {
+            
+        }];
     }
 }
 

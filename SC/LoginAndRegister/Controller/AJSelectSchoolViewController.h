@@ -10,4 +10,6 @@
 
 @interface AJSelectSchoolViewController : UIViewController
 
+@property(nonatomic, strong)NSString *phoneText;
+
 @end

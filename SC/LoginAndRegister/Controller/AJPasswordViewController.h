@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface AJPasswordViewController : UIViewController
+@property (nonatomic, strong) NSString *phoneText;
+@property (nonatomic, strong) NSString *schoolText;
 
 @end

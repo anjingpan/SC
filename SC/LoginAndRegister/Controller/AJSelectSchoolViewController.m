@@ -74,7 +74,9 @@ static NSString *const kSchoolTableViewCellReuseId = @"schoolTableViewCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 //    UITableViewCell *cell = [self.schoolTableView cellForRowAtIndexPath:indexPath];
-    UIViewController *VC = [[AJPasswordViewController alloc] init];
+    AJPasswordViewController *VC = [[AJPasswordViewController alloc] init];
+    VC.phoneText = self.phoneText;
+    VC.schoolText = self.dataArray[indexPath.row];
     [self.navigationController pushViewController:VC animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:true];
 }
