@@ -10,6 +10,6 @@
 
 @interface AJAccount : NSObject
 
-@property (nonatomic, strong) NSString *token;
+@property (nonatomic, strong) NSString *access_token;
 
 @end

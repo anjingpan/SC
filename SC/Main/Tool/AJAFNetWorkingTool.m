@@ -37,10 +37,10 @@ static AFHTTPSessionManager *sessionManager = nil;
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     
     [manager GET:urlStr parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        if ([responseObject[@"errcode"] isEqualToString:@"0"]) {
+        if ([responseObject[@"errcode"] isEqualToString:@"0"] || responseObject[@"errcode"] == 0) {
             successBlock(responseObject);
         }else{
-            
+            failBlock([NSError errorWithDomain:@"AJAppError" code:(NSInteger)responseObject[@"errcode"] userInfo:@{NSLocalizedDescriptionKey : responseObject[@"errmsg"]}]);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failBlock(error);
@@ -64,10 +64,10 @@ static AFHTTPSessionManager *sessionManager = nil;
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     
     [manager POST:urlStr parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        if ([responseObject[@"errcode"] isEqualToString:@"0"]) {
+        if ([responseObject[@"errcode"] isEqualToString:@"0"] || responseObject[@"errcode"] == 0) {
             successBlock(responseObject);
         }else{
-            
+            failBlock([NSError errorWithDomain:@"AJAppError" code:(NSInteger)responseObject[@"errcode"] userInfo:@{NSLocalizedDescriptionKey : responseObject[@"errmsg"]}]);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failBlock(error);
@@ -95,8 +95,10 @@ static AFHTTPSessionManager *sessionManager = nil;
             [formData appendPartWithFileData:imageData name:@"file" fileName:[NSString stringWithFormat:@"image_%i",i + 1] mimeType:@"image/jpeg"];
         }
     } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        if ([responseObject[@"errcode"] isEqualToString:@"0"]) {
+        if ([responseObject[@"errcode"] isEqualToString:@"0"] || responseObject[@"errcode"] == 0) {
             successBlock(responseObject);
+        }else{
+            failBlock([NSError errorWithDomain:@"AJAppError" code:(NSInteger)responseObject[@"errcode"] userInfo:@{NSLocalizedDescriptionKey : responseObject[@"errmsg"]}]);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failBlock(error);

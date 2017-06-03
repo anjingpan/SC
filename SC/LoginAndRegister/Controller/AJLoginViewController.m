@@ -78,8 +78,8 @@
         hud.labelText = @"登录成功";
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [MBProgressHUD hideHUDForView:self.view animated:YES];
-            AJAccount *account = [AJAccount yy_modelWithJSON:object];
-            [[NSUserDefaults standardUserDefaults] setObject:account.token forKey:USERDEFAULT_TOKEN_KEY];
+            AJAccount *account = [AJAccount yy_modelWithJSON:object[@"data"]];
+            [[NSUserDefaults standardUserDefaults] setObject:account.access_token forKey:USERDEFAULT_TOKEN_KEY];
             
             UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             [UIApplication sharedApplication].keyWindow.rootViewController = [mainStoryboard instantiateViewControllerWithIdentifier:IDENTIFIER_AJTABBARVIEWCONTROLLER];

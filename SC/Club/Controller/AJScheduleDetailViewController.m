@@ -28,7 +28,7 @@ static NSString *const kScheduleDetailCollectionCell = @"scheduleDetailCollectio
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"日程详情";
-    self.view.backgroundColor = AJBackGroundColor;
+    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Me_Edit"] style:UIBarButtonItemStyleDone target:self action:@selector(editSchedule)];
     
@@ -82,7 +82,7 @@ static NSString *const kScheduleDetailCollectionCell = @"scheduleDetailCollectio
         UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
         flowLayout.itemSize = CGSizeMake(([UIScreen mainScreen].bounds.size.width - 2 * marginX) * 0.5, ([UIScreen mainScreen].bounds.size.width - 2 * marginX) * 0.5);
         UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.dataLabel.frame) + marginY, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - CGRectGetMaxY(self.dataLabel.frame) - marginY) collectionViewLayout:flowLayout];
-        collectionView.backgroundColor = AJBackGroundColor;
+        collectionView.backgroundColor = [UIColor groupTableViewBackgroundColor];
         [collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([AJSchoolClubCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:kScheduleDetailCollectionCell];
         collectionView.delegate = self;
         collectionView.dataSource = self;

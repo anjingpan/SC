@@ -11,6 +11,7 @@
 #import "AJSearchViewController.h"
 #import "AJSchoolClubTableViewController.h"
 #import "AJNewsViewController.h"
+#import "MJRefresh.h"
 
 static CGFloat const kScrollTime = 3.f;  /**< 计时器时间*/
 static NSString *const kSchoolTableViewCell = @"schoolTableViewCell";   /**< 社团列表重用标识符*/
@@ -29,7 +30,7 @@ static NSString *const kSchoolTableViewCell = @"schoolTableViewCell";   /**< 社
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = AJBackGroundColor;
+    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
     self.title = @"校园";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"School_Search"] style:UIBarButtonItemStyleDone target:self action:@selector(pushSearchController)];
@@ -41,7 +42,11 @@ static NSString *const kSchoolTableViewCell = @"schoolTableViewCell";   /**< 社
     
     [self initHeaderView];
     
+    //添加下拉刷新和上拉加载控件
+    [self shouldAddPullToRefresh:YES];
+    [self shouldAddPushToRefresh:YES];
     [self.tableView registerNib:[UINib nibWithNibName:@"AJSchoolClubTableViewCell" bundle:nil] forCellReuseIdentifier:kSchoolTableViewCell];
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -28,3 +28,4 @@ static NSString *const SHAKE_SWITCH_STATE  = @"shakeSwitchState";  /**< 震动�
 //Stroyboard Identifier
 static NSString *const IDENTIFIER_AJMEINFORMATIONVIEWCONTROLLER = @"meInformationViewController"; /**< 个人信息界面标识符*/
 static NSString *const IDENTIFIER_AJTABBARVIEWCONTROLLER = @"tabbarViewController";     /**< 主页面标志符*/
+static NSString *const IDENTIFIER_AJLOGINVIEWCONTROLLER = @"loginViewController";       /**< 登录界面*/
