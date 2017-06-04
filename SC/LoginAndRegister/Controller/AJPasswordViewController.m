@@ -124,11 +124,11 @@
         params[@"school"] = self.schoolText;
         
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.labelText = @"正在设置中";
+        hud.label.text = @"正在设置中";
         
         [AJAccount registerRequestWithParams:params SuccessBlock:^(id object) {
             hud.mode = MBProgressHUDModeText;
-            hud.labelText = @"登录成功";
+            hud.label.text = @"登录成功";
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [MBProgressHUD hideHUDForView:self.view animated:YES];
                 AJAccount *account = [AJAccount yy_modelWithJSON:object[@"data"]];
@@ -139,7 +139,11 @@
             });
             
         } FailBlock:^(NSError *error) {
-            
+            hud.mode = MBProgressHUDModeText;
+            hud.label.text = [NSString stringWithFormat:@"%@",error.userInfo[NSLocalizedDescriptionKey]? : @"服务器错误，稍后再试"];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+            });
         }];
     }
 }

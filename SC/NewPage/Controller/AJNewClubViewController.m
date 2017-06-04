@@ -12,6 +12,8 @@
 #import "MBProgressHUD.h"
 #import <AVFoundation/AVFoundation.h>
 #import <Photos/PHPhotoLibrary.h>
+#import "AJSchoolClub+Request.h"
+#import "MBProgressHUD.h"
 
 @interface AJNewClubViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
@@ -20,6 +22,7 @@
 @property(nonatomic, strong)AJFormTextField *clubNameTextField; /**< 社团名字输入框*/
 @property(nonatomic, strong)AJFormTextView *clubIntroTextView;  /**< 社团简介输入框*/
 @property(nonatomic, strong)UIButton *submitButton;             /**< 提交按钮*/
+@property(nonatomic, strong)NSMutableArray *imageArray;         /**< 社团头像数组*/
 
 @end
 
@@ -223,6 +226,10 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     UIImage *newImage = info[UIImagePickerControllerEditedImage];
     self.iconImageView.image = newImage;
+    
+    //先清空数组，后添加
+    [self.imageArray removeAllObjects];
+    [self.imageArray addObject:newImage];
     if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
         UIImageWriteToSavedPhotosAlbum(newImage, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
     }
@@ -269,7 +276,30 @@
 
 #pragma mark - Button Click
 - (void)submit:(UIButton *)button{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"group_name"] = self.clubNameTextField.text;
+    params[@"introduction"] = self.clubIntroTextView.text;
     
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"正在新建社团";
+    [AJSchoolClub newClubWithParams:params WithImageArray: self.imageArray SuccessBlock:^(id object) {
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = @"创建成功";
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [self.navigationController popViewControllerAnimated:YES];
+        });
+    } FailBlock:^(NSError *error) {
+        [self failErrorWithView:self.view error:error];
+    }];
+}
+
+- (NSMutableArray *)imageArray{
+    if (_imageArray == nil) {
+        _imageArray = [NSMutableArray array];
+    }
+    
+    return _imageArray;
 }
 
 @end

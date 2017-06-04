@@ -61,6 +61,8 @@
 		950CF93A1EE2B74E0070AC89 /* AJBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF9391EE2B74E0070AC89 /* AJBaseViewController.m */; };
 		950CF93D1EE2DBE20070AC89 /* AJBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF93C1EE2DBE20070AC89 /* AJBaseTableViewController.m */; };
 		950CF93F1EE2F33B0070AC89 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 950CF93E1EE2F33B0070AC89 /* Images.xcassets */; };
+		950CF9431EE349770070AC89 /* AJSchoolClub.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF9421EE349770070AC89 /* AJSchoolClub.m */; };
+		950CF9461EE34A620070AC89 /* AJSchoolClub+Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF9451EE34A620070AC89 /* AJSchoolClub+Request.m */; };
 		953E25081E61B3F4000B17EF /* AJTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 953E25071E61B3F4000B17EF /* AJTabBarViewController.m */; };
 		954AEC031EACEC810006FF7D /* AJNewPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 954AEBFE1EACEC810006FF7D /* AJNewPageViewController.m */; };
 		954AEC041EACEC810006FF7D /* AJNewPageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 954AEC021EACEC810006FF7D /* AJNewPageCollectionViewCell.m */; };
@@ -207,6 +209,10 @@
 		950CF93B1EE2DBE20070AC89 /* AJBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJBaseTableViewController.h; sourceTree = "<group>"; };
 		950CF93C1EE2DBE20070AC89 /* AJBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJBaseTableViewController.m; sourceTree = "<group>"; };
 		950CF93E1EE2F33B0070AC89 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		950CF9411EE349770070AC89 /* AJSchoolClub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJSchoolClub.h; sourceTree = "<group>"; };
+		950CF9421EE349770070AC89 /* AJSchoolClub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJSchoolClub.m; sourceTree = "<group>"; };
+		950CF9441EE34A620070AC89 /* AJSchoolClub+Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AJSchoolClub+Request.h"; sourceTree = "<group>"; };
+		950CF9451EE34A620070AC89 /* AJSchoolClub+Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AJSchoolClub+Request.m"; sourceTree = "<group>"; };
 		953E25061E61B3F4000B17EF /* AJTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJTabBarViewController.h; sourceTree = "<group>"; };
 		953E25071E61B3F4000B17EF /* AJTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJTabBarViewController.m; sourceTree = "<group>"; };
 		954AEBFD1EACEC810006FF7D /* AJNewPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNewPageViewController.h; sourceTree = "<group>"; };
@@ -422,6 +428,15 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		950CF9401EE3492A0070AC89 /* HttpRequest */ = {
+			isa = PBXGroup;
+			children = (
+				950CF9441EE34A620070AC89 /* AJSchoolClub+Request.h */,
+				950CF9451EE34A620070AC89 /* AJSchoolClub+Request.m */,
+			);
+			path = HttpRequest;
+			sourceTree = "<group>";
+		};
 		953E24F61E61AF45000B17EF /* Club */ = {
 			isa = PBXGroup;
 			children = (
@@ -601,6 +616,8 @@
 		953E25041E61AF45000B17EF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				950CF9411EE349770070AC89 /* AJSchoolClub.h */,
+				950CF9421EE349770070AC89 /* AJSchoolClub.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -625,6 +642,7 @@
 			isa = PBXGroup;
 			children = (
 				954AEBFC1EACEC810006FF7D /* Controller */,
+				950CF9401EE3492A0070AC89 /* HttpRequest */,
 				954AEBFF1EACEC810006FF7D /* Model */,
 				954AEC001EACEC810006FF7D /* View */,
 			);
@@ -886,7 +904,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		8A94424A5D6041023A19C8C3 /* [CP] Copy Pods Resources */ = {
@@ -926,6 +944,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				950CF9431EE349770070AC89 /* AJSchoolClub.m in Sources */,
 				9576637A1E6C63350048FC96 /* AJMeTableViewController.m in Sources */,
 				9505656D1DFDA51B00A3E5C0 /* AppDelegate.m in Sources */,
 				95F1081F1ED1A86400E54844 /* AJNewClubViewController.m in Sources */,
@@ -987,6 +1006,7 @@
 				957663771E6C5C4F0048FC96 /* AJChangePasswordTableViewController.m in Sources */,
 				950CF8FB1ED89BF80070AC89 /* AJNotiDetailViewController.m in Sources */,
 				954AEC031EACEC810006FF7D /* AJNewPageViewController.m in Sources */,
+				950CF9461EE34A620070AC89 /* AJSchoolClub+Request.m in Sources */,
 				954AEC041EACEC810006FF7D /* AJNewPageCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

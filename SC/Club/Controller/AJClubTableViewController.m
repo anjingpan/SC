@@ -10,10 +10,15 @@
 #import "AJClubTableViewCell.h"
 #import "AJScheduleTableViewController.h"
 #import "AJAddressTableViewController.h"
+#import "MKDropdownMenu.h"
 
 static NSString *const kClubTableViewCell = @"clubTableViewCell";
 
-@interface AJClubTableViewController ()
+@interface AJClubTableViewController ()<MKDropdownMenuDelegate,MKDropdownMenuDataSource>
+
+@property (nonatomic, strong) MKDropdownMenu *dropdownMenu;
+@property (nonatomic, strong) NSArray *clubNameArray;
+@property (nonatomic, assign) NSInteger selectRow;
 
 @end
 
@@ -22,6 +27,11 @@ static NSString *const kClubTableViewCell = @"clubTableViewCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"社团";
+    
+    self.selectRow = 0;
+    self.clubNameArray = @[@"浙江工业大学学生会",@"精弘网络"];
+    
+    [self initNavigationTitleView];
     
     [self initHeaderView];
     
@@ -33,6 +43,17 @@ static NSString *const kClubTableViewCell = @"clubTableViewCell";
 }
 
 #pragma mark - Init
+- (void)initNavigationTitleView{
+    self.dropdownMenu = ({
+        MKDropdownMenu *dropdownMenu = [[MKDropdownMenu alloc] initWithFrame:CGRectMake(0, 20, [UIScreen mainScreen].bounds.size.width, 44)];
+        dropdownMenu.delegate = self;
+        dropdownMenu.dataSource = self;
+        dropdownMenu.allowsMultipleRowsSelection = false;
+        self.navigationItem.titleView = dropdownMenu;
+        dropdownMenu;
+    });
+}
+
 - (void)initHeaderView{
     
     CGFloat imageViewHeight = 120;
@@ -77,6 +98,36 @@ static NSString *const kClubTableViewCell = @"clubTableViewCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return [UIScreen mainScreen].bounds.size.height - 120 - 64 - 44; // 120:headerView,64:状态栏+导航栏,44：工具栏
+}
+
+#pragma mark - MKDropdownMenu Delegate && DataSource
+
+- (NSInteger)numberOfComponentsInDropdownMenu:(MKDropdownMenu *)dropdownMenu{
+    return 1;
+}
+
+- (NSInteger)dropdownMenu:(MKDropdownMenu *)dropdownMenu numberOfRowsInComponent:(NSInteger)component{
+    return self.clubNameArray.count;
+}
+
+- (UIColor *)dropdownMenu:(MKDropdownMenu *)dropdownMenu backgroundColorForRow:(NSInteger)row forComponent:(NSInteger)component{
+    return AJBarColor;
+}
+
+- (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForComponent:(NSInteger)component{
+    return [[NSAttributedString alloc] initWithString:self.clubNameArray[self.selectRow] attributes:@{NSAttachmentAttributeName : [UIFont boldSystemFontOfSize:14.0], NSForegroundColorAttributeName : [UIColor whiteColor]}];
+}
+
+- (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    return [[NSAttributedString alloc] initWithString:self.clubNameArray[row] attributes:@{NSAttachmentAttributeName : [UIFont systemFontOfSize:14.0], NSForegroundColorAttributeName : [UIColor whiteColor]}];
+}
+
+- (void)dropdownMenu:(MKDropdownMenu *)dropdownMenu didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    self.selectRow = row;
+    [dropdownMenu reloadComponent:component];
+    [dropdownMenu closeAllComponentsAnimated:YES];
+    
+    //todo:请求
 }
 
 @end

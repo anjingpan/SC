@@ -71,15 +71,19 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"phone"] = self.phoneTextField.text;
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = @"正在获取验证码";
+    hud.label.text = @"正在获取验证码";
     [AJAccount sendMessageRequestWithParams:params SuccessBlock:^(id object) {
         hud.mode = MBProgressHUDModeText;
-        hud.labelText = @"获取成功";
+        hud.label.text = @"获取成功";
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         });
     } FailBlock:^(NSError *error) {
-        
+        hud.mode = MBProgressHUDModeText;
+        hud.label.text = [NSString stringWithFormat:@"%@",error.userInfo[NSLocalizedDescriptionKey]? : @"服务器错误，稍后再试"];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        });
     }];
 }
 
@@ -125,12 +129,16 @@
     params[@"PIN"] = self.verifyCodeTextField.text;
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = @"验证验证码";
+    hud.label.text = @"验证验证码";
     
     [AJAccount checkVerifyRequestWithParams:params SuccessBlock:^(id object) {
         [self performSegueWithIdentifier:@"pushToSelectSchool" sender:nil];
     } FailBlock:^(NSError *error) {
-        
+        hud.mode = MBProgressHUDModeText;
+        hud.label.text = [NSString stringWithFormat:@"%@",error.userInfo[NSLocalizedDescriptionKey]? : @"服务器错误，稍后再试"];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        });
     }];
 }
 

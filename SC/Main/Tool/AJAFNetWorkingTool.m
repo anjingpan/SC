@@ -64,7 +64,7 @@ static AFHTTPSessionManager *sessionManager = nil;
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     
     [manager POST:urlStr parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        if ([responseObject[@"errcode"] isEqualToString:@"0"] || responseObject[@"errcode"] == 0) {
+        if ( [responseObject[@"errcode"] integerValue] == 0) {
             successBlock(responseObject);
         }else{
             failBlock([NSError errorWithDomain:@"AJAppError" code:(NSInteger)responseObject[@"errcode"] userInfo:@{NSLocalizedDescriptionKey : responseObject[@"errmsg"]}]);
@@ -83,8 +83,13 @@ static AFHTTPSessionManager *sessionManager = nil;
     NSString *urlStr = [CONST_URL stringByAppendingString:url];
     
     NSMutableDictionary *params = [self addConstParams:param];
+    NSLog(@"%@",params);
     
     AFHTTPSessionManager *manager = [self sharedHttpSessionManager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    [manager.responseSerializer setAcceptableContentTypes:[NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil]];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+
     //保证图片数组不为空
     imageArray = imageArray ? :[NSArray array];
     
@@ -95,10 +100,11 @@ static AFHTTPSessionManager *sessionManager = nil;
             [formData appendPartWithFileData:imageData name:@"file" fileName:[NSString stringWithFormat:@"image_%i",i + 1] mimeType:@"image/jpeg"];
         }
     } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        if ([responseObject[@"errcode"] isEqualToString:@"0"] || responseObject[@"errcode"] == 0) {
+        
+        if ([responseObject[@"errcode"] integerValue] == 0) {
             successBlock(responseObject);
         }else{
-            failBlock([NSError errorWithDomain:@"AJAppError" code:(NSInteger)responseObject[@"errcode"] userInfo:@{NSLocalizedDescriptionKey : responseObject[@"errmsg"]}]);
+            failBlock([NSError errorWithDomain:@"AJAppError" code:[responseObject[@"errcode"] integerValue] userInfo:@{NSLocalizedDescriptionKey : responseObject[@"errmsg"]}]);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failBlock(error);
@@ -112,7 +118,7 @@ static AFHTTPSessionManager *sessionManager = nil;
     
     NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:USERDEFAULT_TOKEN_KEY];
     if (token) {
-        param[@"token"] = param[@"token"] ? : token;
+        param[@"access_token"] = param[@"token"] ? : token;
     }
     
     param[@"appOrigin"] = @"AJ_iOS";
