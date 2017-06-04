@@ -96,7 +96,7 @@
     hud.mode = MBProgressHUDModeText;
     view = view ? : [[UIApplication sharedApplication] keyWindow];
     if (error.code == 4) {
-        hud.labelText = @"登录失效,请重新登录";
+        hud.label.text = @"登录失效,请重新登录";
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [MBProgressHUD hideHUDForView:view animated:YES];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:USERDEFAULT_TOKEN_KEY];
@@ -105,7 +105,7 @@
             [self viewDidAppear:NO];
         });
     }else{
-        hud.labelText = [NSString stringWithFormat:@"%@",error.userInfo[NSLocalizedDescriptionKey]? : @"服务器错误，稍后再试"];
+        hud.label.text = [NSString stringWithFormat:@"%@",error.userInfo[NSLocalizedDescriptionKey]? : @"服务器错误，稍后再试"];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [MBProgressHUD hideHUDForView:view animated:YES];
         });

@@ -10,7 +10,22 @@
 
 @interface AJSchoolClub (Request)
 
+//社团列表
++ (void)getSchoolClubRequestWithParams:(NSMutableDictionary *)params
+                          SuccessBlock:(void(^)(id))successBlock
+                             FailBlock:(void(^)(NSError *))failBlock;
 
+//申请社团
++ (void)applySchoolClubRequestWithParams:(NSMutableDictionary *)params
+                            SuccessBlock:(void(^)(id))successBlock
+                               FailBlock:(void(^)(NSError *))failBlock;
+
+//我的社团信息
++ (void)getSelfClubRequestWithParams:(NSMutableDictionary *)params
+                        SuccessBlock:(void(^)(id))successBlock
+                           FailBlock:(void(^)(NSError *))failBlock;
+
+//新建社团
 + (void)newClubWithParams:(NSMutableDictionary *)param
            WithImageArray:(NSArray *)imageArray
              SuccessBlock:(void(^)(id))successBlock

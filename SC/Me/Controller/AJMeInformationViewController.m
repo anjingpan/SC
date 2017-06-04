@@ -14,6 +14,8 @@
 #import "MBProgressHUD.h"
 #import <AVFoundation/AVFoundation.h>
 #import <Photos/PHPhotoLibrary.h>
+#import "AJSchoolClub+Request.h"
+#import "YYModel.h"
 
 static NSString *const kClubCollectionViewCell = @"clubCollectionViewCell";
 
@@ -28,6 +30,8 @@ static NSString *const kClubCollectionViewCell = @"clubCollectionViewCell";
 @property (strong, nonatomic) IBOutlet UILabel *clubLabel;                  /**< 社团标签*/
 
 @property (strong, nonatomic) UICollectionView *clubCollectionView;         /**< 社团列表*/
+
+@property (nonatomic, strong) NSArray *selfClubArray;                       /**< 个人加入社团数据*/
 
 @end
 
@@ -55,6 +59,8 @@ static NSString *const kClubCollectionViewCell = @"clubCollectionViewCell";
         self.clubLabel.text = @"Ta的社团";
     }
     
+    [self loadData];
+    
     [self initCollectionView];
 }
 
@@ -69,6 +75,22 @@ static NSString *const kClubCollectionViewCell = @"clubCollectionViewCell";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Load Data
+- (void)loadData{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    //接口返回数据格式问题，直接数组返回
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:true];
+    hud.label.text = @"正在加载数据";
+    [AJSchoolClub getSelfClubRequestWithParams:params SuccessBlock:^(id object) {
+        [MBProgressHUD hideHUDForView:self.view animated:true];
+        self.selfClubArray = [NSArray yy_modelArrayWithClass:[AJSchoolClub class] json:object[@"list"]];
+        [self.clubCollectionView reloadData];
+    } FailBlock:^(NSError *error) {
+        [self failErrorWithView:self.view error:error];
+    }];
 }
 
 #pragma mark - Init View
@@ -232,9 +254,9 @@ static NSString *const kClubCollectionViewCell = @"clubCollectionViewCell";
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeText;
     if (error) {
-        hud.labelText = @"保存失败";
+        hud.label.text = @"保存失败";
     }else{
-        hud.labelText = @"保存成功";
+        hud.label.text = @"保存成功";
     }
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -247,18 +269,18 @@ static NSString *const kClubCollectionViewCell = @"clubCollectionViewCell";
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 9;
+    return self.selfClubArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     AJClubCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kClubCollectionViewCell forIndexPath:indexPath];
-    cell.clubImageView.image = [UIImage imageNamed:@"Me_Placeholder"];
-    cell.clubNameLabel.text = @"学生会";
+    cell.clubMessage = self.selfClubArray[indexPath.row];
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     AJSchoolClubTableViewController *clubViewController = [[AJSchoolClubTableViewController alloc] init];
+    clubViewController.clubID = ((AJSchoolClub *)self.selfClubArray[indexPath.row]).Groupid;
     [self.navigationController pushViewController:clubViewController animated:YES];
 }
 

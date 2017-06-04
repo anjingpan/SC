@@ -12,6 +12,8 @@ static NSString *const kAddressTableViewCell = @"addressTableViewCell";
 
 @interface AJAddressTableViewController ()
 
+@property (nonatomic, strong) NSArray *memberArray;
+
 @end
 
 @implementation AJAddressTableViewController

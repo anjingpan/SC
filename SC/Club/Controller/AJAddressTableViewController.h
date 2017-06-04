@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AJBaseTableViewController.h"
 
-@interface AJAddressTableViewController : UITableViewController
+@interface AJAddressTableViewController : AJBaseTableViewController
+
+@property (nonatomic, strong) NSString *groupID;
 
 @end

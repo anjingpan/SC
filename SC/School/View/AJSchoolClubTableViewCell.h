@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AJSchoolClub.h"
 
 @interface AJSchoolClubTableViewCell : UITableViewCell
+@property (nonatomic, strong) AJSchoolClub *schoolClubMessage;  /**< 学校社团信息*/
 
 @end

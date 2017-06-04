@@ -11,6 +11,8 @@
 #import "AJSchoolMemberTableViewController.h"
 #import "AJMeInformationViewController.h"
 #import "AJProfile.h"
+#import "AJSchoolClub+Request.h"
+#import "MBProgressHUD.h"
 
 static NSString *const kSchoolClubCollectionViewCell = @"schoolClubCollectionViewCell";
 
@@ -45,6 +47,11 @@ static NSString *const kSchoolClubCollectionViewCell = @"schoolClubCollectionVie
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Load Data
+- (void)loadData{
+    
 }
 
 #pragma mark - Init View
@@ -234,7 +241,21 @@ static NSString *const kSchoolClubCollectionViewCell = @"schoolClubCollectionVie
 }
 
 - (void)applyToJoin:(UIButton *)button{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"groupid"] = self.clubID;
     
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:true];
+    hud.label.text = @"提交申请中";
+    [AJSchoolClub applySchoolClubRequestWithParams:params SuccessBlock:^(id object) {
+        hud.mode = MBProgressHUDModeText;
+        hud.label.text = @"提交申请成功";
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:self.view animated:true];
+            [self.navigationController popViewControllerAnimated:true];
+        });
+    } FailBlock:^(NSError *error) {
+        [self failErrorWithView:self.view error:error];
+    }];
 }
 
 #pragma mark - Table view data source

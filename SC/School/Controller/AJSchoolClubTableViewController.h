@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AJBaseTableViewController.h"
 
-@interface AJSchoolClubTableViewController : UITableViewController
+@interface AJSchoolClubTableViewController : AJBaseTableViewController
+@property (nonatomic, strong) NSString *clubID;
 
 @end

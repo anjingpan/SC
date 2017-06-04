@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AJBaseTableViewController.h"
 
-@interface AJClubTableViewController : UITableViewController
+@interface AJClubTableViewController : AJBaseTableViewController
 
 @end

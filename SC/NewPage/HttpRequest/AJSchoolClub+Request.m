@@ -11,6 +11,32 @@
 
 @implementation AJSchoolClub (Request)
 
++ (void)getSchoolClubRequestWithParams:(NSMutableDictionary *)params SuccessBlock:(void (^)(id))successBlock FailBlock:(void (^)(NSError *))failBlock{
+    NSString *url = @"my_school_group";
+    [AJAFNetWorkingTool postRequestWithUrl:url WithParams:params SuccessBlock:^(id object) {
+        successBlock(object);
+    } FailBlock:^(NSError *error) {
+        failBlock(error);
+    }];
+}
+
++ (void)applySchoolClubRequestWithParams:(NSMutableDictionary *)params SuccessBlock:(void (^)(id))successBlock FailBlock:(void (^)(NSError *))failBlock{
+        NSString *url = @"apply_group";
+        [AJAFNetWorkingTool postRequestWithUrl:url WithParams:params SuccessBlock:^(id object) {
+            successBlock(object);
+        } FailBlock:^(NSError *error) {
+            failBlock(error);
+        }];
+}
+
++ (void)getSelfClubRequestWithParams:(NSMutableDictionary *)params SuccessBlock:(void (^)(id))successBlock FailBlock:(void (^)(NSError *))failBlock{
+    NSString *url = @"my_group";
+    [AJAFNetWorkingTool postRequestWithUrl:url WithParams:params SuccessBlock:^(id object) {
+        successBlock(object);
+    } FailBlock:^(NSError *error) {
+        failBlock(error);
+    }];}
+
 + (void)newClubWithParams:(NSMutableDictionary *)param
            WithImageArray:(NSArray *)imageArray
              SuccessBlock:(void(^)(id))successBlock

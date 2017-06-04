@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AJBaseViewController.h"
 
-@interface AJMeInformationViewController : UIViewController
+@interface AJMeInformationViewController : AJBaseViewController
 
 @property (nonatomic, assign) BOOL isAllowEdit;     /**< 视图是否可编辑*/
 

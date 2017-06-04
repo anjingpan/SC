@@ -12,6 +12,8 @@
 #import "AJSchoolClubTableViewController.h"
 #import "AJNewsViewController.h"
 #import "MJRefresh.h"
+#import "AJSchoolClub+Request.h"
+#import "YYModel.h"
 
 static CGFloat const kScrollTime = 3.f;  /**< 计时器时间*/
 static NSString *const kSchoolTableViewCell = @"schoolTableViewCell";   /**< 社团列表重用标识符*/
@@ -24,6 +26,9 @@ static NSString *const kSchoolTableViewCell = @"schoolTableViewCell";   /**< 社
 @property (nonatomic, strong) NSTimer *timer;                       /**< 计时器*/
 @property (nonatomic, strong) NSMutableArray *imageArray;           /**< 热门的图片数组*/
 @property (nonatomic, assign) NSInteger currentPage;                /**< 当前页数*/
+
+@property (nonatomic, assign) NSInteger pageNum;                    /**< 请求页数*/
+@property (nonatomic, strong) NSMutableArray *clubArray;            /**< 社团数组*/
 @end
 
 @implementation AJSchoolTableViewController
@@ -45,6 +50,8 @@ static NSString *const kSchoolTableViewCell = @"schoolTableViewCell";   /**< 社
     //添加下拉刷新和上拉加载控件
     [self shouldAddPullToRefresh:YES];
     [self shouldAddPushToRefresh:YES];
+    [self.tableView.mj_header beginRefreshing];
+    
     [self.tableView registerNib:[UINib nibWithNibName:@"AJSchoolClubTableViewCell" bundle:nil] forCellReuseIdentifier:kSchoolTableViewCell];
     
 }
@@ -108,6 +115,45 @@ static NSString *const kSchoolTableViewCell = @"schoolTableViewCell";   /**< 社
     });
     
     [self addTimer];
+}
+
+#pragma mark - Load Data
+- (void)loadNewData{
+    self.pageNum = 1;
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"nowPage"] = @(self.pageNum);
+    
+    [AJSchoolClub getSchoolClubRequestWithParams:params SuccessBlock:^(id object) {
+        self.clubArray = (NSMutableArray *)[NSArray yy_modelArrayWithClass:[AJSchoolClub class] json:object[@"list"]];
+        [self.tableView reloadData];
+        [self.tableView.mj_header endRefreshing];
+        if (self.pageNum >= [object[@"totalPage"] integerValue]) {
+            [self.tableView.mj_footer endRefreshingWithNoMoreData];
+        }else{
+            [self reset];
+        }
+    } FailBlock:^(NSError *error) {
+        [self failErrorWithView:self.view error:error];
+    }];
+}
+
+- (void)loadMoreData{
+    self.pageNum ++;
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"nowPage"] = @(self.pageNum);
+    
+    [AJSchoolClub getSchoolClubRequestWithParams:params SuccessBlock:^(id object) {
+        [self.clubArray addObjectsFromArray:[NSArray yy_modelArrayWithClass:[AJSchoolClub class] json:object[@"list"]]];
+        [self.tableView reloadData];
+        [self.tableView.mj_footer endRefreshing];
+        if (self.pageNum >= [object[@"totalPage"] integerValue]) {
+            [self.tableView.mj_footer endRefreshingWithNoMoreData];
+        }
+    } FailBlock:^(NSError *error) {
+        [self failErrorWithView:self.view error:error];
+    }];
 }
 
 #pragma mark - Button Click
@@ -175,7 +221,7 @@ static NSString *const kSchoolTableViewCell = @"schoolTableViewCell";   /**< 社
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 6;
+    return self.clubArray.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -183,18 +229,20 @@ static NSString *const kSchoolTableViewCell = @"schoolTableViewCell";   /**< 社
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kSchoolTableViewCell];
+    AJSchoolClubTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kSchoolTableViewCell];
     
     if (!cell) {
         cell = [[AJSchoolClubTableViewCell alloc] init];
     }
     
+    cell.schoolClubMessage = self.clubArray[indexPath.row];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
     AJSchoolClubTableViewController *clubVC = [[AJSchoolClubTableViewController alloc] init];
+    clubVC.clubID = ((AJSchoolClub *)self.clubArray[indexPath.row]).Groupid;
     //隐藏工具栏
     clubVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:clubVC animated:YES];

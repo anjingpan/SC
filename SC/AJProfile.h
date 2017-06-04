@@ -16,6 +16,7 @@
 
 //URL Const
 static NSString *const CONST_URL = @"http://gms.lyx.name/api/";
+static NSString *const CONST_URL_DOMAIN = @"http://gms.lyx.name/";
 
 //Token Key
 static NSString *const USERDEFAULT_TOKEN_KEY = @"userDefaultTokenKey";  /**< token 本地存储的 key*/

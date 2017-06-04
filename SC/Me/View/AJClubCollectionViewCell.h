@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AJSchoolClub.h"
 
 @interface AJClubCollectionViewCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *clubImageView; /**< 社团图片视图*/
-@property (weak, nonatomic) IBOutlet UILabel *clubNameLabel;     /**< 社团名字视图*/
+
+@property (nonatomic, strong)AJSchoolClub *clubMessage;
 
 @end

@@ -10,8 +10,10 @@
 
 @interface AJSchoolClub : NSObject
 
-@property (nonatomic, strong)NSString *group_name;      /**< 社团名称*/
-@property (nonatomic, strong)NSString *group_school;    /**< 社团所在校园*/
+@property (nonatomic, strong)NSString *Groupid;         /**< 社团 ID*/
+@property (nonatomic, strong)NSString *Groupname;       /**< 社团名称*/
+@property (nonatomic, strong)NSString *GroupManager;    /**< 社团管理员 ID*/
+@property (nonatomic, strong)NSString *GroupSchool;     /**< 社团所在学校*/
 @property (nonatomic, strong)NSString *introduction;    /**< 社团简介*/
 @property (nonatomic, strong)NSString *imgurl;          /**< 社团头像链接*/
 

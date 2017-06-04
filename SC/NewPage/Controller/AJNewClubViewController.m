@@ -240,9 +240,9 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeText;
     if (error) {
-        hud.labelText = @"保存失败";
+        hud.label.text = @"保存失败";
     }else{
-        hud.labelText = @"保存成功";
+        hud.label.text = @"保存成功";
     }
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -281,10 +281,10 @@
     params[@"introduction"] = self.clubIntroTextView.text;
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = @"正在新建社团";
+    hud.label.text = @"正在新建社团";
     [AJSchoolClub newClubWithParams:params WithImageArray: self.imageArray SuccessBlock:^(id object) {
         hud.mode = MBProgressHUDModeText;
-        hud.labelText = @"创建成功";
+        hud.label.text = @"创建成功";
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [MBProgressHUD hideHUDForView:self.view animated:YES];
             [self.navigationController popViewControllerAnimated:YES];

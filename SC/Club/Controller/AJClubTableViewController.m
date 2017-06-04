@@ -11,13 +11,16 @@
 #import "AJScheduleTableViewController.h"
 #import "AJAddressTableViewController.h"
 #import "MKDropdownMenu.h"
+#import "AJSchoolClub+Request.h"
+#import "YYModel.h"
 
 static NSString *const kClubTableViewCell = @"clubTableViewCell";
 
 @interface AJClubTableViewController ()<MKDropdownMenuDelegate,MKDropdownMenuDataSource>
 
 @property (nonatomic, strong) MKDropdownMenu *dropdownMenu;
-@property (nonatomic, strong) NSArray *clubNameArray;
+@property (nonatomic, strong) NSArray *clubNameArray;           /**< 下拉选择社团名字数组*/
+@property (nonatomic, strong) NSArray *clubMessageArray;        /**< 社团信息数组*/
 @property (nonatomic, assign) NSInteger selectRow;
 
 @end
@@ -31,6 +34,8 @@ static NSString *const kClubTableViewCell = @"clubTableViewCell";
     self.selectRow = 0;
     self.clubNameArray = @[@"浙江工业大学学生会",@"精弘网络"];
     
+    [self loadData];
+    
     [self initNavigationTitleView];
     
     [self initHeaderView];
@@ -40,6 +45,19 @@ static NSString *const kClubTableViewCell = @"clubTableViewCell";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Load Data
+- (void)loadData{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    //接口有问题，接口数据格式不应直接为数组
+    [AJSchoolClub getSelfClubRequestWithParams:params SuccessBlock:^(id object) {
+        self. clubMessageArray = [NSArray yy_modelArrayWithClass:[AJSchoolClub class] json:object[@"list"]];
+        [self.dropdownMenu reloadAllComponents];
+    } FailBlock:^(NSError *error) {
+        [self failErrorWithView:self.view error:error];
+    }];
 }
 
 #pragma mark - Init
@@ -85,6 +103,7 @@ static NSString *const kClubTableViewCell = @"clubTableViewCell";
             case 1:
                 //通讯录
                 VC = [[AJAddressTableViewController alloc] init];
+                ((AJAddressTableViewController *)VC).groupID = ((AJSchoolClub *)self.clubMessageArray[self.selectRow]).Groupid;
                 break;
             default:
                 break;
@@ -107,6 +126,8 @@ static NSString *const kClubTableViewCell = @"clubTableViewCell";
 }
 
 - (NSInteger)dropdownMenu:(MKDropdownMenu *)dropdownMenu numberOfRowsInComponent:(NSInteger)component{
+    
+    //return self.clubMessageArray.count;
     return self.clubNameArray.count;
 }
 
@@ -115,10 +136,15 @@ static NSString *const kClubTableViewCell = @"clubTableViewCell";
 }
 
 - (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForComponent:(NSInteger)component{
+    
+    //NSString *titleString = ((AJSchoolClub *)self.clubMessageArray[self.selectRow]).Groupname;
+    
     return [[NSAttributedString alloc] initWithString:self.clubNameArray[self.selectRow] attributes:@{NSAttachmentAttributeName : [UIFont boldSystemFontOfSize:14.0], NSForegroundColorAttributeName : [UIColor whiteColor]}];
 }
 
 - (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    
+    //NSString *titleString = ((AJSchoolClub *)self.clubMessageArray[row]).Groupname;
     return [[NSAttributedString alloc] initWithString:self.clubNameArray[row] attributes:@{NSAttachmentAttributeName : [UIFont systemFontOfSize:14.0], NSForegroundColorAttributeName : [UIColor whiteColor]}];
 }
 
