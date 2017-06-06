@@ -113,7 +113,7 @@
     self.contentLabel = ({
         UILabel *label = [[UILabel alloc] init];
         label.font = [UIFont systemFontOfSize:maxFontSize];
-        label.text = @"集合吃我脚";
+        label.text = @"九点去东14开会";
         [self addSubview:label];
         label;
     });
@@ -131,7 +131,7 @@
         UILabel *label = [[UILabel alloc] init];
         label.font = [UIFont systemFontOfSize:minFontSize];
         label.textColor = [UIColor lightGrayColor];
-        label.text = @"浙江工业大学学生会";
+        label.text = @"浙江工业大学屏峰校区";
         [self addSubview:label];
         label;
     });

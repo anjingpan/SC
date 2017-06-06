@@ -15,6 +15,7 @@
 @property (nonatomic, strong) UILabel *timeLabel;
 @property (nonatomic, strong) AJMessageLabel *messageDetailLabel;
 @property (nonatomic, strong) UIButton *confirmButton;
+@property (nonatomic, strong) UIButton *refruseButton;              /**< 审核消息中拒绝加入按钮*/
 @property (nonatomic, strong) UIButton *checkButton;                /**< 查看确认传达按钮*/
 
 @end
@@ -96,7 +97,22 @@
         [self.confirmButton setTitle:@"确认传达" forState:UIControlStateNormal];
     }else if (self.detailType == messageDetailTypeAudit){
         self.checkButton.hidden = true;
-        [self.confirmButton setTitle:@"通过审核" forState:UIControlStateNormal];
+        [self.confirmButton setTitle:@"同意" forState:UIControlStateNormal];
+        
+        self.refruseButton = ({
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+            button.frame = CGRectMake(marginX, [UIScreen mainScreen].bounds.size.height - buttonHeight - marginY, ([UIScreen mainScreen].bounds.size.width - 3 * marginX) * 0.5, buttonHeight);
+            button.layer.cornerRadius = 5.0;
+            button.layer.masksToBounds = true;
+            button.backgroundColor = [UIColor blackColor];
+            button.titleLabel.font = [UIFont systemFontOfSize:buttonFontSize];
+            [button setTitle:@"拒绝" forState:UIControlStateNormal];
+            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            [button addTarget:self action:@selector(refuse) forControlEvents:UIControlEventTouchUpInside];
+            [self.view addSubview:button];
+            button;
+        });
+        self.confirmButton.frame = CGRectMake(CGRectGetMaxX(self.refruseButton.frame) + marginX,[UIScreen mainScreen].bounds.size.height - buttonHeight - marginY, ([UIScreen mainScreen].bounds.size.width - 3 * marginX) * 0.5, buttonHeight);
     }
     
 }
@@ -109,6 +125,10 @@
 }
 
 - (void)confirmDeliver{
+    
+}
+
+- (void)refuse{
     
 }
 

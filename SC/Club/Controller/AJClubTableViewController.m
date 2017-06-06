@@ -74,10 +74,10 @@ static NSString *const kClubTableViewCell = @"clubTableViewCell";
 
 - (void)initHeaderView{
     
-    CGFloat imageViewHeight = 120;
+    CGFloat imageViewHeight = 160;
     UIImageView *imageView = [[UIImageView alloc] init];
     imageView.frame = CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, imageViewHeight);
-    imageView.image = [UIImage imageNamed:@""];
+    imageView.image = [UIImage imageNamed:@"Club_Background"];
     self.tableView.tableHeaderView = imageView;
 }
 

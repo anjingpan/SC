@@ -31,4 +31,9 @@
                   SuccessBlock:(void(^)(id))successBlock
                      FailBlock:(void(^)(NSError *))failBlock;
 
+//登出接口
++ (void)logoutRequestWithParams:(NSMutableDictionary *)params
+                   SuccessBlock:(void(^)(id))successBlock
+                      FailBlock:(void(^)(NSError *))failBlock;
+
 @end

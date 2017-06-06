@@ -43,7 +43,7 @@ static NSString *const kSchoolTableViewCell = @"schoolTableViewCell";   /**< 社
     //静态数据
     self.imageArray = [[NSMutableArray alloc] init];
     //前后分别添加最后一个，以及第一个数据
-    self.imageArray = [NSMutableArray arrayWithArray:@[@"TabBar_Me",@"TabBar_School",@"TabBar_Notification",@"TabBar_Club",@"TabBar_Me",@"TabBar_School"]];
+    self.imageArray = [NSMutableArray arrayWithArray:@[@"SchoolHotNews_4",@"SchoolHotNews_1",@"SchoolHotNews_2",@"SchoolHotNews_3",@"SchoolHotNews_4",@"SchoolHotNews_1"]];
     
     [self initHeaderView];
     

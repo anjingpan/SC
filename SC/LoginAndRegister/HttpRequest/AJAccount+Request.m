@@ -51,4 +51,14 @@
     }];
 }
 
++ (void)logoutRequestWithParams:(NSMutableDictionary *)params SuccessBlock:(void (^)(id))successBlock FailBlock:(void (^)(NSError *))failBlock{
+    NSString *url = @"logout";
+    
+    [AJAFNetWorkingTool postRequestWithUrl:url WithParams:params SuccessBlock:^(id object) {
+        successBlock(object);
+    } FailBlock:^(NSError * error) {
+        failBlock(error);
+    }];
+}
+
 @end

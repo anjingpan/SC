@@ -132,6 +132,7 @@
     hud.label.text = @"验证验证码";
     
     [AJAccount checkVerifyRequestWithParams:params SuccessBlock:^(id object) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         [self performSegueWithIdentifier:@"pushToSelectSchool" sender:nil];
     } FailBlock:^(NSError *error) {
         hud.mode = MBProgressHUDModeText;

@@ -7,6 +7,9 @@
 //
 
 #import "AJSettingTableViewController.h"
+#import "AJAccount+Request.h"
+#import "AJNavigationViewController.h"
+#import "AJProfile.h"
 
 #define kCacheIndexpath [NSIndexPath indexPathForRow:1 inSection:0]
 @interface AJSettingTableViewController ()
@@ -46,7 +49,19 @@
 - (IBAction)logout:(id)sender {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"退出后将无法完全体验应用" preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *logout = [UIAlertAction actionWithTitle:@"确定退出" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        
+        NSMutableDictionary *params = [NSMutableDictionary dictionary];
+        [AJAccount logoutRequestWithParams:params SuccessBlock:^(id object) {
+            //清除 token
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:USERDEFAULT_TOKEN_KEY];
+            //跳转到登录界面
+            UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            //需要将导航控制器加上
+            AJNavigationViewController *navigationControoler = [[AJNavigationViewController alloc] initWithRootViewController:[mainStoryboard instantiateViewControllerWithIdentifier:IDENTIFIER_AJLOGINVIEWCONTROLLER]];
+            [UIApplication sharedApplication].keyWindow.rootViewController = navigationControoler;
+            [[UIApplication sharedApplication].keyWindow makeKeyAndVisible];
+        } FailBlock:^(NSError *error) {
+            [self failErrorWithView:self.view error:error];
+        }];
     }];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     [alert addAction:logout];

@@ -67,8 +67,8 @@ static NSString *const kSchoolClubCollectionViewCell = @"schoolClubCollectionVie
     
     self.headerImageView = ({
         UIImageView *imageView = [[UIImageView alloc] init];
-        imageView.backgroundColor = [UIColor colorWithRed:135/255.0 green:139/255.0 blue:150/255.0 alpha:1];
         imageView.translatesAutoresizingMaskIntoConstraints = NO;
+        imageView.image = [UIImage imageNamed:@"School_Club_Background"];
         [self.headView addSubview:imageView];
         imageView;
     });
@@ -180,7 +180,7 @@ static NSString *const kSchoolClubCollectionViewCell = @"schoolClubCollectionVie
 #pragma mark - Add Constraint
 - (void)addConstraint{
     
-    NSArray *headViewConstrainV = [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|[_headerImageView(==150)]-30-[_userCountLabel(==30)]-[_userCollectionView(==%f)]-10-[_introduceLabel][_readMoreButton(==32)]-10-|",[[UIScreen mainScreen] bounds].size.width / 6.0] options:0 metrics:nil views:NSDictionaryOfVariableBindings(_headerImageView,_userCountLabel,_userCollectionView,_introduceLabel,_readMoreButton)];
+    NSArray *headViewConstrainV = [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|[_headerImageView(==180)]-30-[_userCountLabel(==30)]-[_userCollectionView(==%f)]-10-[_introduceLabel][_readMoreButton(==32)]-10-|",[[UIScreen mainScreen] bounds].size.width / 6.0] options:0 metrics:nil views:NSDictionaryOfVariableBindings(_headerImageView,_userCountLabel,_userCollectionView,_introduceLabel,_readMoreButton)];
     NSArray *headViewConstrainH = [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"|[_headView(==%f)]|",[[UIScreen mainScreen] bounds].size.width] options:0 metrics:nil views:NSDictionaryOfVariableBindings(_headView)];
     [self.tableView addConstraints:headViewConstrainH];
     [self.tableView addConstraints:headViewConstrainV];

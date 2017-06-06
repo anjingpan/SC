@@ -38,8 +38,8 @@ static NSString *const kNewPageCollectionViewCell = @"newPageCollectionViewCell"
 
 #pragma mark - Init Data
 - (void)initData{
-    self.labelTextArray = @[@"新建社团",@"发送通知",@"发起审批",@"新建日程"];
-    self.imageNameArray = @[@"",@"",@"",@""];
+    self.labelTextArray = @[@"新建社团",@"发送通知",@"添加日程"];
+    self.imageNameArray = @[@"NewPage_Club",@"NewPage_Notification",@"NewPage_Schedule"];
 }
 
 #pragma mark - Init View
@@ -52,11 +52,11 @@ static NSString *const kNewPageCollectionViewCell = @"newPageCollectionViewCell"
     CGFloat buttonWidth = [UIScreen mainScreen].bounds.size.width * 0.2 - 20.f;
     CGFloat buttonMarginX = ([UIScreen mainScreen].bounds.size.width - buttonWidth) * 0.5 + 10.f;
     
-    CGFloat collectionViewHeight = 0.4 * [UIScreen mainScreen].bounds.size.height;  //collectionView高度
+    CGFloat collectionViewHeight = 0.3 * [UIScreen mainScreen].bounds.size.height;  //collectionView高度
     
     //背景虚化视图
     self.blurView = ({
-        UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+        UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
         UIVisualEffectView *view = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
         view.frame = self.view.frame;
         [self.view addSubview:view];
@@ -103,7 +103,7 @@ static NSString *const kNewPageCollectionViewCell = @"newPageCollectionViewCell"
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake([UIScreen mainScreen].bounds.size.width * 0.25, [UIScreen mainScreen].bounds.size.width * 0.25 + 12 + 14);//12,14为文字标签的间距和高度
+    return CGSizeMake([UIScreen mainScreen].bounds.size.width * 0.2, [UIScreen mainScreen].bounds.size.width * 0.2 + 12 + 14);//12,14为文字标签的间距和高度
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{

@@ -47,7 +47,6 @@
     self.iconImageView = ({
         UIImageView *imageView = [[UIImageView alloc] init];
         imageView.frame = CGRectMake(marginX, marginY, self.frame.size.width - 2 * marginX, self.frame.size.width - 2 *marginX);
-        imageView.backgroundColor = [UIColor greenColor];
         [self addSubview:imageView];
         imageView;
     });

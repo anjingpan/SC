@@ -60,10 +60,10 @@
             //发送通知
             VC = [[AJNewNotificationViewController alloc] init];
             break;
-        case 2:
+//        case 2:
             //发起审批
             
-            break;
+//            break;
     }
     
     VC.hidesBottomBarWhenPushed = true;
@@ -71,7 +71,7 @@
     UINavigationController *navigationController = self.viewControllers[tabBarIndex];
     [navigationController pushViewController:VC animated:YES];
     
-    if (section == 3) {
+    if (section == 2) {
         //新建日程
         VC = [[AJNewScheduleViewController alloc] init];
         [self presentViewController:VC animated:YES completion:nil];

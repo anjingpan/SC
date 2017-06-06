@@ -15,6 +15,7 @@
 
 @interface AJPasswordViewController ()
 
+@property (nonatomic, strong) UIImageView *backgroundImageView;                 /**< 背景图片视图*/
 @property (nonatomic, strong) AJPasswordTextField *passwordTextField;           /**< 密码输入框*/
 @property (nonatomic, strong) UIView *firstLineView;                    /**< 分割线*/
 @property (nonatomic, strong) AJPasswordTextField *confirmPasswordTextField;    /**< 确认密码输入框*/
@@ -43,6 +44,14 @@
     CGFloat height      = 30.0f;                  /**< 控件高度*/
     CGFloat buttonHeight= 40.0f;                  /**< 按钮高度*/
     CGFloat buttonFont  = 18.0f;                  /**< 按钮字体*/
+    
+    self.backgroundImageView = ({
+        UIImageView *imageView = [[UIImageView alloc] init];
+        imageView.frame = self.view.bounds;
+        imageView.image = [UIImage imageNamed:@"Login_BackGround"];
+        [self.view addSubview:imageView];
+        imageView;
+    });
     
     self.passwordTextField = ({
         AJPasswordTextField *textField = [[AJPasswordTextField alloc] init];

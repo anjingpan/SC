@@ -438,9 +438,9 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeText;
     if (error) {
-        hud.labelText = @"保存失败";
+        hud.label.text = @"保存失败";
     }else{
-        hud.labelText = @"保存成功";
+        hud.label.text = @"保存成功";
     }
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [MBProgressHUD hideHUDForView:self.view animated:YES];

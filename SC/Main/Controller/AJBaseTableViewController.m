@@ -7,6 +7,7 @@
 //
 
 #import "AJBaseTableViewController.h"
+#import "AJNavigationViewController.h"
 #import "MBProgressHUD.h"
 #import "AJProfile.h"
 #import <MJRefresh.h>
@@ -28,7 +29,9 @@
         
         //跳转到登录界面
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        [UIApplication sharedApplication].keyWindow.rootViewController = [mainStoryboard instantiateViewControllerWithIdentifier:IDENTIFIER_AJLOGINVIEWCONTROLLER];
+        //需要加上导航控制器
+        AJNavigationViewController *navigationControoler = [[AJNavigationViewController alloc] initWithRootViewController:[mainStoryboard instantiateViewControllerWithIdentifier:IDENTIFIER_AJLOGINVIEWCONTROLLER]];
+        [UIApplication sharedApplication].keyWindow.rootViewController = navigationControoler;
         [[UIApplication sharedApplication].keyWindow makeKeyAndVisible];
     }
 }
