@@ -32,14 +32,17 @@ static NSString *const kClubTableViewCell = @"clubTableViewCell";
     self.title = @"社团";
     
     self.selectRow = 0;
-    self.clubNameArray = @[@"浙江工业大学学生会",@"精弘网络"];
-    
-    [self loadData];
     
     [self initNavigationTitleView];
     
     [self initHeaderView];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [self loadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,7 +56,7 @@ static NSString *const kClubTableViewCell = @"clubTableViewCell";
     
     //接口有问题，接口数据格式不应直接为数组
     [AJSchoolClub getSelfClubRequestWithParams:params SuccessBlock:^(id object) {
-        self. clubMessageArray = [NSArray yy_modelArrayWithClass:[AJSchoolClub class] json:object[@"list"]];
+        self. clubMessageArray = [NSArray yy_modelArrayWithClass:[AJSchoolClub class] json:object[@"data"]];
         [self.dropdownMenu reloadAllComponents];
     } FailBlock:^(NSError *error) {
         [self failErrorWithView:self.view error:error];
@@ -127,8 +130,12 @@ static NSString *const kClubTableViewCell = @"clubTableViewCell";
 
 - (NSInteger)dropdownMenu:(MKDropdownMenu *)dropdownMenu numberOfRowsInComponent:(NSInteger)component{
     
-    //return self.clubMessageArray.count;
-    return self.clubNameArray.count;
+    return self.clubMessageArray.count;
+    //return self.clubNameArray.count;
+}
+
+- (NSInteger)dropdownMenu:(MKDropdownMenu *)dropdownMenu maximumNumberOfRowsInComponent:(NSInteger)component{
+    return 6;
 }
 
 - (UIColor *)dropdownMenu:(MKDropdownMenu *)dropdownMenu backgroundColorForRow:(NSInteger)row forComponent:(NSInteger)component{
@@ -136,16 +143,23 @@ static NSString *const kClubTableViewCell = @"clubTableViewCell";
 }
 
 - (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForComponent:(NSInteger)component{
+    if (self.clubMessageArray.count) {
+        
+        NSString *titleString = ((AJSchoolClub *)self.clubMessageArray[self.selectRow]).Groupname;
+        
+        return [[NSAttributedString alloc] initWithString:titleString attributes:@{NSAttachmentAttributeName : [UIFont boldSystemFontOfSize:14.0], NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    }
     
-    //NSString *titleString = ((AJSchoolClub *)self.clubMessageArray[self.selectRow]).Groupname;
-    
-    return [[NSAttributedString alloc] initWithString:self.clubNameArray[self.selectRow] attributes:@{NSAttachmentAttributeName : [UIFont boldSystemFontOfSize:14.0], NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    return nil;
 }
 
 - (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component{
     
-    //NSString *titleString = ((AJSchoolClub *)self.clubMessageArray[row]).Groupname;
-    return [[NSAttributedString alloc] initWithString:self.clubNameArray[row] attributes:@{NSAttachmentAttributeName : [UIFont systemFontOfSize:14.0], NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    if (self.clubMessageArray.count) {
+        NSString *titleString = ((AJSchoolClub *)self.clubMessageArray[row]).Groupname;
+        return [[NSAttributedString alloc] initWithString:titleString attributes:@{NSAttachmentAttributeName : [UIFont systemFontOfSize:14.0], NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    }
+    return nil;
 }
 
 - (void)dropdownMenu:(MKDropdownMenu *)dropdownMenu didSelectRow:(NSInteger)row inComponent:(NSInteger)component{

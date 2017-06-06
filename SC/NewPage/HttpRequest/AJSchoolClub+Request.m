@@ -35,7 +35,17 @@
         successBlock(object);
     } FailBlock:^(NSError *error) {
         failBlock(error);
-    }];}
+    }];
+}
+
++ (void)getClubInfoRequestWithParams:(NSMutableDictionary *)params SuccessBlock:(void (^)(id))successBlock FailBlock:(void (^)(NSError *))failBlock{
+    NSString *url = @"group_info";
+    [AJAFNetWorkingTool postRequestWithUrl:url WithParams:params SuccessBlock:^(id object) {
+        successBlock(object);
+    } FailBlock:^(NSError *error) {
+        failBlock(error);
+    }];
+}
 
 + (void)newClubWithParams:(NSMutableDictionary *)param
            WithImageArray:(NSArray *)imageArray

@@ -86,7 +86,7 @@ static NSString *const kClubCollectionViewCell = @"clubCollectionViewCell";
     hud.label.text = @"正在加载数据";
     [AJSchoolClub getSelfClubRequestWithParams:params SuccessBlock:^(id object) {
         [MBProgressHUD hideHUDForView:self.view animated:true];
-        self.selfClubArray = [NSArray yy_modelArrayWithClass:[AJSchoolClub class] json:object[@"list"]];
+        self.selfClubArray = [NSArray yy_modelArrayWithClass:[AJSchoolClub class] json:object[@"data"]];
         [self.clubCollectionView reloadData];
     } FailBlock:^(NSError *error) {
         [self failErrorWithView:self.view error:error];

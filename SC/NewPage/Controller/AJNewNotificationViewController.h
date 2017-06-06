@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AJBaseViewController.h"
 
-@interface AJNewNotificationViewController : UIViewController
+@interface AJNewNotificationViewController : AJBaseViewController
 
 @end

@@ -10,8 +10,15 @@
 
 typedef void(^selectMemberClick)(NSMutableArray *array);
 
+typedef NS_ENUM(NSInteger, selectType) {
+    selectTypeMember,
+    selectTypeClub,
+};
+
 @interface AJSelectMemberTableViewController : UITableViewController
 
+@property (nonatomic, assign)selectType selectType;
 @property (nonatomic, copy)selectMemberClick selectMemberBlock;
 @property (nonatomic, strong)NSMutableArray *selectIndexPathArray;
+@property (nonatomic, strong)NSArray *dataArray;
 @end

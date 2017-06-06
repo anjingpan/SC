@@ -125,7 +125,7 @@ static NSString *const kSchoolTableViewCell = @"schoolTableViewCell";   /**< 社
     params[@"nowPage"] = @(self.pageNum);
     
     [AJSchoolClub getSchoolClubRequestWithParams:params SuccessBlock:^(id object) {
-        self.clubArray = (NSMutableArray *)[NSArray yy_modelArrayWithClass:[AJSchoolClub class] json:object[@"list"]];
+        self.clubArray = (NSMutableArray *)[NSArray yy_modelArrayWithClass:[AJSchoolClub class] json:object[@"data"][@"list"]];
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
         if (self.pageNum >= [object[@"totalPage"] integerValue]) {
@@ -145,7 +145,7 @@ static NSString *const kSchoolTableViewCell = @"schoolTableViewCell";   /**< 社
     params[@"nowPage"] = @(self.pageNum);
     
     [AJSchoolClub getSchoolClubRequestWithParams:params SuccessBlock:^(id object) {
-        [self.clubArray addObjectsFromArray:[NSArray yy_modelArrayWithClass:[AJSchoolClub class] json:object[@"list"]]];
+        [self.clubArray addObjectsFromArray:[NSArray yy_modelArrayWithClass:[AJSchoolClub class] json:object[@"data"][@"list"]]];
         [self.tableView reloadData];
         [self.tableView.mj_footer endRefreshing];
         if (self.pageNum >= [object[@"totalPage"] integerValue]) {

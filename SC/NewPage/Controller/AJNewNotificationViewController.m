@@ -10,6 +10,10 @@
 #import "AJFormTextView.h"
 #import "AJNewNotificationTableViewCell.h"
 #import "AJSelectMemberTableViewController.h"
+#import "AJSchoolClub+Request.h"
+#import "AJMember+Request.h"
+#import "MBProgressHUD.h"
+#import "YYModel.h"
 
 static NSString *const kNewNotiTableViewCell = @"newNotiTableViewCell";
 
@@ -24,7 +28,10 @@ static NSString *const kNewNotiTableViewCell = @"newNotiTableViewCell";
 @property(nonatomic, strong) UIDatePicker *datePicker;
 @property(nonatomic, assign) NSInteger rowNumber;
 @property(nonatomic, strong) NSDate *timingDate;
-@property(nonatomic, strong) NSMutableArray *selectMemberArray;
+@property(nonatomic, strong) NSMutableArray *selectMemberArray;     /**< 选择成员的编号数组*/
+@property(nonatomic, strong) NSNumber *selectClubRow;               /**< 选择社团的编号*/ //为了可判断为 nil
+@property(nonatomic, strong) NSArray *clubArray;                    /**< 请求得到社团数组*/
+@property(nonatomic, strong) NSArray *memberArray;                  /**< 请求得到成员数组*/
 
 @end
 
@@ -35,7 +42,7 @@ static NSString *const kNewNotiTableViewCell = @"newNotiTableViewCell";
     // Do any additional setup after loading the view.
     self.title = @"新建通知";
     self.view.backgroundColor = AJBackGroundColor;
-    self.rowNumber = 2;
+    self.rowNumber = 3;
     //有多个 scrollView 时设置，防止第一个 contentOffset有偏移（UITextView,TableView）
     self.automaticallyAdjustsScrollViewInsets = false;
     
@@ -81,8 +88,58 @@ static NSString *const kNewNotiTableViewCell = @"newNotiTableViewCell";
     });
 }
 
+#pragma mark - Load Data
+- (void)loadClubWithViewController:(AJSelectMemberTableViewController *)VC{
+    VC.selectType = selectTypeClub;
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:true];
+    hud.label.text = @"正在加载社团";
+    [AJSchoolClub getSelfClubRequestWithParams:params SuccessBlock:^(id object) {
+        [MBProgressHUD hideHUDForView:self.view animated:true];
+        
+        self.clubArray = [NSArray yy_modelArrayWithClass:[AJSchoolClub class] json:object[@"data"]];
+        VC.dataArray = self.clubArray;
+        [self.navigationController pushViewController:VC animated:true];
+        
+    } FailBlock:^(NSError *error) {
+        [self failErrorWithView:self.view error:error];
+    }];
+}
+
+- (void)loadMemberWithViewController:(AJSelectMemberTableViewController *)VC{
+    VC.selectType = selectTypeMember;
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:true];
+    if (self.clubArray && self.selectClubRow == nil) {
+        hud.mode = MBProgressHUDModeText;
+        hud.label.text = @"请先选择社团";
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:self.view animated:true];
+        });
+        return;
+    }
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"groupid"] = ((AJSchoolClub *)self.clubArray[[self.selectClubRow integerValue]]).Groupid;
+    
+    hud.label.text = @"正在加载成员";
+    [AJMember getContactsRequestWithParams:params SuccessBlock:^(id object) {
+        [MBProgressHUD hideHUDForView:self.view animated:true];
+        
+        self.memberArray = [NSArray yy_modelArrayWithClass:[AJMember class] json:object[@"data"]];
+        VC.dataArray = self.memberArray;
+        [self.navigationController pushViewController:VC animated:true];
+    } FailBlock:^(NSError *error) {
+        [self failErrorWithView:self.view error:error];
+    }];
+}
+
 #pragma mark - Click
 - (void)senderNotification{
+    
     
 }
 
@@ -154,21 +211,27 @@ static NSString *const kNewNotiTableViewCell = @"newNotiTableViewCell";
     switch (indexPath.row) {
         case 0:
             cell.style = NewNotiViewCellStyleCount;
+            cell.titleLabel.text = @"接收社团";
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+            break;
+        case 1:
+            cell.style = NewNotiViewCellStyleCount;
             cell.titleLabel.text = @"接收人";
             cell.detailLbael.text = self.selectMemberArray.count ? [NSString stringWithFormat:@"%li人",self.selectMemberArray.count] : @"";
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.selectionStyle = UITableViewCellSelectionStyleDefault;
             break;
-        case 1:
+        case 2:
             cell.style = NewNotiViewCellStyleSwitch;
             cell.titleLabel.text = @"定时发送";
-            if (self.rowNumber == 3) {
+            if (self.rowNumber == 4) {
                 cell.cellSwitch.on = true;
             }
             cell.accessoryType = UITableViewCellAccessoryNone;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             break;
-        case 2:
+        case 3:
             cell.style = NewNotiViewCellStyleTime;
             cell.titleLabel.text = @"发送时间";
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -190,7 +253,7 @@ static NSString *const kNewNotiTableViewCell = @"newNotiTableViewCell";
         cell.switchBlock = ^(UISwitch *cellSwitch){
             //收起键盘
             [self.notificationTextView resignFirstResponder];
-            self.rowNumber = cellSwitch.on? 3:2;
+            self.rowNumber = cellSwitch.on? 4:3;
             [self.tableView reloadData];
         };
     }
@@ -236,6 +299,20 @@ static NSString *const kNewNotiTableViewCell = @"newNotiTableViewCell";
     [self.notificationTextView resignFirstResponder];
     
     if (indexPath.row == 0) {
+        AJSelectMemberTableViewController *VC = [[AJSelectMemberTableViewController alloc] init];
+        VC.selectMemberBlock = ^(NSMutableArray *array){
+            
+            AJNewNotificationTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.detailLbael.text = ((AJSchoolClub *)self.clubArray[[array[0] integerValue]]).Groupname;
+            self.selectClubRow = array[0];
+        };
+        
+        //如果有选中的值，将其传给下一页面
+        if (self.selectClubRow != nil) {
+            VC.selectIndexPathArray = [NSMutableArray arrayWithObject:self.selectClubRow];
+        }
+        [self loadClubWithViewController:VC];
+    }else if (indexPath.row == 1) {
         
         AJSelectMemberTableViewController *VC = [[AJSelectMemberTableViewController alloc] init];
         VC.selectMemberBlock = ^(NSMutableArray *array){
@@ -244,12 +321,14 @@ static NSString *const kNewNotiTableViewCell = @"newNotiTableViewCell";
             cell.detailLbael.text = [NSString stringWithFormat:@"%li人",array.count];
             self.selectMemberArray = array;
         };
+        
+        //如果有选中的值，将其传给下一页面
         if (self.selectMemberArray.count) {
             VC.selectIndexPathArray = self.selectMemberArray;
         }
-        [self.navigationController pushViewController:VC animated:YES];
+        [self loadMemberWithViewController:VC];
         
-    }else if (indexPath.row == 2){
+    }else if (indexPath.row == 3){
         AJNewNotificationTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm"];

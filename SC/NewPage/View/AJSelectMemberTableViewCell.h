@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AJSchoolClub.h"
+#import "AJMember.h"
 
 @interface AJSelectMemberTableViewCell : UITableViewCell
 @property (nonatomic, assign) BOOL isSelected;
-@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
-@property (weak, nonatomic) IBOutlet UILabel *nemeLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *selectImageView;
+
+@property (nonatomic, strong) AJSchoolClub *schoolClub;
+@property (nonatomic, strong) AJMember *clubMember;
+
 
 @end

@@ -97,7 +97,7 @@ static AFHTTPSessionManager *sessionManager = nil;
         for (int i = 0; i < imageArray.count; i ++) {
             //图片压缩比例0.5；
             NSData *imageData = UIImageJPEGRepresentation(imageArray[i], 0.5);
-            [formData appendPartWithFileData:imageData name:@"file" fileName:[NSString stringWithFormat:@"image_%i",i + 1] mimeType:@"image/jpeg"];
+            [formData appendPartWithFileData:imageData name:@"imgurl" fileName:[NSString stringWithFormat:@"image_%i.png",i + 1] mimeType:@"image/jpeg"];
         }
     } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         

@@ -20,6 +20,7 @@ static NSString *const CONST_URL_DOMAIN = @"http://gms.lyx.name/";
 
 //Token Key
 static NSString *const USERDEFAULT_TOKEN_KEY = @"userDefaultTokenKey";  /**< token 本地存储的 key*/
+static NSString *const USERDEFAULT_UID_KEY = @"userDefaultUIDkey";      /**< uid 本地存储的 key*/
 
 //Notification Setting
 static NSString *const DETAIL_SWITCH_STATE = @"detailSwitchState"; /**< 消息详情开关状态*/

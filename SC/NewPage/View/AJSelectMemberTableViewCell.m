@@ -7,6 +7,14 @@
 //
 
 #import "AJSelectMemberTableViewCell.h"
+#import "UIImageView+WebCache.h"
+
+@interface AJSelectMemberTableViewCell ()
+@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
+@property (weak, nonatomic) IBOutlet UILabel *nemeLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *selectImageView;
+
+@end
 
 @implementation AJSelectMemberTableViewCell
 
@@ -34,6 +42,16 @@
     _isSelected = isSelected;
     
     self.selectImageView.image = isSelected ? [UIImage imageNamed:@"NewPage_Selected"] :[UIImage imageNamed:@"NewPage_Select"];
+}
+
+- (void)setClubMember:(AJMember *)clubMember{
+    self.nemeLabel.text = clubMember.username;
+    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:clubMember.imgurl] placeholderImage:[UIImage imageNamed:@"Me_Placeholder"] options:SDWebImageRefreshCached];
+}
+
+- (void)setSchoolClub:(AJSchoolClub *)schoolClub{
+    self.nemeLabel.text = schoolClub.Groupname;
+    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:schoolClub.imgurl] placeholderImage:[UIImage imageNamed:@"Me_Placeholder"] options:SDWebImageRefreshCached];
 }
 
 @end

@@ -11,5 +11,6 @@
 @interface AJAccount : NSObject
 
 @property (nonatomic, strong) NSString *access_token;
+@property (nonatomic, strong) NSString *uid;
 
 @end

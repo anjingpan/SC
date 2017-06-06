@@ -13,6 +13,7 @@
 #import "AJProfile.h"
 #import "AJSchoolClub+Request.h"
 #import "MBProgressHUD.h"
+#import "YYModel.h"
 
 static NSString *const kSchoolClubCollectionViewCell = @"schoolClubCollectionViewCell";
 
@@ -31,6 +32,8 @@ static NSString *const kSchoolClubCollectionViewCell = @"schoolClubCollectionVie
 
 @property (nonatomic, strong) NSArray *introduceConstraintsV;       /**< 简介标签约束*/ //要修改约束，所以定义
 @property (nonatomic, assign) BOOL isMoreIntroduce;                 /**< 是否显示更多简介*/
+
+@property (nonatomic, strong) AJSchoolClub *clubInfo;               /**< 社团信息*/
 @end
 
 @implementation AJSchoolClubTableViewController
@@ -40,6 +43,7 @@ static NSString *const kSchoolClubCollectionViewCell = @"schoolClubCollectionVie
     self.title = @"浙江工业大学学生会";
     self.isMoreIntroduce = NO;
     
+    [self loadData];
     [self initHeaderView];
     [self initFooterView];
 }
@@ -51,7 +55,18 @@ static NSString *const kSchoolClubCollectionViewCell = @"schoolClubCollectionVie
 
 #pragma mark - Load Data
 - (void)loadData{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"groupid"] = self.clubID;
     
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:true];
+    hud.label.text = @"正在加载数据";
+
+    [AJSchoolClub getClubInfoRequestWithParams:params SuccessBlock:^(id object) {
+        [MBProgressHUD hideHUDForView:self.view animated:true];
+        self.clubInfo = [AJSchoolClub yy_modelWithJSON:object[@"data"]];
+    } FailBlock:^(NSError *error) {
+        [self failErrorWithView:self.view error:error];
+    }];
 }
 
 #pragma mark - Init View
@@ -88,7 +103,6 @@ static NSString *const kSchoolClubCollectionViewCell = @"schoolClubCollectionVie
     
     self.nameLabel = ({
         UILabel *label = [[UILabel alloc] init];
-        label.text = @"浙江工业大学学生会";
         label.font = [UIFont systemFontOfSize:16.f];
         label.textColor = [UIColor whiteColor];
         label.translatesAutoresizingMaskIntoConstraints = NO;
@@ -124,7 +138,6 @@ static NSString *const kSchoolClubCollectionViewCell = @"schoolClubCollectionVie
         label.textColor = [UIColor blackColor];
         label.translatesAutoresizingMaskIntoConstraints = NO;
         label.numberOfLines = 0;
-        label.text = @"为所有浙江工业大学学生服务，学校最大学生组织为所有浙江工业大学学生服务，学校最大学生组织为所有浙江工业大学为所有浙江工业大学学生服务，学校最大学生组织为所有浙江工业大学学生服务，学校最大学生组织为所有浙江工业大学";
         [self.headView addSubview:label];
         label;
     });
@@ -301,6 +314,28 @@ static NSString *const kSchoolClubCollectionViewCell = @"schoolClubCollectionVie
         //标志符在 storyboard 中自己设置
         AJMeInformationViewController *informationViewController = [storyboard instantiateViewControllerWithIdentifier:IDENTIFIER_AJMEINFORMATIONVIEWCONTROLLER];
         [self.navigationController pushViewController:informationViewController animated:YES];
+    }
+}
+
+#pragma mark - Setter
+- (void)setClubInfo:(AJSchoolClub *)clubInfo{
+    _clubInfo = clubInfo;
+    
+    self.nameLabel.text = clubInfo.Groupname;
+    self.introduceLabel.text = clubInfo.introduction;
+    
+    //原型数据
+    CGFloat fontSize = 14.f;
+    CGFloat marginX = 12.f;
+    
+    NSDictionary *attributes = @{NSFontAttributeName : [UIFont systemFontOfSize:fontSize]};
+    CGRect labelFinalRect = [self.introduceLabel.text boundingRectWithSize:CGSizeMake([[UIScreen mainScreen] bounds].size.width - 2 * marginX, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil];
+    
+    //因为3行自适应后未51多，
+    if (labelFinalRect.size.height < 52) {
+        self.readMoreButton.hidden = YES;
+    }else{
+        self.readMoreButton.hidden = NO;
     }
 }
 

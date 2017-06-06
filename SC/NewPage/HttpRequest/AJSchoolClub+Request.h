@@ -25,6 +25,11 @@
                         SuccessBlock:(void(^)(id))successBlock
                            FailBlock:(void(^)(NSError *))failBlock;
 
+//获取社团详细信息
++ (void)getClubInfoRequestWithParams:(NSMutableDictionary *)params
+                        SuccessBlock:(void(^)(id))successBlock
+                           FailBlock:(void(^)(NSError *))failBlock;
+
 //新建社团
 + (void)newClubWithParams:(NSMutableDictionary *)param
            WithImageArray:(NSArray *)imageArray

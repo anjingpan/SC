@@ -49,7 +49,7 @@ static NSString *const kSelectMemberTableViewCell = @"selectMemberTableViewCell"
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 16;
+    return self.dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -57,6 +57,12 @@ static NSString *const kSelectMemberTableViewCell = @"selectMemberTableViewCell"
     if (cell == nil) {
         cell = [[AJSelectMemberTableViewCell alloc] init];
     }
+    if (self.selectType == selectTypeClub) {
+        cell.schoolClub = (AJSchoolClub *)self.dataArray[indexPath.row];
+    }else if (self.selectType == selectTypeMember) {
+        cell.clubMember = (AJMember *)self.dataArray[indexPath.row];
+    }
+    
     if (self.selectIndexPathArray.count) {
         for(NSInteger i = 0 ; i < self.selectIndexPathArray.count; i ++){
             if ([self.selectIndexPathArray[i] integerValue] == indexPath.row) {
@@ -64,7 +70,11 @@ static NSString *const kSelectMemberTableViewCell = @"selectMemberTableViewCell"
                 cell.isSelected = !cell.isSelected;
                 self.selectCount = self.selectIndexPathArray.count;
                 
-                [self.submitButton setTitle:[NSString stringWithFormat:@"确定(%li/16)",self.selectCount] forState:UIControlStateNormal];
+                if (self.selectType == selectTypeClub) {
+                    [self.submitButton setTitle:@"确定" forState:UIControlStateNormal];
+                } else if (self.selectType == selectTypeMember){
+                    [self.submitButton setTitle:[NSString stringWithFormat:@"确定(%li/16)",self.selectCount] forState:UIControlStateNormal];
+                }
                 self.submitButton.enabled = true;
                 self.submitButton.alpha = 1;
                 
@@ -105,7 +115,12 @@ static NSString *const kSelectMemberTableViewCell = @"selectMemberTableViewCell"
             button.alpha = 0.4;            
         }
         button.titleLabel.font = [UIFont systemFontOfSize:fontSize];
-        [button setTitle:[NSString stringWithFormat:@"确定(%li/16)",self.selectCount] forState:UIControlStateNormal];
+        
+        if (self.selectType == selectTypeClub) {
+            [button setTitle:@"确定" forState:UIControlStateNormal];
+        } else if (self.selectType == selectTypeMember){
+            [button setTitle:[NSString stringWithFormat:@"确定(%li/16)",self.selectCount] forState:UIControlStateNormal];
+        }
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(submit) forControlEvents:UIControlEventTouchUpInside];
         [self.footerView addSubview:button];
@@ -129,14 +144,27 @@ static NSString *const kSelectMemberTableViewCell = @"selectMemberTableViewCell"
     AJSelectMemberTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     //通过设置自定义的是否选中状态来达到选中时显示选中状态后可以去除
     cell.isSelected = !cell.isSelected;
-    self.selectCount = cell.isSelected ? self.selectCount + 1 : self.selectCount - 1;
+    
+    //选择社团是单选，如果是当前已有选定的再次选择新的是就取消原先的选定
+    if (self.selectType == selectTypeClub && self.selectCount == 1 && cell.isSelected) {
+        AJSelectMemberTableViewCell *oldSelectCell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:[self.selectIndexPathArray[0] integerValue] inSection:0]];
+        [self.selectIndexPathArray removeObjectAtIndex:0];
+        oldSelectCell.isSelected = 0;
+    }else{
+        self.selectCount = cell.isSelected ? self.selectCount + 1 : self.selectCount - 1;
+    }
+    
     if (cell.isSelected) {
         [self.selectIndexPathArray addObject:[NSNumber numberWithInteger:indexPath.row]];
     }else{
         [self.selectIndexPathArray removeObject:[NSNumber numberWithInteger:indexPath.row]];
     }
     
-    [self.submitButton setTitle:[NSString stringWithFormat:@"确定(%li/16)",self.selectCount] forState:UIControlStateNormal];
+    //选择成员时才需要改变确认按钮状态
+    if (self.selectType == selectTypeMember) {
+        [self.submitButton setTitle:[NSString stringWithFormat:@"确定(%li/16)",self.selectCount] forState:UIControlStateNormal];
+    }
+    
     if (self.selectCount) {
         self.submitButton.enabled = true;
         self.submitButton.alpha = 1;
