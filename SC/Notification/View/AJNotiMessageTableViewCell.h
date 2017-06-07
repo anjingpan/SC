@@ -8,11 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "AJMessageLabel.h"
+#import "AJNotification.h"
+
+typedef NS_ENUM(NSInteger, MessageType) {
+    MessageTypeCheck,   /**< 审核消息*/
+    MessageTypeNoti     /**< 通知消息*/
+};
 
 @interface AJNotiMessageTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *dayLabel;
-@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *isReaderImageView;
-@property (weak, nonatomic) IBOutlet AJMessageLabel *messageLabel;
 
+@property (nonatomic, assign)MessageType messageType;
+@property (nonatomic, strong)AJNotification *notification;
+
+@property (weak, nonatomic) IBOutlet AJMessageLabel *messageLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *isReaderImageView;
 @end

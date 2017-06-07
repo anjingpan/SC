@@ -8,15 +8,17 @@
 
 #import "AJMessageLabel.h"
 #import "UIImageView+RoundRect.h"
+#import "UIImageView+WebCache.h"
+#import "AJProfile.h"
 
 @interface AJMessageLabel ()
 
 @property (nonatomic, strong) UIImageView *iconImageView;
 @property (nonatomic, strong) UILabel *userNamelabel;
-@property (nonatomic, strong) UILabel *contentLabel;
 @property (nonatomic, strong) UILabel *timeLabel;
 @property (nonatomic, strong) UILabel *clubNameLabel;
 @property (nonatomic, strong) UIImageView *contentImageView;
+@property (nonatomic, strong) UILabel *checkStatusLabel;            /**< 审核状态标签*/
 @end
 
 @implementation AJMessageLabel
@@ -64,6 +66,14 @@
             self.timeLabel.frame = CGRectMake(marginX, CGRectGetMaxY(self.contentLabel.frame) + marginMaxY , timeLabelWidth, timeLabelHeight);
             self.clubNameLabel.frame = CGRectMake(CGRectGetMaxX(self.timeLabel.frame) + marginX, self.timeLabel.frame.origin.y, self.frame.size.width - CGRectGetMaxX(self.timeLabel.frame) - 2 * marginX, timeLabelHeight);
             break;
+        case messageTypeCheck:
+                self.contentLabel.frame = CGRectMake(marginX, CGRectGetMaxY(self.iconImageView.frame) + marginMinY, self.frame.size.width - 2 * marginX, self.frame.size.height - 2 * timeLabelHeight - marginMaxY - 4 * marginMinY - CGRectGetMaxY(self.iconImageView.frame));//将时间标签以及用户头像视图中间的区域作为内容的高度
+            self.timeLabel.frame = CGRectMake(marginX, CGRectGetMaxY(self.contentLabel.frame) + marginMaxY , timeLabelWidth, timeLabelHeight);
+            self.clubNameLabel.frame = CGRectMake(CGRectGetMaxX(self.timeLabel.frame) + marginX, self.timeLabel.frame.origin.y, self.frame.size.width - CGRectGetMaxX(self.timeLabel.frame) - 2 * marginX, timeLabelHeight);
+            self.checkStatusLabel.frame = CGRectMake(marginX, CGRectGetMaxY(self.timeLabel.frame) + marginMinY, [UIScreen mainScreen].bounds.size.width - 2 * marginX, timeLabelHeight);
+            
+            self.contentLabel.text = @"申请加入该社团";
+            break;
         case messageTypeSchedule:
             self.iconImageView.hidden = YES;
             self.userNamelabel.hidden = YES;
@@ -92,7 +102,7 @@
     //原型数据
 
     CGFloat maxFontSize = 14.0;
-    CGFloat minFontSize = 10.0;
+    CGFloat minFontSize = 12.0;
     
     self.iconImageView = ({
         UIImageView *imageView = [[UIImageView alloc] init];
@@ -143,6 +153,53 @@
         imageView;
     });
     
+    self.checkStatusLabel = ({
+        UILabel *label = [[UILabel alloc] init];
+        label.font = [UIFont systemFontOfSize:minFontSize];
+        label.textColor = [UIColor orangeColor];
+        label.text = @"正在审批中";
+        [self addSubview:label];
+        label;
+    });
+}
+
+- (void)setMember:(AJMember *)member{
+    _member = member;
+    
+    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:member.imgurl] placeholderImage:[UIImage imageNamed:@"Me_Placeholder"] options:SDWebImageRefreshCached];
+    
+    NSString *myID = [NSString string];
+    myID = [[NSUserDefaults standardUserDefaults] objectForKey:USERDEFAULT_UID_KEY];
+    if ([member.uid isEqualToString: myID]) {
+        self.userNamelabel.text = @"我";
+    }else{
+        self.userNamelabel.text = member.RealName;
+    }
+}
+
+- (void)setTime:(NSString *)time{
+    _time = time;
+    
+    self.timeLabel.text = time;
+}
+
+- (void)setSchoolClub:(AJSchoolClub *)schoolClub{
+    _schoolClub = schoolClub;
+    
+    self.clubNameLabel.text = schoolClub.Groupname;
+}
+
+- (void)setCheckStatus:(NSString *)checkStatus{
+    _checkStatus = checkStatus;
+    
+    if ([checkStatus isEqualToString:@"0"]) {
+        self.checkStatusLabel.text = @"正在审核中";
+    }else if ([checkStatus isEqualToString:@"1"]){
+        self.checkStatusLabel.text = @"审核通过";
+    }else if ([checkStatus isEqualToString:@"-1"]){
+        self.checkStatusLabel.text = @"审核拒绝";
+        self.checkStatusLabel.textColor = [UIColor redColor];
+    }
 }
 
 @end

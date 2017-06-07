@@ -10,6 +10,10 @@
 #import "AJNotiMessageTableViewCell.h"
 #import "AJNotiDetailViewController.h"
 #import "MKDropdownMenu.h"
+#import "AJNotification+HttpRequest.h"
+#import "MJRefresh.h"
+#import "YYModel.h"
+#import "AJProfile.h"
 
 static NSString *const kNotiMessageTableViewCell = @"notiMessageTableViewCell";
 
@@ -18,6 +22,8 @@ static NSString *const kNotiMessageTableViewCell = @"notiMessageTableViewCell";
 @property (nonatomic, strong) MKDropdownMenu *dropdownMenu;
 @property (nonatomic, strong) NSArray *titleArray;
 @property (nonatomic, assign) NSInteger selectedRow;
+
+@property (nonatomic, strong) NSArray *checkNotiArray;      /**< 审核消息数组*/
 
 @end
 
@@ -34,13 +40,32 @@ static NSString *const kNotiMessageTableViewCell = @"notiMessageTableViewCell";
     [self initNavigationTitleView];
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self shouldAddPullToRefresh:true];
+    [self.tableView.mj_header beginRefreshing];
     
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([AJNotiMessageTableViewCell class]) bundle:nil] forCellReuseIdentifier:kNotiMessageTableViewCell];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadNewData) name:NSNOTIFICATION_READMESSAGE object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Load Data
+- (void)loadNewData{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"type"] = @(self.selectedRow + 1); //1为全部的，2为收到的，3为发出的
+    
+    [AJNotification getCheckRequestWithParams:params SuccessBlock:^(id object) {
+        self.checkNotiArray = [NSArray yy_modelArrayWithClass:[AJNotification class] json:object[@"data"]];
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView reloadData];
+    } FailBlock:^(NSError *error) {
+        [self.tableView.mj_header endRefreshing];
+        [self failErrorWithView:self.view error:error];
+    }];
 }
 
 #pragma mark - Init View
@@ -58,11 +83,14 @@ static NSString *const kNotiMessageTableViewCell = @"notiMessageTableViewCell";
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 12;
+    return self.checkNotiArray.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 108.0;
+    if ([self.titleText isEqualToString:@"审核消息"]) {
+        return 142.0;
+    }
+    return 112.0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -70,11 +98,11 @@ static NSString *const kNotiMessageTableViewCell = @"notiMessageTableViewCell";
     if (cell == nil) {
         cell = [[AJNotiMessageTableViewCell alloc] init];
     }
-    if (indexPath.row <= 3) {
-        cell.isReaderImageView.image = [UIImage imageNamed:@"Notification_Unread"];
-    }else{
-        cell.isReaderImageView.image = [UIImage imageNamed:@"Notification_Read"];
+    
+    if ([self.titleText isEqualToString:@"审核消息"]) {
+        cell.messageType = MessageTypeCheck;
     }
+    cell.notification = self.checkNotiArray[indexPath.row];
     
     return cell;
 }
@@ -84,8 +112,15 @@ static NSString *const kNotiMessageTableViewCell = @"notiMessageTableViewCell";
     if ([self.titleText isEqualToString:@"通知消息"]) {
         VC.detailType = messageDetailTypeNoti;
     }else if ([self.titleText isEqualToString:@"审核消息"]){
+        
+        //接收和拒绝的不显示详情
+        if (![((AJNotification *)self.checkNotiArray[indexPath.row]).status isEqualToString:@"0"] && [((AJNotification *)self.checkNotiArray[indexPath.row]).type isEqualToString:@"post"]) {
+            return;
+        }
+        VC.notification = self.checkNotiArray[indexPath.row];
         VC.detailType = messageDetailTypeAudit;
     }
+    
     [self.navigationController pushViewController:VC animated:YES];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -117,7 +152,7 @@ static NSString *const kNotiMessageTableViewCell = @"notiMessageTableViewCell";
     [dropdownMenu reloadComponent:component];
     [dropdownMenu closeAllComponentsAnimated:YES];
     
-    //todo:请求
+    [self.tableView.mj_header beginRefreshing];
 }
 
 - (UIColor *)dropdownMenu:(MKDropdownMenu *)dropdownMenu backgroundColorForRow:(NSInteger)row forComponent:(NSInteger)component{

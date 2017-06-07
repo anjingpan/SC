@@ -12,5 +12,6 @@
 @interface AJMeInformationViewController : AJBaseViewController
 
 @property (nonatomic, assign) BOOL isAllowEdit;     /**< 视图是否可编辑*/
+@property (nonatomic, strong) NSString *userId;     /**< 用户编号*/
 
 @end

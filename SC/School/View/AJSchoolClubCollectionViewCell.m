@@ -9,7 +9,7 @@
 #import "AJSchoolClubCollectionViewCell.h"
 
 @interface AJSchoolClubCollectionViewCell ()
-@property (strong, nonatomic) IBOutlet UIImageView *clubIconImageView;
+
 
 @end
 
@@ -22,9 +22,7 @@
 }
 
 #pragma mark - Setter
-- (void)setIconImage:(UIImage *)iconImage{
-    _iconImage = iconImage;
-    self.clubIconImageView.image = iconImage;
+- (void)setClubIconImageView:(UIImageView *)clubIconImageView{
     self.clubIconImageView.contentMode = UIViewContentModeCenter;
     //暂时处理 cell 大小和定义的不一致问题，保证圆形
     self.clubIconImageView.layer.cornerRadius = [[UIScreen mainScreen] bounds].size.width / 12.0;

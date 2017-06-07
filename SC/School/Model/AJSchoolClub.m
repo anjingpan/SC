@@ -7,7 +7,12 @@
 //
 
 #import "AJSchoolClub.h"
+#import "AJMember.h"
 
 @implementation AJSchoolClub
+
++ (NSDictionary *)modelContainerPropertyGenericClass{
+    return @{@"user_list" : [AJMember class]};
+}
 
 @end

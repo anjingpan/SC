@@ -14,6 +14,8 @@
 #import "AJSchoolClub+Request.h"
 #import "MBProgressHUD.h"
 #import "YYModel.h"
+#import "UIImageView+WebCache.h"
+#import "AJMember.h"
 
 static NSString *const kSchoolClubCollectionViewCell = @"schoolClubCollectionViewCell";
 
@@ -40,7 +42,6 @@ static NSString *const kSchoolClubCollectionViewCell = @"schoolClubCollectionVie
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"浙江工业大学学生会";
     self.isMoreIntroduce = NO;
     
     [self loadData];
@@ -64,6 +65,8 @@ static NSString *const kSchoolClubCollectionViewCell = @"schoolClubCollectionVie
     [AJSchoolClub getClubInfoRequestWithParams:params SuccessBlock:^(id object) {
         [MBProgressHUD hideHUDForView:self.view animated:true];
         self.clubInfo = [AJSchoolClub yy_modelWithJSON:object[@"data"]];
+        self.userCountLabel.text = [NSString stringWithFormat:@"现有成员%lu人",(unsigned long)self.clubInfo.user_list.count];
+        [self.userCollectionView reloadData];
     } FailBlock:^(NSError *error) {
         [self failErrorWithView:self.view error:error];
     }];
@@ -91,7 +94,6 @@ static NSString *const kSchoolClubCollectionViewCell = @"schoolClubCollectionVie
     self.clubImageView = ({
         UIImageView *imageView = [[UIImageView alloc] init];
         imageView.backgroundColor = [UIColor whiteColor];
-        imageView.image = [UIImage imageNamed:@"Me_Placeholder"];
         imageView.layer.borderColor = AJBackGroundColor.CGColor;
         imageView.layer.cornerRadius = 10.f;
         imageView.layer.borderWidth = 2.f;
@@ -113,7 +115,6 @@ static NSString *const kSchoolClubCollectionViewCell = @"schoolClubCollectionVie
     self.userCountLabel = ({
         UILabel *label = [[UILabel alloc] init];
         label.font = [UIFont systemFontOfSize:14.f];
-        label.text = @"现有成员12位";
         label.textColor = [UIColor darkGrayColor];
         label.translatesAutoresizingMaskIntoConstraints = NO;
         [self.headView addSubview:label];
@@ -283,7 +284,13 @@ static NSString *const kSchoolClubCollectionViewCell = @"schoolClubCollectionVie
 
 #pragma mark - CollectionView Delegate && DataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 5;
+    if (self.clubInfo.user_list.count > 5) {
+        return 5;
+    }else if ( self.clubInfo.user_list.count){
+        return self.clubInfo.user_list.count;
+    }
+    
+    return 0;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -293,10 +300,12 @@ static NSString *const kSchoolClubCollectionViewCell = @"schoolClubCollectionVie
         cell = [[AJSchoolClubCollectionViewCell alloc] init];
     }
     
-    if (indexPath.row != 4) {
-        cell.iconImage = [UIImage imageNamed:@"Me_Placeholder"];
+    if (self.clubInfo.user_list.count > 5 && indexPath.row == 4) {
+        cell.clubIconImageView.image = [UIImage imageNamed:@"School_More"];
     }else{
-        cell.iconImage = [UIImage imageNamed:@"School_More"];
+        NSURL *iconURL = [NSURL URLWithString:((AJMember *)self.clubInfo.user_list[indexPath.row]).imgurl];
+        
+        [cell.clubIconImageView sd_setImageWithURL:iconURL placeholderImage:[UIImage imageNamed:@"School_More"] options:SDWebImageRefreshCached];
     }
     return cell;
 }
@@ -306,13 +315,14 @@ static NSString *const kSchoolClubCollectionViewCell = @"schoolClubCollectionVie
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == 4) {
+    if (indexPath.row == 4 && self.clubInfo.user_list.count > 5 ) {
         AJSchoolMemberTableViewController *memberViewController = [[AJSchoolMemberTableViewController alloc] init];
         [self.navigationController pushViewController:memberViewController animated:YES];
     }else{
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
         //标志符在 storyboard 中自己设置
         AJMeInformationViewController *informationViewController = [storyboard instantiateViewControllerWithIdentifier:IDENTIFIER_AJMEINFORMATIONVIEWCONTROLLER];
+        informationViewController.userId = ((AJMember *)self.clubInfo.user_list[indexPath.row]).uid;
         [self.navigationController pushViewController:informationViewController animated:YES];
     }
 }

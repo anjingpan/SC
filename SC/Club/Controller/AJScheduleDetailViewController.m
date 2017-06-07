@@ -111,7 +111,7 @@ static NSString *const kScheduleDetailCollectionCell = @"scheduleDetailCollectio
         cell = [[AJSchoolClubCollectionViewCell alloc] init];
     }
     
-    cell.iconImage = [UIImage imageNamed:@"Me_Placeholder"];
+    cell.clubIconImageView.image = [UIImage imageNamed:@"Me_Placeholder"];
     return cell;
 }
 @end

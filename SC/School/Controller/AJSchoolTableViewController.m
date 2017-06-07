@@ -243,6 +243,7 @@ static NSString *const kSchoolTableViewCell = @"schoolTableViewCell";   /**< 社
 
     AJSchoolClubTableViewController *clubVC = [[AJSchoolClubTableViewController alloc] init];
     clubVC.clubID = ((AJSchoolClub *)self.clubArray[indexPath.row]).Groupid;
+    clubVC.title = ((AJSchoolClub *)self.clubArray[indexPath.row]).Groupname;
     //隐藏工具栏
     clubVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:clubVC animated:YES];

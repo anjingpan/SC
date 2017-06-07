@@ -10,6 +10,6 @@
 #import "AJBaseTableViewController.h"
 
 @interface AJSchoolClubTableViewController : AJBaseTableViewController
-@property (nonatomic, strong) NSString *clubID;
+@property (nonatomic, strong) NSString *clubID;         /**< 社团编号*/
 
 @end

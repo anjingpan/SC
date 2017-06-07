@@ -80,6 +80,7 @@ static NSString *const kClubCollectionViewCell = @"clubCollectionViewCell";
 #pragma mark - Load Data
 - (void)loadData{
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"uid"] = self.userId ? : @"";
     
     //接口返回数据格式问题，直接数组返回
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:true];

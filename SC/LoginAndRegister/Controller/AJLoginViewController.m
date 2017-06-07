@@ -80,6 +80,9 @@
             [MBProgressHUD hideHUDForView:self.view animated:YES];
             AJAccount *account = [AJAccount yy_modelWithJSON:object[@"data"]];
             [[NSUserDefaults standardUserDefaults] setObject:account.access_token forKey:USERDEFAULT_TOKEN_KEY];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            [[NSUserDefaults standardUserDefaults] setObject:account.uid forKey:USERDEFAULT_UID_KEY];
+            [[NSUserDefaults standardUserDefaults] synchronize];
             
             UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             [UIApplication sharedApplication].keyWindow.rootViewController = [mainStoryboard instantiateViewControllerWithIdentifier:IDENTIFIER_AJTABBARVIEWCONTROLLER];

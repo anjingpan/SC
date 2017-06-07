@@ -16,5 +16,6 @@
 @property (nonatomic, strong)NSString *GroupSchool;     /**< 社团所在学校*/
 @property (nonatomic, strong)NSString *introduction;    /**< 社团简介*/
 @property (nonatomic, strong)NSString *imgurl;          /**< 社团头像链接*/
+@property (nonatomic, strong)NSArray *user_list;        /**< 用户成员列表*/
 
 @end

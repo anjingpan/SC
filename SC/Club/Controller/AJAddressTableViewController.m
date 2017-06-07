@@ -7,6 +7,10 @@
 //
 
 #import "AJAddressTableViewController.h"
+#import "AJMember+Request.h"
+#import "MJRefresh.h"
+#import "YYModel.h"
+#import "UIImageView+WebCache.h"
 
 static NSString *const kAddressTableViewCell = @"addressTableViewCell";
 
@@ -24,6 +28,9 @@ static NSString *const kAddressTableViewCell = @"addressTableViewCell";
     self.title = @"通讯录";
     self.view.backgroundColor = AJBackGroundColor;
     
+    [self shouldAddPullToRefresh:true];
+    [self.tableView.mj_header beginRefreshing];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,10 +38,24 @@ static NSString *const kAddressTableViewCell = @"addressTableViewCell";
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Init Data
+- (void)loadNewData {
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"groupid"] = self.groupID;
+    
+    [AJMember getContactsRequestWithParams:params SuccessBlock:^(id object) {
+        self.memberArray = [NSArray yy_modelArrayWithClass:[AJMember class] json:object[@"data"]];
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView reloadData];
+    } FailBlock:^(NSError *error) {
+        [self failErrorWithView:self.view error:error];
+    }];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 14;
+    return self.memberArray.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -48,9 +69,10 @@ static NSString *const kAddressTableViewCell = @"addressTableViewCell";
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:kAddressTableViewCell];
     }
     
-    cell.imageView.image = [UIImage imageNamed:@"Me_Placeholder"];
-    cell.textLabel.text = @"木然、";
-    cell.detailTextLabel.text = @"15700086225";
+    AJMember *member = self.memberArray[indexPath.row];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:member.imgurl] placeholderImage:[UIImage imageNamed:@"Me_Placeholder"] options:SDWebImageRefreshCached];
+    cell.textLabel.text = member.username;
+    cell.detailTextLabel.text = member.username;
     cell.detailTextLabel.textColor = [UIColor blueColor];
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;

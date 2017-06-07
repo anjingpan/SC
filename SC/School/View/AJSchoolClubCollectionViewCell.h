@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface AJSchoolClubCollectionViewCell : UICollectionViewCell
+@property (strong, nonatomic) IBOutlet UIImageView *clubIconImageView;
 
-@property (nonatomic, strong) UIImage *iconImage;
 @end

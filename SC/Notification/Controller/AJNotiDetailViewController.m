@@ -9,6 +9,10 @@
 #import "AJNotiDetailViewController.h"
 #import "AJMessageLabel.h"
 #import "AJNotiCheckViewController.h"
+#import "AJNotification+HttpRequest.h"
+#import "MBProgressHUD.h"
+#import "YYModel.h"
+#import "AJProfile.h"
 
 @interface AJNotiDetailViewController ()
 
@@ -54,7 +58,9 @@
         label.font = [UIFont systemFontOfSize:fontSize];
         label.textColor = [UIColor darkGrayColor];
         label.textAlignment = NSTextAlignmentCenter;
-        label.text = @"2017年5月27日 01:42";
+        NSDateFormatter *format = [[NSDateFormatter alloc] init];
+        [format setDateFormat:@"yyyy年MM月dd日 hh:mm"];
+        label.text = [format stringFromDate:[NSDate dateWithTimeIntervalSince1970:(int)self.notification.apply_time.longLongValue]];
         [self.view addSubview:label];
         label;
     });
@@ -62,6 +68,9 @@
     self.messageDetailLabel = ({
         AJMessageLabel *messageLabel = [[AJMessageLabel alloc] initWithFrame:CGRectMake(marginX, CGRectGetMaxY(self.timeLabel.frame) + marginY, [UIScreen mainScreen].bounds.size.width - 2 * marginX, messageHeight)];
         messageLabel.type = messageTypeDetail;
+        messageLabel.member = self.notification.user_info;
+        messageLabel.schoolClub = self.notification.group_info;
+        messageLabel.contentLabel.text = @"申请加入该社团";
         [self.view addSubview:messageLabel];
         messageLabel;
     });
@@ -125,11 +134,37 @@
 }
 
 - (void)confirmDeliver{
-    
+    [self handleCheckNotiWithStatus:@"1"];
 }
 
 - (void)refuse{
+    [self handleCheckNotiWithStatus:@"0"];
+}
+
+#pragma mark - Http Request
+- (void)handleCheckNotiWithStatus:(NSString *)status{
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    params[@"groupid"] = self.notification.group_info.Groupid;
+    params[@"uid"] = self.notification.user_info.uid;
+    params[@"handle"] = status;
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:true];
+    hud.label.text = @"正在提交数据";
+    
+    [AJNotification handleCheckRequestWithParams:params SuccessBlock:^(id object) {
+        hud.mode = MBProgressHUDModeText;
+        hud.label.text = @"提交成功";
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:self.view animated:true];
+            [[NSNotificationCenter defaultCenter] postNotificationName:NSNOTIFICATION_READMESSAGE object:nil];
+            [self.navigationController popViewControllerAnimated:true];
+        });
+    } FailBlock:^(NSError *error) {
+        [self failErrorWithView:self.view error:error];
+    }];
     
 }
+
 
 @end

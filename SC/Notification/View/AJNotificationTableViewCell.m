@@ -11,7 +11,7 @@
 
 @interface AJNotificationTableViewCell ()
 @property (strong, nonatomic) IBOutlet UILabel *notificationMessageLabel;   /**< 未读消息标签*/
-@property (strong, nonatomic) IBOutlet UILabel *notificationTimeLabel;      /**< 未读消息事件*/
+@property (strong, nonatomic) IBOutlet UILabel *notificationTimeLabel;      /**< 未读消息时间*/
 
 @property (nonatomic, strong) RKNotificationHub *notificationHub;           /**< 未读消息标识*/
 @end

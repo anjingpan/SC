@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AJBaseTableViewController.h"
 
-@interface AJNotiMessageTableViewController : UITableViewController
+@interface AJNotiMessageTableViewController : AJBaseTableViewController
 @property (nonatomic, strong) NSString *titleText;
 
 @end
