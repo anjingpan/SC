@@ -12,6 +12,13 @@
 
 @interface AJNotification : NSObject
 
+@property (nonatomic, strong) NSString *msg_id;
+@property (nonatomic, strong) NSString *msg_form;
+@property (nonatomic, strong) NSString *send_time;
+@property (nonatomic, strong) NSString *msg_to;
+@property (nonatomic, strong) NSString *text_id;
+@property (nonatomic, strong) NSString *content;
+@property (nonatomic, strong) NSString *is_read;
 @property (nonatomic, strong) NSString *Ugroup_id;
 @property (nonatomic, strong) NSString *uid;
 @property (nonatomic, strong) NSString *group_id;

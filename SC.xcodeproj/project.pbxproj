@@ -62,11 +62,16 @@
 		950CF93D1EE2DBE20070AC89 /* AJBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF93C1EE2DBE20070AC89 /* AJBaseTableViewController.m */; };
 		950CF93F1EE2F33B0070AC89 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 950CF93E1EE2F33B0070AC89 /* Images.xcassets */; };
 		950CF9431EE349770070AC89 /* AJSchoolClub.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF9421EE349770070AC89 /* AJSchoolClub.m */; };
-		950CF9461EE34A620070AC89 /* AJSchoolClub+Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF9451EE34A620070AC89 /* AJSchoolClub+Request.m */; };
 		950CF9501EE492180070AC89 /* AJMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF94F1EE492180070AC89 /* AJMember.m */; };
 		950CF9541EE4933B0070AC89 /* AJMember+Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF9531EE4933B0070AC89 /* AJMember+Request.m */; };
 		950CF9571EE74E8D0070AC89 /* AJNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF9561EE74E8D0070AC89 /* AJNotification.m */; };
 		950CF95B1EE83B9B0070AC89 /* AJNotification+HttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF95A1EE83B9B0070AC89 /* AJNotification+HttpRequest.m */; };
+		950CF95F1EE86AB80070AC89 /* AJSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF95E1EE86AB80070AC89 /* AJSchedule.m */; };
+		950CF9631EE86B630070AC89 /* AJSchoolClub+Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF9621EE86B630070AC89 /* AJSchoolClub+Request.m */; };
+		950CF9671EE86BAC0070AC89 /* AJSchedule+HttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF9661EE86BAC0070AC89 /* AJSchedule+HttpRequest.m */; };
+		950CF96D1EE8A65C0070AC89 /* AJMessageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF96C1EE8A65C0070AC89 /* AJMessageInfo.m */; };
+		950CF9701EE8A6A20070AC89 /* AJMessageUnread.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF96F1EE8A6A20070AC89 /* AJMessageUnread.m */; };
+		950CF9731EE8A7940070AC89 /* AJMessageUnread+HttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 950CF9721EE8A7940070AC89 /* AJMessageUnread+HttpRequest.m */; };
 		953E25081E61B3F4000B17EF /* AJTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 953E25071E61B3F4000B17EF /* AJTabBarViewController.m */; };
 		954AEC031EACEC810006FF7D /* AJNewPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 954AEBFE1EACEC810006FF7D /* AJNewPageViewController.m */; };
 		954AEC041EACEC810006FF7D /* AJNewPageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 954AEC021EACEC810006FF7D /* AJNewPageCollectionViewCell.m */; };
@@ -215,8 +220,6 @@
 		950CF93E1EE2F33B0070AC89 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		950CF9411EE349770070AC89 /* AJSchoolClub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJSchoolClub.h; sourceTree = "<group>"; };
 		950CF9421EE349770070AC89 /* AJSchoolClub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJSchoolClub.m; sourceTree = "<group>"; };
-		950CF9441EE34A620070AC89 /* AJSchoolClub+Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AJSchoolClub+Request.h"; sourceTree = "<group>"; };
-		950CF9451EE34A620070AC89 /* AJSchoolClub+Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AJSchoolClub+Request.m"; sourceTree = "<group>"; };
 		950CF94E1EE492180070AC89 /* AJMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJMember.h; sourceTree = "<group>"; };
 		950CF94F1EE492180070AC89 /* AJMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJMember.m; sourceTree = "<group>"; };
 		950CF9521EE4933B0070AC89 /* AJMember+Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AJMember+Request.h"; sourceTree = "<group>"; };
@@ -225,6 +228,18 @@
 		950CF9561EE74E8D0070AC89 /* AJNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNotification.m; sourceTree = "<group>"; };
 		950CF9591EE83B9B0070AC89 /* AJNotification+HttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AJNotification+HttpRequest.h"; sourceTree = "<group>"; };
 		950CF95A1EE83B9B0070AC89 /* AJNotification+HttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AJNotification+HttpRequest.m"; sourceTree = "<group>"; };
+		950CF95D1EE86AB80070AC89 /* AJSchedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJSchedule.h; sourceTree = "<group>"; };
+		950CF95E1EE86AB80070AC89 /* AJSchedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJSchedule.m; sourceTree = "<group>"; };
+		950CF9611EE86B630070AC89 /* AJSchoolClub+Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AJSchoolClub+Request.h"; sourceTree = "<group>"; };
+		950CF9621EE86B630070AC89 /* AJSchoolClub+Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AJSchoolClub+Request.m"; sourceTree = "<group>"; };
+		950CF9651EE86BAC0070AC89 /* AJSchedule+HttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AJSchedule+HttpRequest.h"; sourceTree = "<group>"; };
+		950CF9661EE86BAC0070AC89 /* AJSchedule+HttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AJSchedule+HttpRequest.m"; sourceTree = "<group>"; };
+		950CF96B1EE8A65C0070AC89 /* AJMessageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJMessageInfo.h; sourceTree = "<group>"; };
+		950CF96C1EE8A65C0070AC89 /* AJMessageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJMessageInfo.m; sourceTree = "<group>"; };
+		950CF96E1EE8A6A20070AC89 /* AJMessageUnread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJMessageUnread.h; sourceTree = "<group>"; };
+		950CF96F1EE8A6A20070AC89 /* AJMessageUnread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJMessageUnread.m; sourceTree = "<group>"; };
+		950CF9711EE8A7940070AC89 /* AJMessageUnread+HttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AJMessageUnread+HttpRequest.h"; sourceTree = "<group>"; };
+		950CF9721EE8A7940070AC89 /* AJMessageUnread+HttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AJMessageUnread+HttpRequest.m"; sourceTree = "<group>"; };
 		953E25061E61B3F4000B17EF /* AJTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJTabBarViewController.h; sourceTree = "<group>"; };
 		953E25071E61B3F4000B17EF /* AJTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJTabBarViewController.m; sourceTree = "<group>"; };
 		954AEBFD1EACEC810006FF7D /* AJNewPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNewPageViewController.h; sourceTree = "<group>"; };
@@ -440,16 +455,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		950CF9401EE3492A0070AC89 /* HttpRequest */ = {
-			isa = PBXGroup;
-			children = (
-				950CF9441EE34A620070AC89 /* AJSchoolClub+Request.h */,
-				950CF9451EE34A620070AC89 /* AJSchoolClub+Request.m */,
-			);
-			name = HttpRequest;
-			path = ../NewPage/HttpRequest;
-			sourceTree = "<group>";
-		};
 		950CF9511EE493200070AC89 /* HttpRequest */ = {
 			isa = PBXGroup;
 			children = (
@@ -464,6 +469,26 @@
 			children = (
 				950CF9591EE83B9B0070AC89 /* AJNotification+HttpRequest.h */,
 				950CF95A1EE83B9B0070AC89 /* AJNotification+HttpRequest.m */,
+				950CF9711EE8A7940070AC89 /* AJMessageUnread+HttpRequest.h */,
+				950CF9721EE8A7940070AC89 /* AJMessageUnread+HttpRequest.m */,
+			);
+			path = HttpRequest;
+			sourceTree = "<group>";
+		};
+		950CF9601EE86B630070AC89 /* HttpRequest */ = {
+			isa = PBXGroup;
+			children = (
+				950CF9611EE86B630070AC89 /* AJSchoolClub+Request.h */,
+				950CF9621EE86B630070AC89 /* AJSchoolClub+Request.m */,
+			);
+			path = HttpRequest;
+			sourceTree = "<group>";
+		};
+		950CF9641EE86B8A0070AC89 /* HttpRequest */ = {
+			isa = PBXGroup;
+			children = (
+				950CF9651EE86BAC0070AC89 /* AJSchedule+HttpRequest.h */,
+				950CF9661EE86BAC0070AC89 /* AJSchedule+HttpRequest.m */,
 			);
 			path = HttpRequest;
 			sourceTree = "<group>";
@@ -604,6 +629,10 @@
 			children = (
 				950CF9551EE74E8D0070AC89 /* AJNotification.h */,
 				950CF9561EE74E8D0070AC89 /* AJNotification.m */,
+				950CF96B1EE8A65C0070AC89 /* AJMessageInfo.h */,
+				950CF96C1EE8A65C0070AC89 /* AJMessageInfo.m */,
+				950CF96E1EE8A6A20070AC89 /* AJMessageUnread.h */,
+				950CF96F1EE8A6A20070AC89 /* AJMessageUnread.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -627,8 +656,8 @@
 			isa = PBXGroup;
 			children = (
 				953E25031E61AF45000B17EF /* Controller */,
+				950CF9601EE86B630070AC89 /* HttpRequest */,
 				953E25041E61AF45000B17EF /* Model */,
-				950CF9401EE3492A0070AC89 /* HttpRequest */,
 				953E25051E61AF45000B17EF /* View */,
 			);
 			path = School;
@@ -680,6 +709,7 @@
 			isa = PBXGroup;
 			children = (
 				954AEBFC1EACEC810006FF7D /* Controller */,
+				950CF9641EE86B8A0070AC89 /* HttpRequest */,
 				954AEBFF1EACEC810006FF7D /* Model */,
 				954AEC001EACEC810006FF7D /* View */,
 			);
@@ -706,6 +736,8 @@
 		954AEBFF1EACEC810006FF7D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				950CF95D1EE86AB80070AC89 /* AJSchedule.h */,
+				950CF95E1EE86AB80070AC89 /* AJSchedule.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -984,10 +1016,12 @@
 				950CF9431EE349770070AC89 /* AJSchoolClub.m in Sources */,
 				9576637A1E6C63350048FC96 /* AJMeTableViewController.m in Sources */,
 				9505656D1DFDA51B00A3E5C0 /* AppDelegate.m in Sources */,
+				950CF9701EE8A6A20070AC89 /* AJMessageUnread.m in Sources */,
 				95F1081F1ED1A86400E54844 /* AJNewClubViewController.m in Sources */,
 				950CF9311EE1D2B30070AC89 /* UILabel+AdaptSize.m in Sources */,
 				950CF95B1EE83B9B0070AC89 /* AJNotification+HttpRequest.m in Sources */,
 				957E70E01E6DAC450059B75F /* AJSetNotificationTableViewController.m in Sources */,
+				950CF9671EE86BAC0070AC89 /* AJSchedule+HttpRequest.m in Sources */,
 				957E70E31E6DAC6B0059B75F /* AJFeedbackTableViewController.m in Sources */,
 				950CF9261EE1915E0070AC89 /* AJScheduleTableViewController.m in Sources */,
 				950CF92E1EE1A2D10070AC89 /* AJScheduleDetailViewController.m in Sources */,
@@ -995,6 +1029,7 @@
 				950CF8F51ED81D2F0070AC89 /* AJMessageLabel.m in Sources */,
 				045AD2701EC1D74D00963B00 /* AJSchoolMemberTableViewCell.m in Sources */,
 				95F1081B1ED1A7E200E54844 /* AJFormTextField.m in Sources */,
+				950CF9631EE86B630070AC89 /* AJSchoolClub+Request.m in Sources */,
 				950CF9091EDF48460070AC89 /* AJAFNetWorkingTool.m in Sources */,
 				957E70DD1E6DABEB0059B75F /* AJSettingTableViewController.m in Sources */,
 				04E4E8AF1E768D21000AECE0 /* AJChangeSignatureTableViewController.m in Sources */,
@@ -1018,6 +1053,7 @@
 				950CF9231EE15AD30070AC89 /* AJAccount+Request.m in Sources */,
 				950CF8F11ED81C3F0070AC89 /* AJNotiMessageTableViewCell.m in Sources */,
 				950CF93A1EE2B74E0070AC89 /* AJBaseViewController.m in Sources */,
+				950CF95F1EE86AB80070AC89 /* AJSchedule.m in Sources */,
 				04E4E8AC1E768CEF000AECE0 /* AJChangeNicknameTableViewController.m in Sources */,
 				045C73291EB0482100E84927 /* AJSchoolClubCollectionViewCell.m in Sources */,
 				950CF91D1EE15A5D0070AC89 /* AJSelectSchoolViewController.m in Sources */,
@@ -1032,6 +1068,7 @@
 				953E25081E61B3F4000B17EF /* AJTabBarViewController.m in Sources */,
 				95BCEC4C1E8C194A00C87541 /* AJClubTableViewCell.m in Sources */,
 				95BCEC491E8C17E900C87541 /* AJClubTableViewController.m in Sources */,
+				950CF96D1EE8A65C0070AC89 /* AJMessageInfo.m in Sources */,
 				0472D08D1E8A53D700632763 /* AJSchoolClubTableViewCell.m in Sources */,
 				950CF8DF1ED52C8A0070AC89 /* AJNewNotificationTableViewCell.m in Sources */,
 				950CF91A1EE15A5D0070AC89 /* AJLoginViewController.m in Sources */,
@@ -1041,13 +1078,13 @@
 				95581E2F1E48C8D9007327A0 /* AJPasswordTextField.m in Sources */,
 				950CF9571EE74E8D0070AC89 /* AJNotification.m in Sources */,
 				0474F1FB1EA63A0D00973993 /* AJTabBar.m in Sources */,
+				950CF9731EE8A7940070AC89 /* AJMessageUnread+HttpRequest.m in Sources */,
 				950CF8ED1ED81A350070AC89 /* AJNotiMessageTableViewController.m in Sources */,
 				9505656A1DFDA51B00A3E5C0 /* main.m in Sources */,
 				040E60711EAE1FA100F136ED /* AJSchoolClubTableViewController.m in Sources */,
 				957663771E6C5C4F0048FC96 /* AJChangePasswordTableViewController.m in Sources */,
 				950CF8FB1ED89BF80070AC89 /* AJNotiDetailViewController.m in Sources */,
 				954AEC031EACEC810006FF7D /* AJNewPageViewController.m in Sources */,
-				950CF9461EE34A620070AC89 /* AJSchoolClub+Request.m in Sources */,
 				954AEC041EACEC810006FF7D /* AJNewPageCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

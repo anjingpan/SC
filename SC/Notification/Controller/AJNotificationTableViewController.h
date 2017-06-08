@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AJBaseTableViewController.h"
 
-@interface AJNotificationTableViewController : UITableViewController
+@interface AJNotificationTableViewController : AJBaseTableViewController
 
 @end

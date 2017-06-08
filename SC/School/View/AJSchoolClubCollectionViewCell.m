@@ -23,12 +23,14 @@
 
 #pragma mark - Setter
 - (void)setClubIconImageView:(UIImageView *)clubIconImageView{
-    self.clubIconImageView.contentMode = UIViewContentModeCenter;
+    _clubIconImageView = clubIconImageView;
+    
+    clubIconImageView.contentMode = UIViewContentModeScaleAspectFill;
     //暂时处理 cell 大小和定义的不一致问题，保证圆形
-    self.clubIconImageView.layer.cornerRadius = [[UIScreen mainScreen] bounds].size.width / 12.0;
-    self.clubIconImageView.layer.masksToBounds = YES;
-    self.clubIconImageView.layer.borderWidth = 2.f;
-    self.clubIconImageView.layer.borderColor = AJBackGroundColor.CGColor;
+    clubIconImageView.layer.cornerRadius = [[UIScreen mainScreen] bounds].size.width / 12.0;
+    clubIconImageView.layer.masksToBounds = YES;
+    clubIconImageView.layer.borderWidth = 2.f;
+    clubIconImageView.layer.borderColor = AJBackGroundColor.CGColor;
 }
 
 @end

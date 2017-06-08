@@ -70,7 +70,6 @@
         messageLabel.type = messageTypeDetail;
         messageLabel.member = self.notification.user_info;
         messageLabel.schoolClub = self.notification.group_info;
-        messageLabel.contentLabel.text = @"申请加入该社团";
         [self.view addSubview:messageLabel];
         messageLabel;
     });
@@ -124,17 +123,50 @@
         self.confirmButton.frame = CGRectMake(CGRectGetMaxX(self.refruseButton.frame) + marginX,[UIScreen mainScreen].bounds.size.height - buttonHeight - marginY, ([UIScreen mainScreen].bounds.size.width - 3 * marginX) * 0.5, buttonHeight);
     }
     
+    if (self.detailType == messageDetailTypeNoti) {
+        self.messageDetailLabel.contentLabel.text = self.notification.content;
+        self.timeLabel.text = self.notification.send_time;
+    }else{
+        self.messageDetailLabel.contentLabel.text = @"申请加入该社团";
+    }
+    
+    //如果是自己则没有按钮显示
+    if (self.notification.user_info.uid == [[NSUserDefaults standardUserDefaults] objectForKey:USERDEFAULT_UID_KEY]) {
+        self.confirmButton.hidden = YES;
+        self.refruseButton.hidden = YES;
+    }
 }
 
 #pragma mark - Button Click
 
 - (void)checkConfirm{
     AJNotiCheckViewController *VC = [[AJNotiCheckViewController alloc] init];
+    VC.textID = self.notification.text_id;
     [self.navigationController pushViewController:VC animated:YES];
 }
 
 - (void)confirmDeliver{
-    [self handleCheckNotiWithStatus:@"1"];
+    if (self.detailType == messageDetailTypeNoti) {
+        NSMutableDictionary *params = [NSMutableDictionary dictionary];
+        params[@"msg_id"] = self.notification.msg_id;
+        
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.label.text = @"正在提交数据";
+        [AJNotification readNotiRequestWithParams:params SuccessBlock:^(id object) {
+            hud.mode = MBProgressHUDModeText;
+            hud.label.text = @"提交成功";
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [MBProgressHUD hideHUDForView:self.view animated:true];
+                [[NSNotificationCenter defaultCenter] postNotificationName:NSNOTIFICATION_READMESSAGE object:nil];
+                [self.navigationController popViewControllerAnimated:true];
+            });
+        } FailBlock:^(NSError *error) {
+            [self failErrorWithView:self.view error:error];
+        }];
+    }else{
+        [self handleCheckNotiWithStatus:@"1"];
+    }
 }
 
 - (void)refuse{

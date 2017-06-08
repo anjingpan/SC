@@ -66,6 +66,7 @@ static NSString *const kSchoolClubCollectionViewCell = @"schoolClubCollectionVie
         [MBProgressHUD hideHUDForView:self.view animated:true];
         self.clubInfo = [AJSchoolClub yy_modelWithJSON:object[@"data"]];
         self.userCountLabel.text = [NSString stringWithFormat:@"现有成员%lu人",(unsigned long)self.clubInfo.user_list.count];
+        [self.clubImageView sd_setImageWithURL:[NSURL URLWithString: self.clubInfo.imgurl] placeholderImage:[UIImage imageNamed:@"Me_Placeholder"] options:SDWebImageRefreshCached];
         [self.userCollectionView reloadData];
     } FailBlock:^(NSError *error) {
         [self failErrorWithView:self.view error:error];
@@ -305,7 +306,7 @@ static NSString *const kSchoolClubCollectionViewCell = @"schoolClubCollectionVie
     }else{
         NSURL *iconURL = [NSURL URLWithString:((AJMember *)self.clubInfo.user_list[indexPath.row]).imgurl];
         
-        [cell.clubIconImageView sd_setImageWithURL:iconURL placeholderImage:[UIImage imageNamed:@"School_More"] options:SDWebImageRefreshCached];
+        [cell.clubIconImageView sd_setImageWithURL:iconURL placeholderImage:[UIImage imageNamed:@"Me_Placeholder"] options:SDWebImageRefreshCached];
     }
     return cell;
 }

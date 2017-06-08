@@ -10,6 +10,8 @@
 #import <AVFoundation/AVFoundation.h>
 #import <Photos/PHPhotoLibrary.h>
 #import "MBProgressHUD.h"
+#import "UIImageView+WebCache.h"
+#import "AJMember+Request.h"
 
 #define kUserIconIndexpath [NSIndexPath indexPathForRow:0 inSection:0]  //用户头像indexPath
 
@@ -26,11 +28,28 @@
     [super viewDidLoad];
 
     self.title = @"修改个人信息";
+    
+    [self.userIconImageView sd_setImageWithURL:[NSURL URLWithString:self.member.imgurl] placeholderImage:[UIImage imageNamed:@"Me_Placeholder"] options:SDWebImageRefreshCached];
+    self.nickNameLabel.text = self.member.RealName;
+    self.signtureLable.text = self.member.introduction;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Http Request
+- (void)updateIconImage:(UIImage *)image{
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    [AJMember uploadIconRequestWithParams:params WithImageArray:@[image] SuccessBlock:^(id object) {
+        
+    } FailBlock:^(NSError *error) {
+        [self failErrorWithView:self.view error:error];
+    }];
+    
 }
 
 #pragma mark - Button Click
@@ -170,6 +189,8 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     UIImage *newImage = info[UIImagePickerControllerOriginalImage];
     self.userIconImageView.image = newImage;
+    [self updateIconImage:newImage];
+    
     if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
         UIImageWriteToSavedPhotosAlbum(newImage, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
     }

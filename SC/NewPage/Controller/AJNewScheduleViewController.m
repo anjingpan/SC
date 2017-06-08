@@ -11,6 +11,11 @@
 #import "MBProgressHUD.h"
 #import <AVFoundation/AVFoundation.h>
 #import <Photos/PHPhotoLibrary.h>
+#import "AJSchedule+HttpRequest.h"
+#import "MBProgressHUD.h"
+#import "AJSelectMemberTableViewController.h"
+#import "AJSchoolClub+Request.h"
+#import "YYModel.h"
 
 @interface AJNewScheduleViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic, strong) UIView *statusBar;
@@ -26,6 +31,13 @@
 @property (nonatomic, strong) UIBarButtonItem *timeButtonItem;
 
 @property (nonatomic, assign) BOOL isDisplayToolView;
+
+@property (nonatomic, strong) NSArray *clubArray;
+@property (nonatomic, strong) NSString *groupID;
+@property (nonatomic, strong) NSMutableArray *photoArray;
+
+//为了方便区分0和空
+@property (nonatomic, strong) NSNumber *selectRow;
 
 @end
 
@@ -183,16 +195,73 @@
 
 #pragma mark - Button Click
 - (void)closeSchedule{
+    [self.textView resignFirstResponder];
+    if (self.textView.hasText) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定离开" message:@"离开后将不保存输入的文本" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+        
+        [alert addAction:confirm];
+        [alert addAction:cancel];
+        [self presentViewController:alert animated:true completion:nil];
+        return;
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)confirmSchedule{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.textView resignFirstResponder];
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:true];
+    hud.label.text = @"正在上传日程";
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    if (self.groupID == nil) {
+        hud.mode = MBProgressHUDModeText;
+        hud.label.text = @"请选择社团后提交";
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:self.view animated:true];
+        });
+        return;
+    }
+    
+    if (!self.textView.hasText) {
+        hud.mode = MBProgressHUDModeText;
+        hud.label.text = @"请填写内容后提交";
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:self.view animated:true];
+        });
+        return;
+    }
+    
+    params[@"group_id"] = self.groupID;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
+    NSString *dateString = [formatter stringFromDate:self.datePicker.date ? : [NSDate date]];
+    params[@"schedule_time"] = dateString;
+    params[@"content"] = self.textView.text;
+    
+    [AJSchedule newScheduleRequestWithParams:params WithImageArray:self.photoArray SuccessBlock:^(id object) {
+        hud.mode = MBProgressHUDModeText;
+        hud.label.text = @"上传成功";
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:self.view animated:true];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        });
+    } FailBlock:^(NSError *error) {
+        [self failErrorWithView:self.view error:error];
+    }];
 }
 
 - (void)scheduleItemClick:(UIButton *)button{
     
     [self.textView resignFirstResponder];
+    
     
     //switch中不能定义
     NSDate *date = [NSDate date];
@@ -212,10 +281,43 @@
             [self showDatePicker:date];
             break;
         case 3:
-            //位置选择
+            //位置选择(暂时替换为社团选择页面)
             break;
         default:
             break;
+    }
+    
+    if (button.tag == 3) {
+        AJSelectMemberTableViewController *selectVC = [[AJSelectMemberTableViewController alloc] init];
+        selectVC.selectType = selectTypeClub;
+        
+        //请求社团数据
+        NSMutableDictionary *params = [NSMutableDictionary dictionary];
+        
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:true];
+        hud.label.text = @"正在加载社团";
+        [AJSchoolClub getSelfClubRequestWithParams:params SuccessBlock:^(id object) {
+            [MBProgressHUD hideHUDForView:self.view animated:true];
+            
+            self.clubArray = [NSArray yy_modelArrayWithClass:[AJSchoolClub class] json:object[@"data"]];
+            selectVC.dataArray = self.clubArray;
+            
+            if (self.selectRow) {
+                selectVC.selectIndexPathArray = [NSMutableArray arrayWithObject:self.selectRow];
+            }
+            [self presentViewController:selectVC animated:true completion:nil];
+            
+        } FailBlock:^(NSError *error) {
+            [self failErrorWithView:self.view error:error];
+        }];
+        
+        
+        //选择界面回调
+        selectVC.selectMemberBlock = ^(NSMutableArray *array){
+            self.selectRow = array[0];
+            self.groupID = ((AJSchoolClub *)self.clubArray[[array[0] integerValue]]).Groupid;
+        };
+        
     }
 }
 
@@ -428,6 +530,7 @@
     UIImage *newImage = info[UIImagePickerControllerEditedImage];
     
     [self addImage:newImage toTextView:self.textView];
+    [self.photoArray addObject:newImage];
     if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
         UIImageWriteToSavedPhotosAlbum(newImage, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
     }
@@ -468,6 +571,15 @@
             self.scheduleToolbar.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height - toolbarHeight - 250.0, [UIScreen mainScreen].bounds.size.width, toolbarHeight);
         } completion:nil];
     }
+}
+
+#pragma mark - Lazy Load
+- (NSMutableArray *)photoArray{
+    if (_photoArray == nil) {
+        _photoArray = [NSMutableArray array];
+    }
+    
+    return _photoArray;
 }
 
 @end

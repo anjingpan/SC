@@ -54,7 +54,6 @@ static NSString *const kClubTableViewCell = @"clubTableViewCell";
 - (void)loadData{
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     
-    //接口有问题，接口数据格式不应直接为数组
     [AJSchoolClub getSelfClubRequestWithParams:params SuccessBlock:^(id object) {
         self. clubMessageArray = [NSArray yy_modelArrayWithClass:[AJSchoolClub class] json:object[@"data"]];
         [self.dropdownMenu reloadAllComponents];
@@ -102,6 +101,7 @@ static NSString *const kClubTableViewCell = @"clubTableViewCell";
             case 0:
                 //日程管理
                 VC = [[AJScheduleTableViewController alloc] init];
+                ((AJScheduleTableViewController *)VC).groupID = ((AJSchoolClub *)self.clubMessageArray[self.selectRow]).Groupid;
                 break;
             case 1:
                 //通讯录

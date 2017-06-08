@@ -55,7 +55,7 @@ static NSString *const kScheduleDetailCollectionCell = @"scheduleDetailCollectio
         label.frame = CGRectMake(0, marginY + 64.0, [UIScreen mainScreen].bounds.size.width, timeLabelHeight);
         label.font = [UIFont systemFontOfSize:timeLabelFont];
         label.textAlignment = NSTextAlignmentCenter;
-        label.text = @"2017年6月2号 22:01";
+        label.text = self.schedule.schedule_time;
         [self.view addSubview:label];
         label;
     });
@@ -71,7 +71,7 @@ static NSString *const kScheduleDetailCollectionCell = @"scheduleDetailCollectio
     self.dataLabel = ({
         UILabel *label = [[UILabel alloc] init];
         label.frame = CGRectMake(marginX, CGRectGetMaxY(self.divisionView.frame) + marginY, [UIScreen mainScreen].bounds.size.width - 2 * marginX, timeLabelHeight);
-        label.text = @"潘安静你是最棒的！潘安静你是最棒的！潘安静你是最棒的！潘安静你是最棒的！";
+        label.text = self.schedule.content;
         label.font = [UIFont systemFontOfSize:labelFont];
         [label adaptHeightWithText:label.text WithFontSize:labelFont WithWidth:label.frame.size.width];
         [self.view addSubview:label];

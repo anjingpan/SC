@@ -9,6 +9,11 @@
 #import "AJNotiCheckViewController.h"
 #import "AJMeInformationViewController.h"
 #import "AJProfile.h"
+#import "AJNotification+HttpRequest.h"
+#import "MBProgressHUD.h"
+#import "UIImageView+WebCache.h"
+#import "YYModel.h"
+#import "UIImageView+RoundRect.h"
 
 static NSString *const kNotiCheckTableViewCell = @"notiCheckTableViewCell";
 
@@ -16,6 +21,9 @@ static NSString *const kNotiCheckTableViewCell = @"notiCheckTableViewCell";
 
 @property (nonatomic, strong) UISegmentedControl *segmentControl;
 @property (nonatomic, strong) UITableView *tableView;
+
+
+@property (nonatomic, strong) NSArray *notiArray;
 @end
 
 @implementation AJNotiCheckViewController
@@ -26,12 +34,32 @@ static NSString *const kNotiCheckTableViewCell = @"notiCheckTableViewCell";
     self.title = @"确认详情";
     self.view.backgroundColor = AJBackGroundColor;
     
+    [self loadData];
+    
     [self initView];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)loadData{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"text_id"] = self.textID;
+    //参数3未读，2已读
+    params[@"type"] = self.segmentControl.selectedSegmentIndex == 0 ? @"3" : @"2";
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.label.text = @"正在加载数据";
+    
+    [AJNotification getReadListRequestWithParams:params SuccessBlock:^(id object) {
+        [MBProgressHUD hideHUDForView:self.view animated:true];
+        self.notiArray = [NSArray yy_modelArrayWithClass:[AJNotification class] json:object[@"data"]];
+        [self.tableView reloadData];
+    } FailBlock:^(NSError *error) {
+        [self failErrorWithView:self.view error:error];
+    }];
 }
 
 #pragma mark - Init View
@@ -67,22 +95,12 @@ static NSString *const kNotiCheckTableViewCell = @"notiCheckTableViewCell";
 
 #pragma mark - Value Change
 - (void)segmentControlChangeIndex:(UISegmentedControl *)segmentControl{
-    [self.tableView reloadData];
+    [self loadData];
 }
 
 #pragma mark - TableView Delegate && DataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    switch (self.segmentControl.selectedSegmentIndex) {
-        case 0:
-            return 2;
-            break;
-        case 1:
-            return 5;
-            break;
-        default:
-            break;
-    }
-    return 0;
+    return self.notiArray.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -96,16 +114,15 @@ static NSString *const kNotiCheckTableViewCell = @"notiCheckTableViewCell";
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:kNotiCheckTableViewCell];
     }
     
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:((AJNotification *)self.notiArray[indexPath.row]).user_info.imgurl] placeholderImage:[UIImage imageNamed:@"Me_Placeholder"] options:SDWebImageRefreshCached] ;
+    cell.textLabel.text = ((AJNotification *)self.notiArray[indexPath.row]).user_info.RealName;
     switch (self.segmentControl.selectedSegmentIndex) {
         case 0:
-            cell.imageView.image = [UIImage imageNamed:@"Me_Placeholder"];
-            cell.textLabel.text = @"木然、";
-            cell.detailTextLabel.text = @"";
+            cell.detailTextLabel.text = nil;
             break;
         case 1:
-            cell.imageView.image = [UIImage imageNamed:@"Me_Placeholder"];
-            cell.textLabel.text = @"木然、";
-            cell.detailTextLabel.text = @"2017/5/28 01:04";
+
+            cell.detailTextLabel.text = ((AJNotification *)self.notiArray[indexPath.row]).send_time;
         default:
             break;
     }

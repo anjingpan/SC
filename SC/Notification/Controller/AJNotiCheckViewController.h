@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AJBaseViewController.h"
 
-@interface AJNotiCheckViewController : UIViewController
+@interface AJNotiCheckViewController : AJBaseViewController
+@property (nonatomic, strong) NSString *textID;
 
 @end

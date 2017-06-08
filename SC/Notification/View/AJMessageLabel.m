@@ -17,7 +17,6 @@
 @property (nonatomic, strong) UILabel *userNamelabel;
 @property (nonatomic, strong) UILabel *timeLabel;
 @property (nonatomic, strong) UILabel *clubNameLabel;
-@property (nonatomic, strong) UIImageView *contentImageView;
 @property (nonatomic, strong) UILabel *checkStatusLabel;            /**< 审核状态标签*/
 @end
 
@@ -79,7 +78,7 @@
             self.userNamelabel.hidden = YES;
             self.contentLabel.frame = CGRectMake(marginX, marginMaxY, self.frame.size.width - 2 * marginX, self.frame.size.height - timeLabelHeight - 2 * marginMaxY);
             self.timeLabel.frame = CGRectMake(marginX, CGRectGetMaxY(self.contentLabel.frame) + marginMaxY , timeLabelWidth, timeLabelHeight);
-            self.clubNameLabel.frame = CGRectMake(CGRectGetMaxX(self.timeLabel.frame) + marginX, self.timeLabel.frame.origin.y, self.frame.size.width - CGRectGetMaxX(self.timeLabel.frame) - 2 * marginX, timeLabelHeight);
+            //self.clubNameLabel.frame = CGRectMake(CGRectGetMaxX(self.timeLabel.frame) + marginX, self.timeLabel.frame.origin.y, self.frame.size.width - CGRectGetMaxX(self.timeLabel.frame) - 2 * marginX, timeLabelHeight);
             break;
         case messageTypeWithImage:
             self.iconImageView.hidden = YES;
@@ -87,7 +86,7 @@
             self.contentLabel.frame = CGRectMake(marginX, marginMaxY, self.frame.size.width - 3 * marginX - contentImageViewHeight, self.frame.size.height - timeLabelHeight - 2 * marginMaxY);
             self.contentImageView.frame = CGRectMake( CGRectGetMaxX(self.contentLabel.frame) + marginX, marginMaxY, contentImageViewHeight, contentImageViewHeight);
             self.timeLabel.frame = CGRectMake(marginX, CGRectGetMaxY(self.contentLabel.frame) + marginMaxY , timeLabelWidth, timeLabelHeight);
-            self.clubNameLabel.frame = CGRectMake(CGRectGetMaxX(self.timeLabel.frame) + marginX, self.timeLabel.frame.origin.y, self.frame.size.width - CGRectGetMaxX(self.timeLabel.frame) - 3 * marginX - contentImageViewHeight, timeLabelHeight);
+            //self.clubNameLabel.frame = CGRectMake(CGRectGetMaxX(self.timeLabel.frame) + marginX, self.timeLabel.frame.origin.y, self.frame.size.width - CGRectGetMaxX(self.timeLabel.frame) - 3 * marginX - contentImageViewHeight, timeLabelHeight);
         default:
             break;
     }

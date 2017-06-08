@@ -26,8 +26,8 @@
     
     self.notificationTypeImageview.layer.cornerRadius = 10.f;
     
-    self.notificationMessageLabel.text = @"[社团信息]9点30来养闲314开会";
-    self.notificationTimeLabel.text = @"16:34";
+    self.notificationMessageLabel.text = @"暂无未读消息";
+    self.notificationTimeLabel.text = @"";
     
     self.notificationHub = ({
         RKNotificationHub *hub = [[RKNotificationHub alloc] initWithView:self.notificationTypeImageview];
@@ -35,13 +35,29 @@
         hub;
     });
     
-    self.notificationHub.count = 5;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+#pragma mark - Setter
+- (void)setMessageInfo:(AJMessageInfo *)messageInfo{
+    _messageInfo = messageInfo;
+    
+    self.notificationMessageLabel.text = messageInfo.content;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+    NSDate *date = [formatter dateFromString:messageInfo.time];
+    [formatter setDateFormat:@"hh:mm"];
+    self.notificationTimeLabel.text = [formatter stringFromDate:date];
+}
+
+- (void)setUnreadCount:(NSInteger)unreadCount{
+    _unreadCount = unreadCount;
+    self.notificationHub.count = (int)unreadCount;
 }
 
 @end

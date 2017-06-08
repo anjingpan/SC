@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AJBaseTableViewController.h"
+#import "AJMember.h"
 
-@interface AJChangeInformationTableViewController : UITableViewController
+@interface AJChangeInformationTableViewController : AJBaseTableViewController
+@property (nonatomic, strong)AJMember *member;
 
 @end

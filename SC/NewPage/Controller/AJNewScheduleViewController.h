@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AJBaseViewController.h"
 
-@interface AJNewScheduleViewController : UIViewController
+@interface AJNewScheduleViewController : AJBaseViewController
 @property (nonatomic, strong) NSString *textString;
 
 @end

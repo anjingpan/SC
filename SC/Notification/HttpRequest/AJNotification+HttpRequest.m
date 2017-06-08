@@ -31,4 +31,46 @@
     }];
 }
 
+
++ (void)sendNotiRequestWithParams:(NSMutableDictionary *)params SuccessBlock:(void (^)(id))successBlock FailBlock:(void (^)(NSError *))failBlock{
+    NSString *url = @"send_msg";
+    
+    [AJAFNetWorkingTool postRequestWithUrl:url WithParams:params SuccessBlock:^(id object) {
+        successBlock(object);
+    } FailBlock:^(NSError *error) {
+        failBlock(error);
+    }];
+}
+
++ (void)getNotiListRequestWithParams:(NSMutableDictionary *)params SuccessBlock:(void (^)(id))successBlock FailBlock:(void (^)(NSError *))failBlock{
+    NSString *url = @"msg_list";
+    
+    [AJAFNetWorkingTool postRequestWithUrl:url WithParams:params SuccessBlock:^(id object) {
+        successBlock(object);
+    } FailBlock:^(NSError *error) {
+        failBlock(error);
+    }];
+}
+
++ (void)readNotiRequestWithParams:(NSMutableDictionary *)params SuccessBlock:(void (^)(id))successBlock FailBlock:(void (^)(NSError *))failBlock{
+    NSString *url = @"read_msg";
+    
+    [AJAFNetWorkingTool postRequestWithUrl:url WithParams:params SuccessBlock:^(id object) {
+        successBlock(object);
+    } FailBlock:^(NSError *error) {
+        failBlock(error);
+    }];
+}
+
++ (void)getReadListRequestWithParams:(NSMutableDictionary *)params SuccessBlock:(void (^)(id))successBlock FailBlock:(void (^)(NSError *))failBlock{
+    
+    NSString *url = @"read_list";
+    
+    [AJAFNetWorkingTool postRequestWithUrl:url WithParams:params SuccessBlock:^(id object) {
+        successBlock(object);
+    } FailBlock:^(NSError *error) {
+        failBlock(error);
+    }];
+}
+
 @end

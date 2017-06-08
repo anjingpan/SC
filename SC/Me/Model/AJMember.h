@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSString *school;
 @property (nonatomic, strong) NSString *Sex;
 @property (nonatomic, strong) NSString *Sno;
+@property (nonatomic, strong) NSString *introduction;
 
 
 @end

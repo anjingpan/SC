@@ -53,19 +53,35 @@ static NSString *const kNotiMessageTableViewCell = @"notiMessageTableViewCell";
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc{
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 #pragma mark - Load Data
 - (void)loadNewData{
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"type"] = @(self.selectedRow + 1); //1为全部的，2为收到的，3为发出的
     
-    [AJNotification getCheckRequestWithParams:params SuccessBlock:^(id object) {
-        self.checkNotiArray = [NSArray yy_modelArrayWithClass:[AJNotification class] json:object[@"data"]];
-        [self.tableView.mj_header endRefreshing];
-        [self.tableView reloadData];
-    } FailBlock:^(NSError *error) {
-        [self.tableView.mj_header endRefreshing];
-        [self failErrorWithView:self.view error:error];
-    }];
+    if ([self.title isEqualToString:@"通知消息"]) {
+        [AJNotification getNotiListRequestWithParams:params SuccessBlock:^(id object) {
+            self.checkNotiArray = [NSArray yy_modelArrayWithClass:[AJNotification class] json:object[@"data"]];
+            [self.tableView.mj_header endRefreshing];
+            [self.tableView reloadData];
+        } FailBlock:^(NSError *error) {
+            [self.tableView.mj_header endRefreshing];
+            [self failErrorWithView:self.view error:error];
+        }];
+    }else if ([self.title isEqualToString:@"审核消息"]){
+        [AJNotification getCheckRequestWithParams:params SuccessBlock:^(id object) {
+            self.checkNotiArray = [NSArray yy_modelArrayWithClass:[AJNotification class] json:object[@"data"]];
+            [self.tableView.mj_header endRefreshing];
+            [self.tableView reloadData];
+        } FailBlock:^(NSError *error) {
+            [self.tableView.mj_header endRefreshing];
+            [self failErrorWithView:self.view error:error];
+        }];
+    }
 }
 
 #pragma mark - Init View
@@ -101,6 +117,8 @@ static NSString *const kNotiMessageTableViewCell = @"notiMessageTableViewCell";
     
     if ([self.titleText isEqualToString:@"审核消息"]) {
         cell.messageType = MessageTypeCheck;
+    }else if ([self.titleText isEqualToString:@"通知消息"]){
+        cell.messageType = MessageTypeNoti;
     }
     cell.notification = self.checkNotiArray[indexPath.row];
     
@@ -110,6 +128,7 @@ static NSString *const kNotiMessageTableViewCell = @"notiMessageTableViewCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     AJNotiDetailViewController *VC = [[AJNotiDetailViewController alloc] init];
     if ([self.titleText isEqualToString:@"通知消息"]) {
+        VC.notification = self.checkNotiArray[indexPath.row];
         VC.detailType = messageDetailTypeNoti;
     }else if ([self.titleText isEqualToString:@"审核消息"]){
         

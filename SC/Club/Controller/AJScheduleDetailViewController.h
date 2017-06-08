@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AJSchedule.h"
 
 @interface AJScheduleDetailViewController : UIViewController
+
+@property (nonatomic, strong)AJSchedule *schedule;
 
 @end

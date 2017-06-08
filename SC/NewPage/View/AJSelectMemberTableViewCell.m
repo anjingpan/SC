@@ -45,7 +45,7 @@
 }
 
 - (void)setClubMember:(AJMember *)clubMember{
-    self.nemeLabel.text = clubMember.username;
+    self.nemeLabel.text = clubMember.RealName;
     [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:clubMember.imgurl] placeholderImage:[UIImage imageNamed:@"Me_Placeholder"] options:SDWebImageRefreshCached];
 }
 

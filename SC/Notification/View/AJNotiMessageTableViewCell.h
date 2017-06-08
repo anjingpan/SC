@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AJMessageLabel.h"
 #import "AJNotification.h"
+#import "AJSchedule.h"
 
 typedef NS_ENUM(NSInteger, MessageType) {
     MessageTypeCheck,   /**< 审核消息*/
@@ -19,6 +20,7 @@ typedef NS_ENUM(NSInteger, MessageType) {
 
 @property (nonatomic, assign)MessageType messageType;
 @property (nonatomic, strong)AJNotification *notification;
+@property (nonatomic, strong)AJSchedule *schedule;
 
 @property (weak, nonatomic) IBOutlet AJMessageLabel *messageLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *isReaderImageView;

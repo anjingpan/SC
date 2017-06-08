@@ -41,6 +41,9 @@ static NSString *const kSelectMemberTableViewCell = @"selectMemberTableViewCell"
 - (void)submit{
     [self.navigationController popViewControllerAnimated:YES];
     
+    //为了适应日程中选择界面
+    [self dismissViewControllerAnimated:true completion: nil];
+    
     if (self.selectMemberBlock) {
         self.selectMemberBlock(self.selectIndexPathArray);
     }

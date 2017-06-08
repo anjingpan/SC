@@ -67,6 +67,8 @@
 //登录
 - (IBAction)login:(UIButton *)sender {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [self.userAccountTextField resignFirstResponder];
+    [self.passwordTextField resignFirstResponder];
     hud.label.text = @"正在登录中";
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];

@@ -21,6 +21,7 @@ typedef NS_ENUM(NSInteger, messageType) {
 @interface AJMessageLabel : UILabel
 
 @property (nonatomic, strong) UILabel *contentLabel;
+@property (nonatomic, strong) UIImageView *contentImageView;
 
 @property (nonatomic, assign)messageType type;
 @property (nonatomic, strong)AJMember *member;

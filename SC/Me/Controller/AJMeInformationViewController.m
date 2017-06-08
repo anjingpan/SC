@@ -15,6 +15,8 @@
 #import <AVFoundation/AVFoundation.h>
 #import <Photos/PHPhotoLibrary.h>
 #import "AJSchoolClub+Request.h"
+#import "AJMember+Request.h"
+#import "UIImageView+WebCache.h"
 #import "YYModel.h"
 
 static NSString *const kClubCollectionViewCell = @"clubCollectionViewCell";
@@ -32,6 +34,7 @@ static NSString *const kClubCollectionViewCell = @"clubCollectionViewCell";
 @property (strong, nonatomic) UICollectionView *clubCollectionView;         /**< 社团列表*/
 
 @property (nonatomic, strong) NSArray *selfClubArray;                       /**< 个人加入社团数据*/
+@property (nonatomic, strong) AJMember *userMember;                         /**< 用户个人信息*/
 
 @end
 
@@ -82,7 +85,6 @@ static NSString *const kClubCollectionViewCell = @"clubCollectionViewCell";
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"uid"] = self.userId ? : @"";
     
-    //接口返回数据格式问题，直接数组返回
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:true];
     hud.label.text = @"正在加载数据";
     [AJSchoolClub getSelfClubRequestWithParams:params SuccessBlock:^(id object) {
@@ -90,6 +92,18 @@ static NSString *const kClubCollectionViewCell = @"clubCollectionViewCell";
         self.selfClubArray = [NSArray yy_modelArrayWithClass:[AJSchoolClub class] json:object[@"data"]];
         [self.clubCollectionView reloadData];
     } FailBlock:^(NSError *error) {
+        [self failErrorWithView:self.view error:error];
+    }];
+    
+    [AJMember getUserInfoRequestWithParams:params SuccessBlock:^(id object) {
+        self.userMember = [AJMember yy_modelWithJSON:object[@"data"]];
+        self.userNameLabel.text = self.userMember.RealName;
+        self.userSchoolLabel.text = self.userMember.school;
+        if (![self.userMember.introduction isEqualToString:@""] || self.userMember.introduction != nil) {
+            self.userSignatureLable.text = self.userMember.introduction;
+        }
+        [self.userIconImageView sd_setImageWithURL:[NSURL URLWithString:self.userMember.imgurl] placeholderImage:[UIImage imageNamed:@"Me_Placeholder"] options:SDWebImageRefreshCached];
+    } FailBlock:^(NSError * error) {
         [self failErrorWithView:self.view error:error];
     }];
 }
@@ -112,6 +126,7 @@ static NSString *const kClubCollectionViewCell = @"clubCollectionViewCell";
 #pragma mark - Button Click
 - (void)editInformation:(UIBarButtonItem *)item{
     AJChangeInformationTableViewController *VC = [self.storyboard instantiateViewControllerWithIdentifier:@"AJChangeInformationTableViewController"];
+    VC.member = self.userMember;
     [self.navigationController pushViewController:VC animated:YES];
 }
 

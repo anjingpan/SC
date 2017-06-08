@@ -13,6 +13,7 @@
 #import "AJNewClubViewController.h"
 #import "AJNewNotificationViewController.h"
 #import "AJNewScheduleViewController.h"
+#import "AJProfile.h"
 
 @interface AJTabBarViewController ()<AJNewPageViewControllerDelegate>
 
@@ -26,8 +27,8 @@
     
     //设置Tab文字和图片选中颜色
     self.tabBar.tintColor = AJBarColor;
-    //为 tabBar添加小红点
-    [self.tabBar addTrackPointWithItemIndex:1 tabBarNum:5];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addTrack:) name:NSNOTIFICATION_HASUNREAD object:nil];
     
     [self clickAddButton];
 }
@@ -46,6 +47,15 @@
         viewController.delegate = self;
         [self presentViewController:viewController animated:YES completion:nil];
     };
+}
+
+- (void)addTrack:(NSNotification *)noti{
+    NSDictionary *userInfo = noti.object;
+    if ([userInfo[@"hasUnread"] isEqualToString:@"1"]) {
+        [self.tabBar addTrackPointWithItemIndex:1 tabBarNum:5];
+    }else{
+        [self.tabBar removeTrackPointWithItemIndex:1];
+    }
 }
 
 #pragma mark - AJNewPageViewController Delegate

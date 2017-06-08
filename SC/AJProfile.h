@@ -34,3 +34,4 @@ static NSString *const IDENTIFIER_AJLOGINVIEWCONTROLLER = @"loginViewController"
 
 //NSNotificationCenter Key
 static NSString *const NSNOTIFICATION_READMESSAGE = @"nsnotificationReadMessage";       /**< 消息界面消息已读*/
+static NSString *const NSNOTIFICATION_HASUNREAD = @"nsnotificationHasUnread";           /**< 是否有未读消息*/

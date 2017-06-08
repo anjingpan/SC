@@ -14,6 +14,7 @@
 #import "AJMember+Request.h"
 #import "MBProgressHUD.h"
 #import "YYModel.h"
+#import "AJNotification+HttpRequest.h"
 
 static NSString *const kNewNotiTableViewCell = @"newNotiTableViewCell";
 
@@ -139,7 +140,44 @@ static NSString *const kNewNotiTableViewCell = @"newNotiTableViewCell";
 
 #pragma mark - Click
 - (void)senderNotification{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:true];
+    hud.label.text = @"正在提交数据";
+    //没选择好数据不能提交
+    if (self.selectMemberArray.count == 0 || self.selectClubRow == nil) {
+        hud.mode = MBProgressHUDModeText;
+        hud.label.text = @"请选择通知的社团和成员";
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:self.view animated:true];
+        });
+        return;
+    }
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
     
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+    params[@"send_time"] = self.datePicker.date ? [formatter stringFromDate:self.datePicker.date] : [formatter stringFromDate: [NSDate date]];
+    NSString *msg_to = @"";
+    for (int i = 0; i < self.selectMemberArray.count; i ++) {
+        NSInteger indexpathRow = [self.selectMemberArray[i] integerValue];
+        NSLog(@"%@",[NSString stringWithFormat:@"%@,", ((AJMember *)self.memberArray[indexpathRow]).uid]);
+        NSLog(@"%@",self.memberArray[indexpathRow]);
+        msg_to = [msg_to stringByAppendingString:[NSString stringWithFormat:@"%@,", ((AJMember *)self.memberArray[indexpathRow]).uid]];
+    }
+    
+    params[@"msg_to"] = msg_to;
+    params[@"group_id"] = ((AJSchoolClub *)self.clubArray[[self.selectClubRow integerValue]]).Groupid;
+    params[@"content"] = self.notificationTextView.text;
+    
+    [AJNotification sendNotiRequestWithParams:params SuccessBlock:^(id object) {
+        hud.mode = MBProgressHUDModeText;
+        hud.label.text = @"提交成功";
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [self.navigationController popViewControllerAnimated:true];
+        });
+    } FailBlock:^(NSError *error) {
+        [self failErrorWithView:self.view error:error];
+    }];
     
 }
 
