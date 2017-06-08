@@ -76,7 +76,7 @@ static NSString *const kSelectMemberTableViewCell = @"selectMemberTableViewCell"
                 if (self.selectType == selectTypeClub) {
                     [self.submitButton setTitle:@"确定" forState:UIControlStateNormal];
                 } else if (self.selectType == selectTypeMember){
-                    [self.submitButton setTitle:[NSString stringWithFormat:@"确定(%li/16)",self.selectCount] forState:UIControlStateNormal];
+                    [self.submitButton setTitle:[NSString stringWithFormat:@"确定(%li/%li)",self.selectCount,self.dataArray.count] forState:UIControlStateNormal];
                 }
                 self.submitButton.enabled = true;
                 self.submitButton.alpha = 1;

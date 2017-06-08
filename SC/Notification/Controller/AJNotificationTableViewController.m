@@ -60,10 +60,10 @@ static NSString *const kNotificationTableViewCell = @"notificationTableViewCell"
         self.unreadInfo = [AJMessageUnread yy_modelWithJSON:object[@"data"]];
         [self.tableView.mj_header endRefreshing];
         [self.tableView reloadData];
-        if (![self.unreadInfo.system_msg integerValue] || ![self.unreadInfo.apply_count integerValue] || ![self.unreadInfo.msg_count integerValue]) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:NSNOTIFICATION_HASUNREAD object:@{@"hasUnread":@"1"}];
+        if ([self.unreadInfo.system_msg integerValue] == 0 && [self.unreadInfo.apply_count integerValue] == 0 && [self.unreadInfo.msg_count integerValue] == 0) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:NSNOTIFICATION_HASUNREAD object:@{@"hasUnread":@"0"}];
         }else{
-            [[NSNotificationCenter defaultCenter] postNotificationName:NSNOTIFICATION_HASUNREAD object:@{@"hasUnread" : @"0"}];
+            [[NSNotificationCenter defaultCenter] postNotificationName:NSNOTIFICATION_HASUNREAD object:@{@"hasUnread" : @"1"}];
         }
     } FailBlock:^(NSError *error) {
         [self failErrorWithView:self.view error:error];

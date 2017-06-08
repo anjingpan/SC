@@ -11,6 +11,7 @@
 #import "MJRefresh.h"
 #import "YYModel.h"
 #import "UIImageView+WebCache.h"
+#import "UIImageView+RoundRect.h"
 
 static NSString *const kAddressTableViewCell = @"addressTableViewCell";
 
@@ -70,8 +71,11 @@ static NSString *const kAddressTableViewCell = @"addressTableViewCell";
     }
     
     AJMember *member = self.memberArray[indexPath.row];
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:member.imgurl] placeholderImage:[UIImage imageNamed:@"Me_Placeholder"] options:SDWebImageRefreshCached];
-    cell.textLabel.text = member.username;
+    
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:member.imgurl] placeholderImage:[UIImage imageNamed:@"Me_Placeholder"] options:SDWebImageRefreshCached completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        [cell.imageView addRoundRectWithCornerRadius:cell.imageView.frame.size.width * 0.5];
+    }];
+    cell.textLabel.text = member.RealName;
     cell.detailTextLabel.text = member.username;
     cell.detailTextLabel.textColor = [UIColor blueColor];
     

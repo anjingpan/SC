@@ -14,6 +14,8 @@
 #import "MJRefresh.h"
 #import "AJSchoolClub+Request.h"
 #import "YYModel.h"
+#import "AJMessageUnread+HttpRequest.h"
+#import "AJProfile.h"
 
 static CGFloat const kScrollTime = 3.f;  /**< 计时器时间*/
 static NSString *const kSchoolTableViewCell = @"schoolTableViewCell";   /**< 社团列表重用标识符*/
@@ -36,6 +38,23 @@ static NSString *const kSchoolTableViewCell = @"schoolTableViewCell";   /**< 社
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    
+    //在第一次进入程序后通过该处请求看是否有未读消息
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSMutableDictionary *params = [NSMutableDictionary dictionary];
+        
+        [AJMessageUnread getUnreadCountRequestWithParams:params SuccessBlock:^(id object) {
+            AJMessageUnread *unreadInfo = [AJMessageUnread yy_modelWithJSON:object[@"data"]];
+            if ([unreadInfo.system_msg integerValue] == 0 && [unreadInfo.apply_count integerValue] == 0 && [unreadInfo.msg_count integerValue] == 0) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:NSNOTIFICATION_HASUNREAD object:@{@"hasUnread":@"0"}];
+            }else{
+                [[NSNotificationCenter defaultCenter] postNotificationName:NSNOTIFICATION_HASUNREAD object:@{@"hasUnread" : @"1"}];
+            }
+        } FailBlock:^(NSError *error) {
+            [self failErrorWithView:self.view error:error];
+        }];
+    });
     
     self.title = @"校园";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"School_Search"] style:UIBarButtonItemStyleDone target:self action:@selector(pushSearchController)];
@@ -128,7 +147,7 @@ static NSString *const kSchoolTableViewCell = @"schoolTableViewCell";   /**< 社
         self.clubArray = (NSMutableArray *)[NSArray yy_modelArrayWithClass:[AJSchoolClub class] json:object[@"data"][@"list"]];
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
-        if (self.pageNum >= [object[@"totalPage"] integerValue]) {
+        if (self.pageNum >= [object[@"data"][@"totalPage"] integerValue]) {
             [self.tableView.mj_footer endRefreshingWithNoMoreData];
         }else{
             [self reset];
@@ -148,7 +167,7 @@ static NSString *const kSchoolTableViewCell = @"schoolTableViewCell";   /**< 社
         [self.clubArray addObjectsFromArray:[NSArray yy_modelArrayWithClass:[AJSchoolClub class] json:object[@"data"][@"list"]]];
         [self.tableView reloadData];
         [self.tableView.mj_footer endRefreshing];
-        if (self.pageNum >= [object[@"totalPage"] integerValue]) {
+        if (self.pageNum >= [object[@"data"][@"totalPage"] integerValue]) {
             [self.tableView.mj_footer endRefreshingWithNoMoreData];
         }
     } FailBlock:^(NSError *error) {
