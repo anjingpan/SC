@@ -40,7 +40,7 @@ static AFHTTPSessionManager *sessionManager = nil;
         if ([responseObject[@"errcode"] isEqualToString:@"0"] || responseObject[@"errcode"] == 0) {
             successBlock(responseObject);
         }else{
-            failBlock([NSError errorWithDomain:@"AJAppError" code:(NSInteger)responseObject[@"errcode"] userInfo:@{NSLocalizedDescriptionKey : responseObject[@"errmsg"]}]);
+            failBlock([NSError errorWithDomain:@"AJAppError" code:[responseObject[@"errcode"] integerValue] userInfo:@{NSLocalizedDescriptionKey : responseObject[@"errmsg"]}]);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failBlock(error);
@@ -67,7 +67,7 @@ static AFHTTPSessionManager *sessionManager = nil;
         if ( [responseObject[@"errcode"] integerValue] == 0) {
             successBlock(responseObject);
         }else{
-            failBlock([NSError errorWithDomain:@"AJAppError" code:(NSInteger)responseObject[@"errcode"] userInfo:@{NSLocalizedDescriptionKey : responseObject[@"errmsg"]}]);
+            failBlock([NSError errorWithDomain:@"AJAppError" code:[responseObject[@"errcode"] integerValue] userInfo:@{NSLocalizedDescriptionKey : responseObject[@"errmsg"]}]);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failBlock(error);
