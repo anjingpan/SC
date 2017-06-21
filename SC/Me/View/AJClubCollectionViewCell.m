@@ -8,7 +8,6 @@
 
 #import "AJClubCollectionViewCell.h"
 #import "AJProfile.h"
-#import "UIImageView+WebCache.h"
 #import "UIImageView+RoundRect.h"
 
 @interface AJClubCollectionViewCell ()
@@ -29,8 +28,7 @@
 - (void)setClubMessage:(AJSchoolClub *)clubMessage{
     _clubMessage = clubMessage;
     
-    NSURL *imageURL = [NSURL URLWithString:clubMessage.imgurl];
-    [self.clubImageView sd_setImageWithURL:imageURL placeholderImage:[UIImage imageNamed:@"Me_Placeholder"] options:SDWebImageRefreshCached];
+    [self.clubImageView setRoundImageUrlStr:clubMessage.imgurl placeholder:nil WithCornerRadius:self.clubImageView.frame.size.width * 0.5];
     self.clubImageView.layer.cornerRadius = self.clubImageView.frame.size.width * 0.5;
     self.clubImageView.layer.masksToBounds = YES;
     

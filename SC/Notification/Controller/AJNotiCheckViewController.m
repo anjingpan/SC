@@ -11,7 +11,6 @@
 #import "AJProfile.h"
 #import "AJNotification+HttpRequest.h"
 #import "MBProgressHUD.h"
-#import "UIImageView+WebCache.h"
 #import "YYModel.h"
 #import "UIImageView+RoundRect.h"
 
@@ -114,7 +113,7 @@ static NSString *const kNotiCheckTableViewCell = @"notiCheckTableViewCell";
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:kNotiCheckTableViewCell];
     }
     
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:((AJNotification *)self.notiArray[indexPath.row]).user_info.imgurl] placeholderImage:[UIImage imageNamed:@"Me_Placeholder"] options:SDWebImageRefreshCached] ;
+    [cell.imageView setRoundImageUrlStr:((AJNotification *)self.notiArray[indexPath.row]).user_info.imgurl placeholder:nil WithCornerRadius:cell.imageView.frame.size.width * 0.5];
     cell.textLabel.text = ((AJNotification *)self.notiArray[indexPath.row]).user_info.RealName;
     switch (self.segmentControl.selectedSegmentIndex) {
         case 0:

@@ -8,7 +8,6 @@
 
 #import "AJMessageLabel.h"
 #import "UIImageView+RoundRect.h"
-#import "UIImageView+WebCache.h"
 #import "AJProfile.h"
 
 @interface AJMessageLabel ()
@@ -165,7 +164,7 @@
 - (void)setMember:(AJMember *)member{
     _member = member;
     
-    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:member.imgurl] placeholderImage:[UIImage imageNamed:@"Me_Placeholder"] options:SDWebImageRefreshCached];
+    [self.iconImageView setRoundImageUrlStr:member.imgurl placeholder:nil WithCornerRadius:self.iconImageView.frame.size.width * 0.5];
     
     NSString *myID = [NSString string];
     myID = [[NSUserDefaults standardUserDefaults] objectForKey:USERDEFAULT_UID_KEY];
