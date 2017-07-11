@@ -11,7 +11,7 @@
 @interface UIImageView (RoundRect)
 
 //用 SDWebImage加载网络图片实现圆角图片视图
-- (void)setRoundImageUrlStr:(NSString *)urlStr placeholder:(UIImage *)placeholderImage WithCornerRadius:(CGFloat)cornerRadius;
+- (void)setRoundImageUrlStr:(NSString *)urlStr placeholder:(UIImage *)placeholderImage WithCornerRadius:(CGFloat)cornerRadius completed:(void(^)(BOOL))complete;
 
 //圆角图片视图实现
 - (void)addRoundRectWithCornerRadius:(CGFloat)cornerRadius;

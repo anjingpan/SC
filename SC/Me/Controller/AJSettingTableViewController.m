@@ -10,6 +10,7 @@
 #import "AJAccount+Request.h"
 #import "AJNavigationViewController.h"
 #import "AJProfile.h"
+#import "SDImageCache.h"
 
 #define kCacheIndexpath [NSIndexPath indexPathForRow:1 inSection:0]
 @interface AJSettingTableViewController ()
@@ -23,6 +24,11 @@
     [super viewDidLoad];
     
     self.title = @"设置";
+    
+    //获取图片缓存大小,iOS上KB = 1000B
+    double size = [[SDImageCache sharedImageCache] getSize] / 1000.0 / 1000.0;
+    
+    self.cacheLabel.text = [NSString stringWithFormat:@"%.2fMB",size];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,9 +40,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if ([indexPath isEqual:kCacheIndexpath]) {
+        //清理图片缓存
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"确认清理" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
+            [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
+                //获取图片缓存大小,iOS上KB = 1000B
+                double size = [[SDImageCache sharedImageCache] getSize] / 1000.0 / 1000.0;
+                
+                self.cacheLabel.text = [NSString stringWithFormat:@"%.2fMB",size];
+            }];
         }];
         UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
         [alert addAction:confirm];

@@ -7,7 +7,7 @@
 //
 
 #import "AJSelectMemberTableViewCell.h"
-#import "UIImageView+WebCache.h"
+#import "UIImageView+RoundRect.h"
 
 @interface AJSelectMemberTableViewCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
@@ -26,15 +26,6 @@
     
     self.nemeLabel.text = @"专属的一秒";
     self.iconImageView.image = [UIImage imageNamed:@"Me_Placeholder"];
-    [self addRoundRect:self.iconImageView];
-}
-
-- (void)addRoundRect:(UIImageView *)imageView{
-    UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, NO, [UIScreen mainScreen].scale);
-    [[UIBezierPath bezierPathWithRoundedRect:imageView.bounds cornerRadius:imageView.frame.size.width * 0.5] addClip];
-    [imageView drawRect:imageView.bounds];
-    imageView.image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
 }
 
 #pragma mark - Setter
@@ -46,12 +37,12 @@
 
 - (void)setClubMember:(AJMember *)clubMember{
     self.nemeLabel.text = clubMember.RealName;
-    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:clubMember.imgurl] placeholderImage:[UIImage imageNamed:@"Me_Placeholder"] options:SDWebImageRefreshCached];
+    [self.iconImageView setRoundImageUrlStr:clubMember.imgurl placeholder:nil WithCornerRadius:self.iconImageView.frame.size.width * 0.5 completed:nil];
 }
 
 - (void)setSchoolClub:(AJSchoolClub *)schoolClub{
     self.nemeLabel.text = schoolClub.Groupname;
-    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:schoolClub.imgurl] placeholderImage:[UIImage imageNamed:@"Me_Placeholder"] options:SDWebImageRefreshCached];
+    [self.iconImageView setRoundImageUrlStr:schoolClub.imgurl placeholder:nil WithCornerRadius:self.iconImageView.frame.size.width * 0.5 completed:nil];
 }
 
 @end

@@ -113,7 +113,7 @@ static NSString *const kNewNotiTableViewCell = @"newNotiTableViewCell";
     VC.selectType = selectTypeMember;
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:true];
-    if (self.clubArray && self.selectClubRow == nil) {
+    if (self.selectClubRow == nil) {
         hud.mode = MBProgressHUDModeText;
         hud.label.text = @"请先选择社团";
         
@@ -250,6 +250,9 @@ static NSString *const kNewNotiTableViewCell = @"newNotiTableViewCell";
         case 0:
             cell.style = NewNotiViewCellStyleCount;
             cell.titleLabel.text = @"接收社团";
+            if (self.selectClubRow != nil && self.clubArray.count >= self.selectClubRow.integerValue) {
+                cell.detailLbael.text = ((AJSchoolClub *)self.clubArray[self.selectClubRow.integerValue]).Groupname;
+            }
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.selectionStyle = UITableViewCellSelectionStyleDefault;
             break;
@@ -286,7 +289,7 @@ static NSString *const kNewNotiTableViewCell = @"newNotiTableViewCell";
             break;
     }
     
-    if (indexPath.row == 1) {
+    if (indexPath.row == 2) {
         //通过 block 传递 switch 状态切换事件
         cell.switchBlock = ^(UISwitch *cellSwitch){
             //收起键盘

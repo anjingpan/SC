@@ -113,7 +113,8 @@ static NSString *const kNotiCheckTableViewCell = @"notiCheckTableViewCell";
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:kNotiCheckTableViewCell];
     }
     
-    [cell.imageView setRoundImageUrlStr:((AJNotification *)self.notiArray[indexPath.row]).user_info.imgurl placeholder:nil WithCornerRadius:cell.imageView.frame.size.width * 0.5];
+    //暂时修复获取不到 cell 中 imageView frame 的问题
+    [cell.imageView setRoundImageUrlStr:((AJNotification *)self.notiArray[indexPath.row]).user_info.imgurl placeholder:nil WithCornerRadius:24.0 completed:nil];
     cell.textLabel.text = ((AJNotification *)self.notiArray[indexPath.row]).user_info.RealName;
     switch (self.segmentControl.selectedSegmentIndex) {
         case 0:
@@ -133,6 +134,7 @@ static NSString *const kNotiCheckTableViewCell = @"notiCheckTableViewCell";
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     //标志符在 storyboard中自己设置
     AJMeInformationViewController *informationViewController = [storyboard instantiateViewControllerWithIdentifier:IDENTIFIER_AJMEINFORMATIONVIEWCONTROLLER];
+    informationViewController.userId = ((AJNotification *)self.notiArray[indexPath.row]).user_info.uid;
     informationViewController.isAllowEdit = false;
     [self.navigationController pushViewController:informationViewController animated:YES];
     

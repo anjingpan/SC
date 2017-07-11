@@ -9,11 +9,13 @@
 #import "AJClubCollectionViewCell.h"
 #import "AJProfile.h"
 #import "UIImageView+RoundRect.h"
+#import "UIImageView+WebCache.h"
 
 @interface AJClubCollectionViewCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *clubImageView; /**< 社团图片视图*/
 @property (weak, nonatomic) IBOutlet UILabel *clubNameLabel;     /**< 社团名字视图*/
+
 
 @end
 
@@ -28,9 +30,8 @@
 - (void)setClubMessage:(AJSchoolClub *)clubMessage{
     _clubMessage = clubMessage;
     
-    [self.clubImageView setRoundImageUrlStr:clubMessage.imgurl placeholder:nil WithCornerRadius:self.clubImageView.frame.size.width * 0.5];
-    self.clubImageView.layer.cornerRadius = self.clubImageView.frame.size.width * 0.5;
-    self.clubImageView.layer.masksToBounds = YES;
+    [self.clubImageView setRoundImageUrlStr:clubMessage.imgurl placeholder:nil WithCornerRadius:self.clubImageView.frame.size.width * 0.5 completed:^(BOOL isCompleted) {
+    }];
     
     self.clubNameLabel.text = clubMessage.Groupname;
 }

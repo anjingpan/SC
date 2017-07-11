@@ -16,7 +16,9 @@ static NSString *const kMeInformationSegue = @"meInformationSegue";
 
 @interface AJMeTableViewController ()
 @property (nonatomic, strong) AJMember *userMember;
-@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;    /**< 用户图标视图*/
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;        /**< 用户名标签*/
+@property (weak, nonatomic) IBOutlet UILabel *signLabel;            /**< 用户个性签名视图*/
 
 @end
 
@@ -40,7 +42,9 @@ static NSString *const kMeInformationSegue = @"meInformationSegue";
     [AJMember getUserInfoRequestWithParams:params SuccessBlock:^(id object) {
         self.userMember = [AJMember yy_modelWithJSON:object[@"data"]];
         
-        [self.iconImageView setRoundImageUrlStr:self.userMember.imgurl placeholder:nil WithCornerRadius:self.iconImageView.frame.size.width * 0.5];
+        [self.iconImageView setRoundImageUrlStr:self.userMember.imgurl placeholder:nil WithCornerRadius:self.iconImageView.frame.size.width * 0.5 completed:nil];
+        self.userNameLabel.text = self.userMember.RealName;
+        self.signLabel.text = self.userMember.introduction;
     } FailBlock:^(NSError * error) {
         [self failErrorWithView:self.view error:error];
     }];

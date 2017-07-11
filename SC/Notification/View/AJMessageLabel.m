@@ -164,7 +164,7 @@
 - (void)setMember:(AJMember *)member{
     _member = member;
     
-    [self.iconImageView setRoundImageUrlStr:member.imgurl placeholder:nil WithCornerRadius:self.iconImageView.frame.size.width * 0.5];
+    [self.iconImageView setRoundImageUrlStr:member.imgurl placeholder:nil WithCornerRadius:self.iconImageView.frame.size.width * 0.5 completed:nil];
     
     NSString *myID = [NSString string];
     myID = [[NSUserDefaults standardUserDefaults] objectForKey:USERDEFAULT_UID_KEY];

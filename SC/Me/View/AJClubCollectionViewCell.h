@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AJSchoolClub.h"
 
+
 @interface AJClubCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic, strong)AJSchoolClub *clubMessage;

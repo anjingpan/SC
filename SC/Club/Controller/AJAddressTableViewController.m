@@ -71,7 +71,8 @@ static NSString *const kAddressTableViewCell = @"addressTableViewCell";
     
     AJMember *member = self.memberArray[indexPath.row];
     
-    [cell.imageView setRoundImageUrlStr:member.imgurl placeholder:nil WithCornerRadius:cell.imageView.frame.size.width * 0.5];
+    //暂时修复获取不到 cell 中 imageView 的 frame 问题
+    [cell.imageView setRoundImageUrlStr:member.imgurl placeholder:nil WithCornerRadius:32.0 completed:nil];
     cell.textLabel.text = member.RealName;
     cell.detailTextLabel.text = member.username;
     cell.detailTextLabel.textColor = [UIColor blueColor];

@@ -290,6 +290,7 @@ static NSString *const kClubCollectionViewCell = @"clubCollectionViewCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     AJClubCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kClubCollectionViewCell forIndexPath:indexPath];
+    
     cell.clubMessage = self.selfClubArray[indexPath.row];
     return cell;
 }
