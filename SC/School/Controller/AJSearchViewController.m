@@ -30,15 +30,18 @@
 - (void)initNavigationBar{
     self.searchTextField = ({
         UITextField *textField = [[UITextField alloc] init];
-        textField.frame = CGRectMake(0, 20, [[UIScreen mainScreen] bounds].size.width - 60, 44);
+        textField.frame = CGRectMake(0, kStatusbarHeight, [[UIScreen mainScreen] bounds].size.width - 80, 44);
         textField.backgroundColor = [UIColor clearColor];
         textField.textColor = [UIColor whiteColor];
         textField.borderStyle = UITextBorderStyleNone;
         NSAttributedString *placeholderString = [[NSAttributedString alloc] initWithString:@" 输入关键词" attributes:@{NSForegroundColorAttributeName : [UIColor lightGrayColor]}];
         textField.attributedPlaceholder = placeholderString;
         textField.backgroundColor = [UIColor clearColor];
+        UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
         UIImageView *searchImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"School_Search"]];
-        textField.leftView = searchImageView;
+        searchImageView.center = leftView.center;
+        [leftView addSubview:searchImageView];
+        textField.leftView = leftView;
         textField.leftViewMode = UITextFieldViewModeAlways;
         //自定义完成搜索
         textField.returnKeyType = UIReturnKeySearch;

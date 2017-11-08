@@ -91,7 +91,8 @@ static NSString *const kTitle = @"title";                           /**< 网页�
     self.navigationItem.leftBarButtonItem = self.backItem;
     
     self.processView = ({
-        UIProgressView *processView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 64, [[UIScreen mainScreen] bounds].size.width, 2)];
+        //适配 iPhone X
+        UIProgressView *processView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, kMarginTop, [[UIScreen mainScreen] bounds].size.width, 2)];
         processView.tintColor = [UIColor greenColor];
         [self.view addSubview:processView];
         processView;

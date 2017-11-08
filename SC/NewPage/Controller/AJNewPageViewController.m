@@ -66,7 +66,8 @@ static NSString *const kNewPageCollectionViewCell = @"newPageCollectionViewCell"
     //关闭按钮
     self.closeButton = ({
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame = CGRectMake(buttonMarginX, [UIScreen mainScreen].bounds.size.height - marginY - buttonHeight, buttonWidth, buttonHeight);
+        //适配 iPhone X
+        button.frame = CGRectMake(buttonMarginX, [UIScreen mainScreen].bounds.size.height - marginY - buttonHeight - kMarginBottom, buttonWidth, buttonHeight);
         [button setImage:[UIImage imageNamed:@"NewPage_Close"] forState:UIControlStateNormal];
         button.backgroundColor = [UIColor clearColor];
         [button addTarget:self action:@selector(clickCloseButton:) forControlEvents:UIControlEventTouchUpInside];

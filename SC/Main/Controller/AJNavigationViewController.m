@@ -22,7 +22,8 @@
     //状态栏字体白色
     self.navigationBar.barStyle = UIBarStyleBlack;
     //去除导航栏返回按钮文字
-    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
+    //iOS11上这样会导致返回键向下偏移
+//    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
     //导航栏返回文字按钮颜色
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
 }

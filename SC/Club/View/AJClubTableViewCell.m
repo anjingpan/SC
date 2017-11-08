@@ -31,7 +31,8 @@ static NSString *const kClubFunctionCollectionCell = @"clubFunctionCollectionCel
         
         self.collectionView = ({
             UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-            UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 120 - 64 -44) collectionViewLayout:layout];
+            //适配 iPhone X
+            UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 120 - kMarginTop -44) collectionViewLayout:layout];
             collectionView.backgroundColor = [UIColor whiteColor];
             collectionView.showsHorizontalScrollIndicator = NO;
             collectionView.delegate = self;

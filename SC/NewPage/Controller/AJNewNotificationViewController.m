@@ -65,7 +65,8 @@ static NSString *const kNewNotiTableViewCell = @"newNotiTableViewCell";
     
     self.headerView = ({
         UIView *view = [[UIView alloc] init];
-        view.frame = CGRectMake(0, 64 + marginY, [UIScreen mainScreen].bounds.size.width, headerViewHeight);
+        //适配 iPhone X
+        view.frame = CGRectMake(0, kMarginTop + marginY, [UIScreen mainScreen].bounds.size.width, headerViewHeight);
         view.backgroundColor = [UIColor whiteColor];
         [self.view addSubview:view];
         view;

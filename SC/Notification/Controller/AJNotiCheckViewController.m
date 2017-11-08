@@ -71,7 +71,8 @@ static NSString *const kNotiCheckTableViewCell = @"notiCheckTableViewCell";
     
     self.segmentControl = ({
         UISegmentedControl *segmentControl = [[UISegmentedControl alloc] initWithItems:@[@"未确认",@"已确认"]];
-        segmentControl.frame = CGRectMake(marginX, marginY + 64.0, [UIScreen mainScreen].bounds.size.width - 2 * marginX, segmentHeight);
+        //适配 iPhone X
+        segmentControl.frame = CGRectMake(marginX, marginY + kMarginTop, [UIScreen mainScreen].bounds.size.width - 2 * marginX, segmentHeight);
         segmentControl.backgroundColor = [UIColor whiteColor];
         segmentControl.tintColor = AJBarColor;
         segmentControl.selectedSegmentIndex = 0;

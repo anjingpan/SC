@@ -70,7 +70,7 @@ static NSString *const kClubCollectionViewCell = @"clubCollectionViewCell";
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     //针对storyBoard中视图在 viewDidAppear 之前大小为1000*1000
-    self.clubView.frame = CGRectMake(0, [[UIScreen mainScreen] bounds].size.height * 0.7 - 128, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height * 0.3 + 64);  //0.7为上面视图的居中约束大小
+    self.clubView.frame = CGRectMake(0, [[UIScreen mainScreen] bounds].size.height * 0.7 - 128, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height * 0.3 + 64.0);  //0.7为上面视图的居中约束大小
     self.clubLabel.frame = CGRectMake(8, 4, 24, 24);
     self.clubCollectionView.frame = CGRectMake(0, CGRectGetMaxY(self.clubLabel.frame), [UIScreen mainScreen].bounds.size.width, self.clubView.frame.size.height - CGRectGetMaxY(self.clubLabel.frame));
 }

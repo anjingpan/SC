@@ -52,7 +52,8 @@ static NSString *const kScheduleDetailCollectionCell = @"scheduleDetailCollectio
     
     self.timeLabel = ({
         UILabel *label = [[UILabel alloc] init];
-        label.frame = CGRectMake(0, marginY + 64.0, [UIScreen mainScreen].bounds.size.width, timeLabelHeight);
+        //适配 iPhone X
+        label.frame = CGRectMake(0, marginY + kMarginTop, [UIScreen mainScreen].bounds.size.width, timeLabelHeight);
         label.font = [UIFont systemFontOfSize:timeLabelFont];
         label.textAlignment = NSTextAlignmentCenter;
         label.text = self.schedule.schedule_time;

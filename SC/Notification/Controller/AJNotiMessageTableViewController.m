@@ -48,6 +48,12 @@ static NSString *const kNotiMessageTableViewCell = @"notiMessageTableViewCell";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadNewData) name:NSNOTIFICATION_READMESSAGE object:nil];
 }
 
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    //防止出现点击返回按钮，下拉视图还存在
+    [self.dropdownMenu closeAllComponentsAnimated:true];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

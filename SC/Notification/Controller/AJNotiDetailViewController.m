@@ -54,7 +54,8 @@
     
     self.timeLabel = ({
         UILabel *label = [[UILabel alloc] init];
-        label.frame = CGRectMake(0, marginY + 64.0, [UIScreen mainScreen].bounds.size.width, timeLabelHeight);
+        //适配 iPhone X
+        label.frame = CGRectMake(0, marginY + kMarginTop, [UIScreen mainScreen].bounds.size.width, timeLabelHeight);
         label.font = [UIFont systemFontOfSize:fontSize];
         label.textColor = [UIColor darkGrayColor];
         label.textAlignment = NSTextAlignmentCenter;
@@ -88,7 +89,8 @@
     
     self. confirmButton = ({
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame = CGRectMake(marginX, [UIScreen mainScreen].bounds.size.height - buttonHeight - marginY, [UIScreen mainScreen].bounds.size.width - 2 * marginX, buttonHeight);
+        //适配iPhone X
+        button.frame = CGRectMake(marginX, [UIScreen mainScreen].bounds.size.height - buttonHeight - marginY - kMarginBottom, [UIScreen mainScreen].bounds.size.width - 2 * marginX, buttonHeight);
         button.layer.cornerRadius = 5.0;
         button.layer.masksToBounds = true;
         button.backgroundColor = [UIColor blackColor];

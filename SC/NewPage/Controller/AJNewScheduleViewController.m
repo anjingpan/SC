@@ -95,7 +95,8 @@
     
     self.statusBar = ({
         UIView *view = [[UIView alloc] init];
-        view.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 20);
+        //适配 iPhone X
+        view.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, kStatusbarHeight);
         view.backgroundColor = AJBarColor;
         [self.view addSubview:view];
         view;
@@ -103,7 +104,8 @@
     
     self.navigationBar = ({
         UIView *navigationBar = [[UIView alloc] init];
-        navigationBar.frame = CGRectMake(0, 20, [UIScreen mainScreen].bounds.size.width, navigationHeight);
+        //适配 iPhone X
+        navigationBar.frame = CGRectMake(0, kStatusbarHeight, [UIScreen mainScreen].bounds.size.width, navigationHeight);
         navigationBar.backgroundColor = AJBarColor;
         [self.view addSubview:navigationBar];
         navigationBar;
@@ -147,7 +149,8 @@
     
     self.scheduleToolbar = ({
         UIToolbar *toolbar = [[UIToolbar alloc] init];
-        toolbar.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height - toolbarHeight, [UIScreen mainScreen].bounds.size.width, toolbarHeight);
+        //适配 iPhone X
+        toolbar.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height - toolbarHeight - kMarginBottom, [UIScreen mainScreen].bounds.size.width, toolbarHeight);
         toolbar.barStyle = UIBarStyleBlack;
         toolbar.backgroundColor = AJBarColor;
         
@@ -184,7 +187,8 @@
 
 - (void)initTextView{
     self.textView = ({
-        AJFormTextView *textView = [[AJFormTextView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.navigationBar.frame), [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - CGRectGetMaxY(self.navigationBar.frame) - CGRectGetHeight(self.scheduleToolbar.frame))];
+        //适配 iPhone X
+        AJFormTextView *textView = [[AJFormTextView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.navigationBar.frame), [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - CGRectGetMaxY(self.navigationBar.frame) - CGRectGetHeight(self.scheduleToolbar.frame) - kMarginBottom)];
         textView.placeholderText = @"日程内容";
         textView.text = self.textString ? self.textString :@"";
         textView.borderColor = [UIColor whiteColor];
@@ -412,7 +416,8 @@
 
     CGFloat toolbarHeight = 44.0;
     [UIView animateWithDuration:0.1 animations:^{
-        self.scheduleToolbar.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height - toolbarHeight, [UIScreen mainScreen].bounds.size.width, toolbarHeight);
+        //适配 iPhone X
+        self.scheduleToolbar.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height - toolbarHeight - kMarginBottom, [UIScreen mainScreen].bounds.size.width, toolbarHeight);
         self.datePicker.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width, 0);
         self.toolbar.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width, 0);
     } completion:nil];

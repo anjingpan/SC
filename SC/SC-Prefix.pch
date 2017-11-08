@@ -9,6 +9,12 @@
 #ifndef SC_Prefix_pch
 #define SC_Prefix_pch
 
+#define kScreenWidth [[UIScreen mainScreen] bounds].size.width
+#define kScreenHeight [[UIScreen mainScreen] bounds].size.height
+//适配 iPhone X
+#define kMarginTop (kScreenHeight == 812 ? 88 : 64)
+#define kStatusbarHeight (kScreenHeight == 812 ? 44 : 20)
+#define kMarginBottom (kScreenHeight == 812 ? 34 : 0)
 
 //#define AJBackGroundColor [UIColor colorWithRed:217/255.0f green:217/255.0f blue:218/255.0f alpha:1]
 #define AJBackGroundColor [UIColor groupTableViewBackgroundColor]

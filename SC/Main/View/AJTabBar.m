@@ -51,7 +51,8 @@ static CGFloat ktabBarAddButtonIndex = 2.f;     /**< 新建按钮的位置*/
     CGFloat marginY = 5.f;
     CGFloat marginX = 10.f;
     //新建按钮居中
-    self.addButton.frame = CGRectMake((self.frame.size.width - tabBarButtonWidth) * 0.5 + marginX, marginY, tabBarButtonWidth - 2 * marginX, self.frame.size.height - 2 * marginY);
+    //适配 iPhone X
+    self.addButton.frame = CGRectMake((self.frame.size.width - tabBarButtonWidth) * 0.5 + marginX, marginY, tabBarButtonWidth - 2 * marginX, self.frame.size.height - 2 * marginY - kMarginBottom);
     self.addButton.layer.cornerRadius = 5.f;
     
     for (UIView *barButton in self.subviews) {

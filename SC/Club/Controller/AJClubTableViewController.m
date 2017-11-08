@@ -119,7 +119,8 @@ static NSString *const kClubTableViewCell = @"clubTableViewCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [UIScreen mainScreen].bounds.size.height - 120 - 64 - 44; // 120:headerView,64:状态栏+导航栏,44：工具栏
+    //适配 iPhone X
+    return [UIScreen mainScreen].bounds.size.height - 120 - kMarginTop - 44; // 120:headerView,44：工具栏
 }
 
 #pragma mark - MKDropdownMenu Delegate && DataSource
