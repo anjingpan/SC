@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+//#import "AppOrderFiles/AJClangOrderFile.h"
+#import "AppOrderFiles/HookObjc/AJHook_Objc.h"
+#import "AJHook_Objc.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +19,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+//     Override point for customization after application launch.
+//    ClangOrderFile(nil);
+    //打印崩溃堆栈对应的方法名
+    NSSetUncaughtExceptionHandler(&uncaughtExceptionHandle);
+    
+    startHook();
+    
     return YES;
 }
 
@@ -45,6 +54,10 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+void uncaughtExceptionHandle(NSException *exception) {
+    NSLog(@"%@\n%@", exception, [exception callStackSymbols]);
 }
 
 

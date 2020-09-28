@@ -27,6 +27,10 @@
 		04E4E8A91E768CB0000AECE0 /* AJChangeInformationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E4E8A81E768CB0000AECE0 /* AJChangeInformationTableViewController.m */; };
 		04E4E8AC1E768CEF000AECE0 /* AJChangeNicknameTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E4E8AB1E768CEF000AECE0 /* AJChangeNicknameTableViewController.m */; };
 		04E4E8AF1E768D21000AECE0 /* AJChangeSignatureTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E4E8AE1E768D21000AECE0 /* AJChangeSignatureTableViewController.m */; };
+		791B4C082510981C00044604 /* AJClangOrderFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 791B4C072510981B00044604 /* AJClangOrderFile.m */; };
+		791B4C0D2510AE8300044604 /* hook_core_arm64.c in Sources */ = {isa = PBXBuildFile; fileRef = 791B4C0B2510AE8300044604 /* hook_core_arm64.c */; };
+		791B4C102510AEFE00044604 /* AJHook_Objc.c in Sources */ = {isa = PBXBuildFile; fileRef = 791B4C0F2510AEFE00044604 /* AJHook_Objc.c */; };
+		791B4C132510AF0A00044604 /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = 791B4C112510AF0900044604 /* fishhook.c */; };
 		9505656A1DFDA51B00A3E5C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 950565691DFDA51B00A3E5C0 /* main.m */; };
 		9505656D1DFDA51B00A3E5C0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9505656C1DFDA51B00A3E5C0 /* AppDelegate.m */; };
 		950565731DFDA51B00A3E5C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 950565711DFDA51B00A3E5C0 /* Main.storyboard */; };
@@ -152,6 +156,14 @@
 		04E4E8AE1E768D21000AECE0 /* AJChangeSignatureTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJChangeSignatureTableViewController.m; sourceTree = "<group>"; };
 		4BF68CB234BD2E56DC20B259 /* libPods-SC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6675A8599F424E6BE7B0E798 /* Pods-SC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SC.release.xcconfig"; path = "Pods/Target Support Files/Pods-SC/Pods-SC.release.xcconfig"; sourceTree = "<group>"; };
+		791B4C062510981B00044604 /* AJClangOrderFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AJClangOrderFile.h; sourceTree = "<group>"; };
+		791B4C072510981B00044604 /* AJClangOrderFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AJClangOrderFile.m; sourceTree = "<group>"; };
+		791B4C0B2510AE8300044604 /* hook_core_arm64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hook_core_arm64.c; sourceTree = "<group>"; };
+		791B4C0C2510AE8300044604 /* hook_core_arm64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hook_core_arm64.h; sourceTree = "<group>"; };
+		791B4C0E2510AEFE00044604 /* AJHook_Objc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AJHook_Objc.h; sourceTree = "<group>"; };
+		791B4C0F2510AEFE00044604 /* AJHook_Objc.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = AJHook_Objc.c; sourceTree = "<group>"; };
+		791B4C112510AF0900044604 /* fishhook.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fishhook.c; sourceTree = "<group>"; };
+		791B4C122510AF0A00044604 /* fishhook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fishhook.h; sourceTree = "<group>"; };
 		950565651DFDA51B00A3E5C0 /* SC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		950565691DFDA51B00A3E5C0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9505656B1DFDA51B00A3E5C0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -334,6 +346,29 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		791B4C052510965A00044604 /* AppOrderFiles */ = {
+			isa = PBXGroup;
+			children = (
+				791B4C0A2510AD9B00044604 /* HookObjc */,
+				791B4C062510981B00044604 /* AJClangOrderFile.h */,
+				791B4C072510981B00044604 /* AJClangOrderFile.m */,
+			);
+			path = AppOrderFiles;
+			sourceTree = "<group>";
+		};
+		791B4C0A2510AD9B00044604 /* HookObjc */ = {
+			isa = PBXGroup;
+			children = (
+				791B4C0B2510AE8300044604 /* hook_core_arm64.c */,
+				791B4C0C2510AE8300044604 /* hook_core_arm64.h */,
+				791B4C112510AF0900044604 /* fishhook.c */,
+				791B4C122510AF0A00044604 /* fishhook.h */,
+				791B4C0E2510AEFE00044604 /* AJHook_Objc.h */,
+				791B4C0F2510AEFE00044604 /* AJHook_Objc.c */,
+			);
+			path = HookObjc;
+			sourceTree = "<group>";
+		};
 		9505655C1DFDA51B00A3E5C0 = {
 			isa = PBXGroup;
 			children = (
@@ -359,6 +394,7 @@
 		950565671DFDA51B00A3E5C0 /* SC */ = {
 			isa = PBXGroup;
 			children = (
+				791B4C052510965A00044604 /* AppOrderFiles */,
 				955FA3E91E0AD49200E7A2F2 /* Main */,
 				953E25021E61AF45000B17EF /* School */,
 				953E24FE1E61AF45000B17EF /* Notification */,
@@ -910,6 +946,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -1028,6 +1065,7 @@
 				950CF8DB1ED33ACC0070AC89 /* AJNewNotificationViewController.m in Sources */,
 				950CF8F51ED81D2F0070AC89 /* AJMessageLabel.m in Sources */,
 				045AD2701EC1D74D00963B00 /* AJSchoolMemberTableViewCell.m in Sources */,
+				791B4C132510AF0A00044604 /* fishhook.c in Sources */,
 				95F1081B1ED1A7E200E54844 /* AJFormTextField.m in Sources */,
 				950CF9631EE86B630070AC89 /* AJSchoolClub+Request.m in Sources */,
 				950CF9091EDF48460070AC89 /* AJAFNetWorkingTool.m in Sources */,
@@ -1061,8 +1099,10 @@
 				044B3E641E7FF166004FA582 /* AJSchoolTableViewController.m in Sources */,
 				0456E0A31E8B8121006454D6 /* AJNotificationTableViewController.m in Sources */,
 				95BCEC501E8C1A0600C87541 /* AJClubFunctionCollectionViewCell.m in Sources */,
+				791B4C0D2510AE8300044604 /* hook_core_arm64.c in Sources */,
 				045AD26C1EC1D70C00963B00 /* AJSchoolMemberTableViewController.m in Sources */,
 				04E4E8A91E768CB0000AECE0 /* AJChangeInformationTableViewController.m in Sources */,
+				791B4C102510AEFE00044604 /* AJHook_Objc.c in Sources */,
 				950CF9051EDA04B00070AC89 /* AJNewsViewController.m in Sources */,
 				950CF8EA1ED70C100070AC89 /* AJNewScheduleViewController.m in Sources */,
 				953E25081E61B3F4000B17EF /* AJTabBarViewController.m in Sources */,
@@ -1082,6 +1122,7 @@
 				950CF8ED1ED81A350070AC89 /* AJNotiMessageTableViewController.m in Sources */,
 				9505656A1DFDA51B00A3E5C0 /* main.m in Sources */,
 				040E60711EAE1FA100F136ED /* AJSchoolClubTableViewController.m in Sources */,
+				791B4C082510981C00044604 /* AJClangOrderFile.m in Sources */,
 				957663771E6C5C4F0048FC96 /* AJChangePasswordTableViewController.m in Sources */,
 				950CF8FB1ED89BF80070AC89 /* AJNotiDetailViewController.m in Sources */,
 				954AEC031EACEC810006FF7D /* AJNewPageViewController.m in Sources */,
@@ -1241,7 +1282,28 @@
 				GCC_PREFIX_HEADER = "SC/SC-Prefix.pch";
 				INFOPLIST_FILE = SC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_GENERATE_MAP_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ORDER_FILE = "";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/MKDropdownMenu\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/RKNotificationHub\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/YYModel\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.anjing.SC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1258,7 +1320,28 @@
 				GCC_PREFIX_HEADER = "SC/SC-Prefix.pch";
 				INFOPLIST_FILE = SC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_GENERATE_MAP_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ORDER_FILE = "";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/MKDropdownMenu\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/RKNotificationHub\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/YYModel\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.anjing.SC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

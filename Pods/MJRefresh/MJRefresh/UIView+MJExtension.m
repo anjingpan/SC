@@ -48,9 +48,12 @@
 
 - (void)setMj_h:(CGFloat)mj_h
 {
+//    CGRect frame = CGRectZero;
     CGRect frame = self.frame;
+    NSLog(@"-------Before FRAME:%@-------", NSStringFromCGRect(frame));
     frame.size.height = mj_h;
     self.frame = frame;
+    NSLog(@"-------After FRAME:%@-------", NSStringFromCGRect(frame));
 }
 
 - (CGFloat)mj_h

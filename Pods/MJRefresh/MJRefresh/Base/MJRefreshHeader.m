@@ -38,6 +38,8 @@
     
     // 设置高度
     self.mj_h = MJRefreshHeaderHeight;
+    NSLog(@"-------Point:%@--------", NSStringFromCGPoint(self.mj_origin));
+    NSLog(@"-------Size:%@---------", NSStringFromCGSize(self.mj_size));
 }
 
 - (void)placeSubviews

@@ -1,0 +1,14 @@
++[_AFURLSessionTaskSwizzling load]
++[_AFURLSessionTaskSwizzling swizzleResumeAndSuspendMethodForClass:]
+_af_addMethod
+_af_swizzleSelector
++[UITableView(MJRefresh) load]
++[UICollectionView(MJRefresh) load]
++[NSObject(MJRefresh) exchangeInstanceMethod1:method2:]
+_main
+-[AJTabBar initWithCoder:]
+-[AJTabBar setAddButton:]
+-[AppDelegate window]
+-[AppDelegate setWindow:]
+-[AppDelegate application:didFinishLaunchingWithOptions:]
+_ClangOrderFile
